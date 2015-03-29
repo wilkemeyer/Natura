@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "natura:blocks/eucalyptus_log_top",
+        "side": "natura:blocks/eucalyptus_log"
+    }
+}

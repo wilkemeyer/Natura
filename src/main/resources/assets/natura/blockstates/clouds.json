@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "variant=cloud_white": { "model": "natura:cloud_white" },
+        "variant=cloud_gray": { "model": "natura:cloud_gray" },
+        "variant=cloud_dark": { "model": "natura:cloud_dark" },
+        "variant=cloud_sulfur": { "model": "natura:cloud_sulfur" }
+    }
+}

@@ -13,7 +13,7 @@ buildscript {
             name = 'ForgeFS'
             url = 'http://files.minecraftforge.net/maven'
         }
-	maven {
+        maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
@@ -61,16 +61,16 @@ configFile.withReader {
 dependencies {
     compile "mantle:Mantle:${config.minecraft_version}-${config.mantle_version}:deobf"
     //compile "tconstruct:TConstruct:${config.minecraft_version}-${config.tconstruct_version}:deobf"
-    compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.CCLIB_version}:dev"
+    //compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.CCLIB_version}:dev"
     //compile "codechicken:ForgeMultipart:${config.minecraft_version}-${config.FMP_version}:dev"
-    compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
-    compile "codechicken:NotEnoughItems:${config.minecraft_version}-${config.NEI_version}:dev"
+    //compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
+    //compile "codechicken:NotEnoughItems:${config.minecraft_version}-${config.NEI_version}:dev"
 }
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
     mappings = config.mappings
-    runDir = 'run'
+    runDir = 'eclipse'
 }
 
 // sets version to the slimeKnights version format
@@ -92,19 +92,12 @@ task buildInfo {
 }
 version = "${minecraft.version}-${project.buildInfo.buildNum}.${project.buildInfo.revision}"
 
-sourceSets {
-    main {
-        resources {
-            srcDir 'resources'
-        }
-    }
-}
 processResources
 {
         // replace stuff in text files, not binary ones.
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
-		
+
                 // replace version and MCVersion
       expand 'version':project.version, 'mcversion':project.minecraft.version
     }

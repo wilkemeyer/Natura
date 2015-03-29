@@ -1,0 +1,22 @@
+itemGroup.natura=Natura
+
+tile.clouds.cloud_white.name=Cloud
+tile.clouds.cloud_gray.name=Dark Cloud
+tile.clouds.cloud_dark.name=Ash Cloud
+tile.clouds.cloud_sulfur.name=Sulfur Cloud
+tooltip.cloud1=So light and fluffy!
+tooltip.cloud2=Saves you when you fall
+tooltip.cloud3=Causes lightning strikes
+tooltip.cloud4=3x3 Converts into charcoal
+tooltip.cloud5=2x2 Converts into sulfur
+
+tile.logs.eucalyptus_log.name=Eucalyptus Wood
+tile.logs.sakura_log.name=Sakura Wood
+tile.logs.ghostwood_log.name=Ghostwood
+tile.logs.hopseed_log.name=Hopseed Wood
+
+tooltip.tree1=The pink wood
+tooltip.tree2=Flowering Cherry
+tooltip.tree3=Pale as a ghost
+tooltip.nethertree=Nether Tree
+tooltip.tree6=Ascended Glitch
