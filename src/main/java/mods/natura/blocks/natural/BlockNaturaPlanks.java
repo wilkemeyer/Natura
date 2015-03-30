@@ -23,23 +23,24 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 {
-	public static String[] textureNames = new String[] { "eucalyptus", "sakura", "ghostwood", "redwood", "bloodwood", "hopseed", "maple", "silverbell", "purpleheart", "tiger", "willow", "darkwood", "fusewood" };
-
 	public enum PlanksVariant implements IBlockVariant
 	{
-		EUCALYPTUS(0, "eucalyptus"),
-		SAKURA(1, "sakura"),
-		GHOSTWOOD(2, "ghostwood"),
-		REDWOOD(3, "redwood"),
-		BLOODWOOD(4, "bloodwood"),
-		HOPSEED(5, "hopseed"),
-		MAPLE(6, "maple"),
-		SILVERBELL(7, "silverbell"),
-		PURPLEHEART(8, "purpleheart"),
-		TIGER(9, "tiger"),
-		WILLOW(10, "willow"),
-		DARKWOOD(11, "darkwood"),
-		FUSEWOOD(12, "fusewood");
+		EUCALYPTUS(0, "eucalyptus_planks"),
+		SAKURA(1, "sakura_planks"),
+		GHOSTWOOD(2, "ghostwood_planks"),
+		REDWOOD(3, "redwood_planks"),
+		BLOODWOOD(4, "bloodwood_planks"),
+		HOPSEED(5, "hopseed_planks"),
+		MAPLE(6, "maple_planks"),
+		SILVERBELL(7, "silverbell_planks"),
+		PURPLEHEART(8, "purpleheart_planks"),
+		TIGER(9, "tiger_planks"),
+		WILLOW(10, "willow_planks"),
+		DARKWOOD(11, "darkwood_planks"),
+		FUSEWOOD(12, "fusewood_planks"),
+		REDWOOD_BARK(13, "redwood_bark"),
+		REDWOOD_HEART(14, "redwood_heart"),
+		REDWOOD_ROOT(15, "redwood_root");
 
 		private static final PlanksVariant[] metaLookup = new PlanksVariant[PlanksVariant.values().length];
 
@@ -95,7 +96,7 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 	@Override
 	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
 	{
-		if (this.getMetaFromState(world.getBlockState(pos)) == 2 || this.getMetaFromState(world.getBlockState(pos)) == 4 || this.getMetaFromState(world.getBlockState(pos)) > 10)
+		if (this.getMetaFromState(world.getBlockState(pos)) == 2 || this.getMetaFromState(world.getBlockState(pos)) == 4 || (this.getMetaFromState(world.getBlockState(pos)) > 10 && this.getMetaFromState(world.getBlockState(pos)) <= 12) || this.getMetaFromState(world.getBlockState(pos)) == 14)
 			return 0;
 		return this.getFlammability(world, pos, face);
 	}
@@ -103,7 +104,7 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 	@Override
 	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
 	{
-		if (this.getMetaFromState(world.getBlockState(pos)) == 2 || this.getMetaFromState(world.getBlockState(pos)) == 4 || this.getMetaFromState(world.getBlockState(pos)) > 10)
+		if (this.getMetaFromState(world.getBlockState(pos)) == 2 || this.getMetaFromState(world.getBlockState(pos)) == 4 || (this.getMetaFromState(world.getBlockState(pos)) > 10 && this.getMetaFromState(world.getBlockState(pos)) <= 12) || this.getMetaFromState(world.getBlockState(pos)) == 14)
 			return 0;
 		return this.getFireSpreadSpeed(world, pos, face);
 	}
