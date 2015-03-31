@@ -19,23 +19,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTrees extends BlockLog implements IBlockWithVariants
+public class BlockNaturaLog extends BlockLog implements IBlockWithVariants
 {
-	public enum TreeVariant implements IBlockVariant
+	public enum LogVariant implements IBlockVariant
 	{
 		EUCALYPTUS(0, "eucalyptus_log"),
 		SAKURA(1, "sakura_log"),
 		GHOSTWOOD(2, "ghostwood_log"),
 		HOPSEED(3, "hopseed_log");
 
-		private static final TreeVariant[] metaLookup = new TreeVariant[TreeVariant.values().length];
+		private static final LogVariant[] metaLookup = new LogVariant[LogVariant.values().length];
 
 		static
 		{
-			for (TreeVariant type : TreeVariant.values())
+			for (LogVariant type : LogVariant.values())
 			{
 				metaLookup[type.getMetadata()] = type;
 			}
@@ -45,7 +46,7 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 
 		private String name;
 
-		TreeVariant(int metadata, String name)
+		LogVariant(int metadata, String name)
 		{
 			this.metadata = metadata;
 			this.name = name;
@@ -63,23 +64,29 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 			return this.metadata;
 		}
 
-		public static TreeVariant getVariantFromMetadata(int meta)
+		public static LogVariant getVariantFromMetadata(int meta)
 		{
-			return TreeVariant.metaLookup[meta];
+			return LogVariant.metaLookup[meta];
 		}
 	}
 
-	public static final PropertyEnum TREE_TYPE = PropertyEnum.create("variant", TreeVariant.class);
+	public static final PropertyEnum LOG_TYPE = PropertyEnum.create("variant", LogVariant.class);
 
-	public BlockTrees()
+	public BlockNaturaLog()
 	{
 		super();
 		this.setHardness(1.5F);
 		this.setResistance(5F);
 		this.setStepSound(Block.soundTypeWood);
 		Blocks.fire.setFireInfo(this, 5, 20);
-		this.setDefaultState(this.getBlockState().getBaseState().withProperty(TREE_TYPE, TreeVariant.EUCALYPTUS).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
+		this.setDefaultState(this.getBlockState().getBaseState().withProperty(LOG_TYPE, LogVariant.EUCALYPTUS).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 		this.setCreativeTab(NaturaCreativeTabs.tab);
+	}
+
+	@Override
+	public float getBlockHardness(World worldIn, BlockPos pos)
+	{
+		return this.blockHardness;
 	}
 
 	@Override
@@ -105,7 +112,7 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
 	{
-		for (TreeVariant type : TreeVariant.values())
+		for (LogVariant type : LogVariant.values())
 		{
 			list.add(new ItemStack(itemIn, 1, type.getMetadata()));
 		}
@@ -114,7 +121,7 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		IBlockState iblockstate = this.getDefaultState().withProperty(TREE_TYPE, TreeVariant.getVariantFromMetadata((meta & 3)));
+		IBlockState iblockstate = this.getDefaultState().withProperty(LOG_TYPE, LogVariant.getVariantFromMetadata((meta & 3)));
 
 		switch (meta & 12)
 		{
@@ -141,7 +148,7 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 	public int getMetaFromState(IBlockState state)
 	{
 		byte b0 = 0;
-		int i = b0 | ((TreeVariant) state.getValue(TREE_TYPE)).getMetadata();
+		int i = b0 | ((LogVariant) state.getValue(LOG_TYPE)).getMetadata();
 
 		switch (SwitchEnumAxis.AXIS_LOOKUP[((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal()])
 		{
@@ -161,7 +168,7 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 	@Override
 	protected BlockState createBlockState()
 	{
-		return new BlockState(this, new IProperty[] { TREE_TYPE, LOG_AXIS });
+		return new BlockState(this, new IProperty[] { LOG_TYPE, LOG_AXIS });
 	}
 
 	/**
@@ -170,7 +177,7 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 	@Override
 	public int damageDropped(IBlockState state)
 	{
-		return ((TreeVariant) state.getValue(TREE_TYPE)).getMetadata();
+		return ((LogVariant) state.getValue(LOG_TYPE)).getMetadata();
 	}
 
 	static final class SwitchEnumAxis
@@ -208,6 +215,6 @@ public class BlockTrees extends BlockLog implements IBlockWithVariants
 	@Override
 	public String getVariantNameFromStack(ItemStack stack)
 	{
-		return TreeVariant.getVariantFromMetadata(stack.getMetadata()).getName();
+		return LogVariant.getVariantFromMetadata(stack.getMetadata()).getName();
 	}
 }

@@ -4,11 +4,11 @@ import mantle.client.ModelVariant;
 import mods.natura.Natura;
 import mods.natura.blocks.material.CloudMaterial;
 import mods.natura.blocks.natural.BlockClouds;
+import mods.natura.blocks.natural.BlockNaturaLog;
 import mods.natura.blocks.natural.BlockNaturaPlanks;
-import mods.natura.blocks.natural.BlockTrees;
 import mods.natura.items.itemblocks.ItemBlockClouds;
+import mods.natura.items.itemblocks.ItemBlockNaturaLog;
 import mods.natura.items.itemblocks.ItemBlockPlanks;
-import mods.natura.items.itemblocks.ItemBlockTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
@@ -20,14 +20,14 @@ public class BlocksNatura
 
 	public BlockClouds clouds;
 
-	public BlockTrees logs;
+	public BlockNaturaLog logs;
 
 	public BlockNaturaPlanks planks;
 
 	public void preInit()
 	{
 		this.clouds = this.registerBlock("clouds", ItemBlockClouds.class, new BlockClouds());
-		this.logs = this.registerBlock("logs", ItemBlockTrees.class, new BlockTrees());
+		this.logs = this.registerBlock("logs", ItemBlockNaturaLog.class, new BlockNaturaLog());
 		this.planks = this.registerBlock("planks", ItemBlockPlanks.class, new BlockNaturaPlanks());
 	}
 
@@ -46,7 +46,7 @@ public class BlocksNatura
 			ModelVariant models = Natura.proxy.getModels();
 
 			models.registerItemRenderer(this.clouds, BlockClouds.CloudVariant.values());
-			models.registerItemRenderer(this.logs, BlockTrees.TreeVariant.values());
+			models.registerItemRenderer(this.logs, BlockNaturaLog.LogVariant.values());
 			models.registerItemRenderer(this.planks, BlockNaturaPlanks.PlanksVariant.values());
 		}
 	}

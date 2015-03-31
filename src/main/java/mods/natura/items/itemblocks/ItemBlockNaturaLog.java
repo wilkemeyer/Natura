@@ -10,9 +10,9 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBlockTrees extends ItemBlockVariants
+public class ItemBlockNaturaLog extends ItemBlockVariants
 {
-	public ItemBlockTrees(Block block)
+	public ItemBlockNaturaLog(Block block)
 	{
 		super(block);
 	}
