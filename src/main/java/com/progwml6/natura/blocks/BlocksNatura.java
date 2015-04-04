@@ -54,12 +54,11 @@ public class BlocksNatura
 		{
 			ModelVariant models = Natura.proxy.getModels();
 
-			models.registerItemRenderer(this.clouds, BlockClouds.CloudVariant.values());
-			models.registerItemRenderer(this.logs, BlockNaturaLogs.LogVariant.values());
-			models.registerItemRenderer(this.planks, BlockNaturaPlanks.PlanksVariant.values());
+			models.registerItemRenderer(this.clouds, BlockClouds.CLOUD_TYPE.getAllowedValues());
+			models.registerItemRenderer(this.logs, BlockNaturaLogs.LOG_TYPE.getAllowedValues());
+			models.registerItemRenderer(this.planks, BlockNaturaPlanks.PLANK_TYPE.getAllowedValues());
 			models.registerItemRenderer(this.cottonCrop, 0);
 			models.registerItemRenderer(this.barleyCrop, 0);
 		}
 	}
-
 }

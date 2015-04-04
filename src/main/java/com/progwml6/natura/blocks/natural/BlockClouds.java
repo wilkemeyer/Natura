@@ -2,14 +2,11 @@ package com.progwml6.natura.blocks.natural;
 
 import java.util.List;
 
-import mantle.blocks.iface.IBlockVariant;
-import mantle.blocks.iface.IBlockWithVariants;
-import com.progwml6.natura.Natura;
-import com.progwml6.natura.blocks.BlocksNatura;
-import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+import mantle.blocks.util.BlockVariant;
+import mantle.blocks.util.IBlockWithVariants;
+import mantle.blocks.util.PropertyVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -31,54 +28,19 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+
 public class BlockClouds extends Block implements IBlockWithVariants
 {
-	public enum CloudVariant implements IBlockVariant
-	{
-		WHITE(0, "cloud_white"),
-		GREY(1, "cloud_gray"),
-		DARK(2, "cloud_dark"),
-		SULFER(3, "cloud_sulfur");
+	public static final BlockVariant
+			WHITE = new BlockVariant(0, "cloud_white"),
+			GREY = new BlockVariant(1, "cloud_gray"),
+			DARK = new BlockVariant(2, "cloud_dark"),
+			SULFER = new BlockVariant(3, "cloud_sulfur");
 
-		private static final CloudVariant[] metaLookup = new CloudVariant[CloudVariant.values().length];
-
-		static
-		{
-			for (CloudVariant type : CloudVariant.values())
-			{
-				metaLookup[type.getMetadata()] = type;
-			}
-		}
-
-		private int metadata;
-
-		private String name;
-
-		CloudVariant(int metadata, String name)
-		{
-			this.metadata = metadata;
-			this.name = name;
-		}
-
-		@Override
-		public String getName()
-		{
-			return this.name;
-		}
-
-		@Override
-		public int getMetadata()
-		{
-			return this.metadata;
-		}
-
-		public static CloudVariant getVariantFromMetadata(int meta)
-		{
-			return CloudVariant.metaLookup[meta];
-		}
-	}
-
-	public static final PropertyEnum CLOUD_TYPE = PropertyEnum.create("variant", CloudVariant.class);
+	public static final PropertyVariant CLOUD_TYPE = PropertyVariant.create("variant", WHITE, GREY, DARK, SULFER);
 
 	public BlockClouds()
 	{
@@ -86,7 +48,7 @@ public class BlockClouds extends Block implements IBlockWithVariants
 		this.setStepSound(soundTypeCloth);
 		this.setHardness(0.3F);
 
-		this.setDefaultState(this.getBlockState().getBaseState().withProperty(CLOUD_TYPE, CloudVariant.WHITE));
+		this.setDefaultState(this.getBlockState().getBaseState().withProperty(CLOUD_TYPE, WHITE));
 		this.setCreativeTab(NaturaCreativeTabs.tab);
 	}
 
@@ -95,9 +57,9 @@ public class BlockClouds extends Block implements IBlockWithVariants
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
 	{
-		for (CloudVariant type : CloudVariant.values())
+		for (BlockVariant variant : CLOUD_TYPE.getAllowedValues())
 		{
-			list.add(new ItemStack(itemIn, 1, type.getMetadata()));
+			list.add(new ItemStack(itemIn, 1, variant.getMeta()));
 		}
 	}
 
@@ -202,13 +164,13 @@ public class BlockClouds extends Block implements IBlockWithVariants
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return this.getDefaultState().withProperty(CLOUD_TYPE, CloudVariant.getVariantFromMetadata(meta));
+		return this.getDefaultState().withProperty(CLOUD_TYPE, CLOUD_TYPE.getVariantFromMeta(meta));
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		return ((CloudVariant) state.getValue(CLOUD_TYPE)).getMetadata();
+		return ((BlockVariant) state.getValue(CLOUD_TYPE)).getMeta();
 	}
 
 	@Override
@@ -220,13 +182,13 @@ public class BlockClouds extends Block implements IBlockWithVariants
 	@Override
 	public int damageDropped(IBlockState state)
 	{
-		return ((CloudVariant) state.getValue(CLOUD_TYPE)).getMetadata();
+		return ((BlockVariant) state.getValue(CLOUD_TYPE)).getMeta();
 	}
 
 	@Override
 	public String getVariantNameFromStack(ItemStack stack)
 	{
-		return CloudVariant.getVariantFromMetadata(stack.getMetadata()).getName();
+		return CLOUD_TYPE.getVariantFromMeta(stack.getMetadata()).getName();
 	}
 
 }

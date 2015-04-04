@@ -2,13 +2,12 @@ package com.progwml6.natura.blocks.natural;
 
 import java.util.List;
 
-import mantle.blocks.iface.IBlockVariant;
-import mantle.blocks.iface.IBlockWithVariants;
-import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+import mantle.blocks.util.BlockVariant;
+import mantle.blocks.util.IBlockWithVariants;
+import mantle.blocks.util.PropertyVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,66 +20,29 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+
 public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 {
-	public enum PlanksVariant implements IBlockVariant
-	{
-		EUCALYPTUS(0, "eucalyptus_planks"),
-		SAKURA(1, "sakura_planks"),
-		GHOSTWOOD(2, "ghostwood_planks"),
-		REDWOOD(3, "redwood_planks"),
-		BLOODWOOD(4, "bloodwood_planks"),
-		HOPSEED(5, "hopseed_planks"),
-		MAPLE(6, "maple_planks"),
-		SILVERBELL(7, "silverbell_planks"),
-		PURPLEHEART(8, "purpleheart_planks"),
-		TIGER(9, "tiger_planks"),
-		WILLOW(10, "willow_planks"),
-		DARKWOOD(11, "darkwood_planks"),
-		FUSEWOOD(12, "fusewood_planks"),
-		REDWOOD_BARK(13, "redwood_bark"),
-		REDWOOD_HEART(14, "redwood_heart"),
-		REDWOOD_ROOT(15, "redwood_root");
+	public static final BlockVariant
+			EUCALYPTUS = new BlockVariant(0, "eucalyptus_planks"),
+			SAKURA = new BlockVariant(1, "sakura_planks"),
+			GHOSTWOOD = new BlockVariant(2, "ghostwood_planks"),
+			REDWOOD = new BlockVariant(3, "redwood_planks"),
+			BLOODWOOD = new BlockVariant(4, "bloodwood_planks"),
+			HOPSEED = new BlockVariant(5, "hopseed_planks"),
+			MAPLE = new BlockVariant(6, "maple_planks"),
+			SILVERBELL = new BlockVariant(7, "silverbell_planks"),
+			PURPLEHEART = new BlockVariant(8, "purpleheart_planks"),
+			TIGER = new BlockVariant(9, "tiger_planks"),
+			WILLOW = new BlockVariant(10, "willow_planks"),
+			DARKWOOD = new BlockVariant(11, "darkwood_planks"),
+			FUSEWOOD = new BlockVariant(12, "fusewood_planks"),
+			REDWOOD_BARK = new BlockVariant(13, "redwood_bark"),
+			REDWOOD_HEART = new BlockVariant(14, "redwood_heart"),
+			REDWOOD_ROOT = new BlockVariant(15, "redwood_root");
 
-		private static final PlanksVariant[] metaLookup = new PlanksVariant[PlanksVariant.values().length];
-
-		static
-		{
-			for (PlanksVariant type : PlanksVariant.values())
-			{
-				metaLookup[type.getMetadata()] = type;
-			}
-		}
-
-		private int metadata;
-
-		private String name;
-
-		PlanksVariant(int metadata, String name)
-		{
-			this.metadata = metadata;
-			this.name = name;
-		}
-
-		@Override
-		public String getName()
-		{
-			return this.name;
-		}
-
-		@Override
-		public int getMetadata()
-		{
-			return this.metadata;
-		}
-
-		public static PlanksVariant getVariantFromMetadata(int meta)
-		{
-			return PlanksVariant.metaLookup[meta];
-		}
-	}
-
-	public static final PropertyEnum PLANK_TYPE = PropertyEnum.create("variant", PlanksVariant.class);
+	public static final PropertyVariant PLANK_TYPE = PropertyVariant.create("variant", EUCALYPTUS, SAKURA, GHOSTWOOD, REDWOOD, BLOODWOOD, HOPSEED, MAPLE, SILVERBELL, PURPLEHEART, TIGER, WILLOW, DARKWOOD, FUSEWOOD, REDWOOD_BARK, REDWOOD_HEART, REDWOOD_ROOT);
 
 	public BlockNaturaPlanks()
 	{
@@ -89,7 +51,7 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 		this.setHardness(2.0f);
 		this.setStepSound(Block.soundTypeWood);
 
-		this.setDefaultState(this.getBlockState().getBaseState().withProperty(PLANK_TYPE, PlanksVariant.EUCALYPTUS));
+		this.setDefaultState(this.getBlockState().getBaseState().withProperty(PLANK_TYPE, EUCALYPTUS));
 		this.setCreativeTab(NaturaCreativeTabs.tab);
 	}
 
@@ -114,22 +76,22 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
 	{
-		for (PlanksVariant type : PlanksVariant.values())
+		for (BlockVariant variant : PLANK_TYPE.getAllowedValues())
 		{
-			list.add(new ItemStack(itemIn, 1, type.getMetadata()));
+			list.add(new ItemStack(itemIn, 1, variant.getMeta()));
 		}
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return this.getDefaultState().withProperty(PLANK_TYPE, PlanksVariant.getVariantFromMetadata(meta));
+		return this.getDefaultState().withProperty(PLANK_TYPE, PLANK_TYPE.getVariantFromMeta(meta));
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		return ((PlanksVariant) state.getValue(PLANK_TYPE)).getMetadata();
+		return ((BlockVariant) state.getValue(PLANK_TYPE)).getMeta();
 	}
 
 	@Override
@@ -141,12 +103,12 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 	@Override
 	public int damageDropped(IBlockState state)
 	{
-		return ((PlanksVariant) state.getValue(PLANK_TYPE)).getMetadata();
+		return ((BlockVariant) state.getValue(PLANK_TYPE)).getMeta();
 	}
 
 	@Override
 	public String getVariantNameFromStack(ItemStack stack)
 	{
-		return PlanksVariant.getVariantFromMetadata(stack.getMetadata()).getName();
+		return PLANK_TYPE.getVariantFromMeta(stack.getMetadata()).getName();
 	}
 }

@@ -1,11 +1,12 @@
 package com.progwml6.natura.creativetabs;
 
-import com.progwml6.natura.Natura;
-import com.progwml6.natura.blocks.natural.BlockClouds;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.natural.BlockClouds;
 
 public class NaturaCreativeTabs
 {
@@ -22,7 +23,7 @@ public class NaturaCreativeTabs
 		@SideOnly(Side.CLIENT)
 		public int getIconItemDamage()
 		{
-			return BlockClouds.CloudVariant.WHITE.getMetadata();
+			return BlockClouds.WHITE.getMeta();
 		}
 	};
 }
