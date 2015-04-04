@@ -17,7 +17,7 @@ public class ItemBlockNaturaPlanks extends ItemBlockVariants
 		super(block);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)

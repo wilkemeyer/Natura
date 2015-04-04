@@ -17,6 +17,7 @@ public class ItemBlockNaturaLogs extends ItemBlockVariants
 		super(block);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
