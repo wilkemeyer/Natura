@@ -1,20 +1,21 @@
 package com.progwml6.natura.blocks;
 
 import mantle.client.ModelVariant;
-import com.progwml6.natura.Natura;
-import com.progwml6.natura.blocks.crops.BlockNaturaCrop;
-import com.progwml6.natura.blocks.material.CloudMaterial;
-import com.progwml6.natura.blocks.natural.BlockClouds;
-import com.progwml6.natura.blocks.natural.BlockNaturaLogs;
-import com.progwml6.natura.blocks.natural.BlockNaturaPlanks;
-import com.progwml6.natura.items.itemblocks.crops.ItemBlockNaturaCrop;
-import com.progwml6.natura.items.itemblocks.natural.ItemBlockClouds;
-import com.progwml6.natura.items.itemblocks.natural.ItemBlockNaturaLogs;
-import com.progwml6.natura.items.itemblocks.natural.ItemBlockNaturaPlanks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.crops.BlockNaturaBarleyCrop;
+import com.progwml6.natura.blocks.crops.BlockNaturaCottonCrop;
+import com.progwml6.natura.blocks.material.CloudMaterial;
+import com.progwml6.natura.blocks.natural.BlockClouds;
+import com.progwml6.natura.blocks.natural.BlockNaturaLogs;
+import com.progwml6.natura.blocks.natural.BlockNaturaPlanks;
+import com.progwml6.natura.items.itemblocks.natural.ItemBlockClouds;
+import com.progwml6.natura.items.itemblocks.natural.ItemBlockNaturaLogs;
+import com.progwml6.natura.items.itemblocks.natural.ItemBlockNaturaPlanks;
 
 public class BlocksNatura
 {
@@ -26,14 +27,17 @@ public class BlocksNatura
 
 	public BlockNaturaPlanks planks;
 
-	public BlockNaturaCrop crops;
+	public BlockNaturaCottonCrop cottonCrop;
+
+	public BlockNaturaBarleyCrop barleyCrop;
 
 	public void preInit()
 	{
 		this.clouds = this.registerBlock("clouds", ItemBlockClouds.class, new BlockClouds());
 		this.logs = this.registerBlock("logs", ItemBlockNaturaLogs.class, new BlockNaturaLogs());
 		this.planks = this.registerBlock("planks", ItemBlockNaturaPlanks.class, new BlockNaturaPlanks());
-		this.crops = this.registerBlock("crops", ItemBlockNaturaCrop.class, new BlockNaturaCrop());
+		this.cottonCrop = this.registerBlock("cotton_crops", ItemBlock.class, new BlockNaturaCottonCrop());
+		this.barleyCrop = this.registerBlock("barley_crops", ItemBlock.class, new BlockNaturaBarleyCrop());
 	}
 
 	private <T extends Block> T registerBlock(String name, Class<? extends ItemBlock> itemblock, T block)
@@ -53,7 +57,8 @@ public class BlocksNatura
 			models.registerItemRenderer(this.clouds, BlockClouds.CloudVariant.values());
 			models.registerItemRenderer(this.logs, BlockNaturaLogs.LogVariant.values());
 			models.registerItemRenderer(this.planks, BlockNaturaPlanks.PlanksVariant.values());
-			models.registerItemRenderer(this.crops, BlockNaturaCrop.PlantVariant.values());
+			models.registerItemRenderer(this.cottonCrop, 0);
+			models.registerItemRenderer(this.barleyCrop, 0);
 		}
 	}
 

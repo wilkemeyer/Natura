@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -22,7 +21,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.items.ItemsNatura;
 import com.progwml6.natura.worldgen.CloudWorldgen;
+import com.progwml6.natura.worldgen.CropWorldGen;
 
 @Mod(modid = "Natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:Mantle@[0.3.1,)")
 public class Natura
@@ -39,7 +40,7 @@ public class Natura
 
 	public static Logger logger = LogManager.getLogger(modID);
 
-	public static final PulseManager pulsar = new PulseManager(modID, "Natura-Dynamic");
+	public static final PulseManager pulsar = new PulseManager(modID);
 
 	public static Random random = new Random();
 
@@ -47,7 +48,11 @@ public class Natura
 
 	private BlocksNatura blocks = new BlocksNatura();
 
+	private ItemsNatura items = new ItemsNatura();
+
 	public static CloudWorldgen clouds;
+
+	public static CropWorldGen crops;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
@@ -57,6 +62,7 @@ public class Natura
 
 		pulsar.preInit(evt);
 		this.blocks.preInit();
+		this.items.preInit();
 	}
 
 	@EventHandler
@@ -66,17 +72,11 @@ public class Natura
 
 		random.setSeed(2 ^ 16 + 2 ^ 8 + (4 * 3 * 271));
 
-		pulsar.init(evt);
-
 		this.blocks.init();
+		this.items.init();
 
 		GameRegistry.registerWorldGenerator(clouds = new CloudWorldgen(), 20); // TODO 1.8 Find correct weight (param 2)
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent evt)
-	{
-		pulsar.postInit(evt);
+		GameRegistry.registerWorldGenerator(crops = new CropWorldGen(), 20); // TODO 1.8 Find correct weight (param 2)
 	}
 
 	@SubscribeEvent
@@ -151,5 +151,10 @@ public class Natura
 	public static BlocksNatura getBlocks()
 	{
 		return Natura.instance.blocks;
+	}
+
+	public static ItemsNatura getItems()
+	{
+		return Natura.instance.items;
 	}
 }

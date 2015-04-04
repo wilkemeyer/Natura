@@ -5,7 +5,6 @@ import java.util.Random;
 
 import mantle.blocks.iface.IBlockVariant;
 import mantle.blocks.iface.IBlockWithVariants;
-import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
@@ -22,6 +21,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
 
 public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
 {

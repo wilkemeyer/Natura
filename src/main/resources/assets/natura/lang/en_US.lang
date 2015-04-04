@@ -1,5 +1,10 @@
 itemGroup.natura=Natura
 
+item.cotton_seeds.name=Cotton Seeds
+item.barley_seeds.name=Barley Seeds
+tooltip.barley=Similar to wheat, it grows in the wild
+tooltip.cotton=The source of all string and wool
+
 tile.clouds.cloud_white.name=Cloud
 tile.clouds.cloud_gray.name=Dark Cloud
 tile.clouds.cloud_dark.name=Ash Cloud
