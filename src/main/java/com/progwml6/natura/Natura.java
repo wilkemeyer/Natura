@@ -3,6 +3,11 @@ package com.progwml6.natura;
 import java.util.Random;
 
 import mantle.pulsar.control.PulseManager;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
@@ -25,14 +30,14 @@ import com.progwml6.natura.items.ItemsNatura;
 import com.progwml6.natura.worldgen.CloudWorldgen;
 import com.progwml6.natura.worldgen.CropWorldGen;
 
-@Mod(modid = "Natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:Mantle@[0.3.1,)")
+@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:Mantle@[0.3.1,)")
 public class Natura
 {
 	/* Proxies for sides, used for graphics processing */
 	@SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.CommonProxy")
 	public static CommonProxy proxy;
 
-	public static final String modID = "Natura";
+	public static final String modID = "natura";
 
 	/* Instance of this mod, used for grabbing prototype fields */
 	@Instance(modID)
@@ -106,11 +111,11 @@ public class Natura
 	public void interactEvent(EntityInteractEvent event)
 	{
 		//if (event.target == null)
-		/**if (event.target instanceof EntityCow || event.target instanceof EntitySheep)
+		if (event.target instanceof EntityCow || event.target instanceof EntitySheep)
 		{
 			ItemStack equipped = event.entityPlayer.getCurrentEquippedItem();
 			EntityAnimal creature = (EntityAnimal) event.target;
-			if (equipped != null && equipped.getItem() == NContent.plantItem && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
+			if (equipped != null && equipped.getItem() == this.getItems().barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
 			{
 				EntityPlayer player = event.entityPlayer;
 				if (!player.capabilities.isCreativeMode)
@@ -125,7 +130,7 @@ public class Natura
 
 				creature.setInLove(event.entityPlayer);
 			}
-		}*/
+		}
 	}
 
 	@SubscribeEvent
