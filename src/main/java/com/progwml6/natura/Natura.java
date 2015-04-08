@@ -30,14 +30,14 @@ import com.progwml6.natura.items.ItemsNatura;
 import com.progwml6.natura.worldgen.CloudWorldgen;
 import com.progwml6.natura.worldgen.CropWorldGen;
 
-@Mod(modid = "Natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
+@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
 public class Natura
 {
 	/* Proxies for sides, used for graphics processing */
 	@SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.CommonProxy")
 	public static CommonProxy proxy;
 
-	public static final String modID = "Natura";
+	public static final String modID = "natura";
 
 	/* Instance of this mod, used for grabbing prototype fields */
 	@Instance(modID)
