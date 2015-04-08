@@ -33,27 +33,28 @@ public class ItemsNatura
 		this.barley_seeds = this.registerItem("barley_seeds", new ItemNaturaSeeds(Natura.getBlocks().barleyCrop, "tooltip.barley"));
 
 		this.ghostwoodAxe = this.registerItem("ghostwood_axe", new ItemNaturaAxe(ToolMaterial.WOOD));
-		this.bloodwoodAxe = this.registerItem("bloodwood_axe", new ItemNaturaAxe(bloodwood));
-		this.darkwoodAxe = this.registerItem("darkwood_axe", new ItemNaturaAxe(ToolMaterial.STONE));
-		this.fusewoodAxe = this.registerItem("fusewood_axe", new ItemNaturaAxe(ToolMaterial.IRON));
-		this.netherquartzAxe = this.registerItem("netherquartz_axe", new ItemNaturaAxe(ToolMaterial.STONE));
-
 		this.ghostwoodPickaxe = this.registerItem("ghostwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.WOOD));
-		this.bloodwoodPickaxe = this.registerItem("bloodwood_pickaxe", new ItemNaturaPickaxe(bloodwood));
-		this.darkwoodPickaxe = this.registerItem("darkwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
-		this.fusewoodPickaxe = this.registerItem("fusewood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.IRON));
-		this.netherquartzPickaxe = this.registerItem("netherquartz_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
-
 		this.ghostwoodShovel = this.registerItem("ghostwood_shovel", new ItemNaturaShovel(ToolMaterial.WOOD));
-		this.bloodwoodShovel = this.registerItem("bloodwood_shovel", new ItemNaturaShovel(bloodwood));
-		this.darkwoodShovel = this.registerItem("darkwood_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
-		this.fusewoodShovel = this.registerItem("fusewood_shovel", new ItemNaturaShovel(ToolMaterial.IRON));
-		this.netherquartzShovel = this.registerItem("netherquartz_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
-
 		this.ghostwoodSword = this.registerItem("ghostwood_sword", new ItemNaturaSword(ToolMaterial.WOOD));
+
+		this.bloodwoodAxe = this.registerItem("bloodwood_axe", new ItemNaturaAxe(bloodwood));
+		this.bloodwoodPickaxe = this.registerItem("bloodwood_pickaxe", new ItemNaturaPickaxe(bloodwood));
+		this.bloodwoodShovel = this.registerItem("bloodwood_shovel", new ItemNaturaShovel(bloodwood));
 		this.bloodwoodSword = this.registerItem("bloodwood_sword", new ItemNaturaSword(bloodwood));
+
+		this.darkwoodAxe = this.registerItem("darkwood_axe", new ItemNaturaAxe(ToolMaterial.STONE));
+		this.darkwoodPickaxe = this.registerItem("darkwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
+		this.darkwoodShovel = this.registerItem("darkwood_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
 		this.darkwoodSword = this.registerItem("darkwood_sword", new ItemNaturaSword(ToolMaterial.STONE));
+
+		this.fusewoodAxe = this.registerItem("fusewood_axe", new ItemNaturaAxe(ToolMaterial.IRON));
+		this.fusewoodPickaxe = this.registerItem("fusewood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.IRON));
+		this.fusewoodShovel = this.registerItem("fusewood_shovel", new ItemNaturaShovel(ToolMaterial.IRON));
 		this.fusewoodSword = this.registerItem("fusewood_sword", new ItemNaturaSword(ToolMaterial.IRON));
+
+		this.netherquartzAxe = this.registerItem("netherquartz_axe", new ItemNaturaAxe(ToolMaterial.STONE));
+		this.netherquartzPickaxe = this.registerItem("netherquartz_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
+		this.netherquartzShovel = this.registerItem("netherquartz_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
 		this.netherquartzSword = this.registerItem("netherquartz_sword", new ItemNaturaSword(ToolMaterial.STONE));
 	}
 
@@ -73,13 +74,15 @@ public class ItemsNatura
 
 			models.registerItemRenderers(0, this.barley_seeds, this.cotton_seeds);
 
-			models.registerItemRenderers(0, this.ghostwoodAxe, this.bloodwoodAxe, this.darkwoodAxe, this.fusewoodAxe, this.netherquartzAxe);
+			models.registerItemRenderers(0, this.ghostwoodAxe, this.ghostwoodPickaxe, this.ghostwoodShovel, this.ghostwoodSword);
 
-			models.registerItemRenderers(0, this.ghostwoodPickaxe, this.bloodwoodPickaxe, this.darkwoodPickaxe, this.fusewoodPickaxe, this.netherquartzPickaxe);
+			models.registerItemRenderers(0, this.bloodwoodAxe, this.bloodwoodPickaxe, this.bloodwoodShovel, this.bloodwoodSword);
 
-			models.registerItemRenderers(0, this.ghostwoodShovel, this.bloodwoodShovel, this.darkwoodShovel, this.fusewoodShovel, this.netherquartzShovel);
+			models.registerItemRenderers(0, this.darkwoodAxe, this.darkwoodPickaxe, this.darkwoodShovel, this.darkwoodSword);
 
-			models.registerItemRenderers(0, this.ghostwoodSword, this.bloodwoodSword, this.darkwoodSword, this.fusewoodSword, this.netherquartzSword);
+			models.registerItemRenderers(0, this.fusewoodAxe, this.fusewoodPickaxe, this.fusewoodShovel, this.fusewoodSword);
+
+			models.registerItemRenderers(0, this.netherquartzAxe, this.netherquartzPickaxe, this.netherquartzShovel, this.netherquartzSword);
 		}
 	}
 }
