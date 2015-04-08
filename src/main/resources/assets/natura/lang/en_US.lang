@@ -5,11 +5,29 @@ item.natura.barley_seeds.name=Barley Seeds
 tooltip.barley=Similar to wheat, it grows in the wild
 tooltip.cotton=The source of all string and wool
 
+item.natura.ghostwood_axe.name=Ghostwood Hatchet
+item.natura.bloodwood_axe.name=Bloodwood Hatchet
+item.natura.darkwood_axe.name=Darkwood Hatchet
+item.natura.fusewood_axe.name=Fusewood Hatchet
+item.natura.netherquartz_axe.name=Quartz Hatchet
+
 item.natura.ghostwood_pickaxe.name=Ghostwood Pickaxe
 item.natura.bloodwood_pickaxe.name=Bloodwood Pickaxe
 item.natura.darkwood_pickaxe.name=Darkwood Pickaxe
 item.natura.fusewood_pickaxe.name=Fusewood Pickaxe
 item.natura.netherquartz_pickaxe.name=Quartz Pickaxe
+
+item.natura.ghostwood_shovel.name=Ghostwood Shovel
+item.natura.bloodwood_shovel.name=Bloodwood Shovel
+item.natura.darkwood_shovel.name=Darkwood Shovel
+item.natura.fusewood_shovel.name=Fusewood Shovel
+item.natura.netherquartz_shovel.name=Quartz Shovel
+
+item.natura.ghostwood_sword.name=Ghostwood Sword
+item.natura.bloodwood_sword.name=Bloodwood Sword
+item.natura.darkwood_sword.name=Darkwood Sword
+item.natura.fusewood_sword.name=Fusewood Sword
+item.natura.netherquartz_sword.name=Quartz Sword
 
 tile.natura.clouds.cloud_white.name=Cloud
 tile.natura.clouds.cloud_gray.name=Dark Cloud
