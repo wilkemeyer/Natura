@@ -1,41 +1,41 @@
 itemGroup.natura=Natura
 
-item.cotton_seeds.name=Cotton Seeds
-item.barley_seeds.name=Barley Seeds
+item.natura.cotton_seeds.name=Cotton Seeds
+item.natura.barley_seeds.name=Barley Seeds
 tooltip.barley=Similar to wheat, it grows in the wild
 tooltip.cotton=The source of all string and wool
 
-tile.clouds.cloud_white.name=Cloud
-tile.clouds.cloud_gray.name=Dark Cloud
-tile.clouds.cloud_dark.name=Ash Cloud
-tile.clouds.cloud_sulfur.name=Sulfur Cloud
+tile.natura.clouds.cloud_white.name=Cloud
+tile.natura.clouds.cloud_gray.name=Dark Cloud
+tile.natura.clouds.cloud_dark.name=Ash Cloud
+tile.natura.clouds.cloud_sulfur.name=Sulfur Cloud
 tooltip.cloud1=So light and fluffy!
 tooltip.cloud2=Saves you when you fall
 tooltip.cloud3=Causes lightning strikes
 tooltip.cloud4=3x3 Converts into charcoal
 tooltip.cloud5=2x2 Converts into sulfur
 
-tile.logs.eucalyptus_log.name=Eucalyptus Wood
-tile.logs.sakura_log.name=Sakura Wood
-tile.logs.ghostwood_log.name=Ghostwood
-tile.logs.hopseed_log.name=Hopseed Wood
+tile.natura.logs.eucalyptus_log.name=Eucalyptus Wood
+tile.natura.logs.sakura_log.name=Sakura Wood
+tile.natura.logs.ghostwood_log.name=Ghostwood
+tile.natura.logs.hopseed_log.name=Hopseed Wood
 
-tile.planks.eucalyptus_planks.name=Eucalyptus Planks
-tile.planks.sakura_planks.name=Sakura Planks
-tile.planks.ghostwood_planks.name=Ghostwood Planks
-tile.planks.redwood_planks.name=Redwood Planks
-tile.planks.bloodwood_planks.name=Bloodwood Planks
-tile.planks.hopseed_planks.name=Hopseed Planks
-tile.planks.maple_planks.name=Maple Planks
-tile.planks.silverbell_planks.name=Silverbell Planks
-tile.planks.purpleheart_planks.name=Amaranth Planks
-tile.planks.tiger_planks.name=Tigerwood Planks
-tile.planks.willow_planks.name=Willow Planks
-tile.planks.darkwood_planks.name=Darkwood Planks
-tile.planks.fusewood_planks.name=Fusewood Planks
-tile.planks.redwood_bark.name=Redwood Bark
-tile.planks.redwood_heart.name=Redwood
-tile.planks.redwood_root.name=Redwood Root
+tile.natura.planks.eucalyptus_planks.name=Eucalyptus Planks
+tile.natura.planks.sakura_planks.name=Sakura Planks
+tile.natura.planks.ghostwood_planks.name=Ghostwood Planks
+tile.natura.planks.redwood_planks.name=Redwood Planks
+tile.natura.planks.bloodwood_planks.name=Bloodwood Planks
+tile.natura.planks.hopseed_planks.name=Hopseed Planks
+tile.natura.planks.maple_planks.name=Maple Planks
+tile.natura.planks.silverbell_planks.name=Silverbell Planks
+tile.natura.planks.purpleheart_planks.name=Amaranth Planks
+tile.natura.planks.tiger_planks.name=Tigerwood Planks
+tile.natura.planks.willow_planks.name=Willow Planks
+tile.natura.planks.darkwood_planks.name=Darkwood Planks
+tile.natura.planks.fusewood_planks.name=Fusewood Planks
+tile.natura.planks.redwood_bark.name=Redwood Bark
+tile.natura.planks.redwood_heart.name=Redwood
+tile.natura.planks.redwood_root.name=Redwood Root
 
 tooltip.tree1=The pink wood
 tooltip.tree2=Flowering Cherry
