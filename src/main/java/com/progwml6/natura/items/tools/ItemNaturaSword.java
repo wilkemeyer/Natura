@@ -1,12 +1,12 @@
 package com.progwml6.natura.items.tools;
 
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSword;
 
 import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
 
-public class ItemNaturaPickaxe extends ItemPickaxe
+public class ItemNaturaSword extends ItemSword
 {
-	public ItemNaturaPickaxe(ToolMaterial material)
+	public ItemNaturaSword(ToolMaterial material)
 	{
 		super(material);
 		this.setCreativeTab(NaturaCreativeTabs.tab);

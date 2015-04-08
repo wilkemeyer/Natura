@@ -5,6 +5,12 @@ item.natura.barley_seeds.name=Barley Seeds
 tooltip.barley=Similar to wheat, it grows in the wild
 tooltip.cotton=The source of all string and wool
 
+item.natura.ghostwood_pickaxe.name=Ghostwood Pickaxe
+item.natura.bloodwood_pickaxe.name=Bloodwood Pickaxe
+item.natura.darkwood_pickaxe.name=Darkwood Pickaxe
+item.natura.fusewood_pickaxe.name=Fusewood Pickaxe
+item.natura.netherquartz_pickaxe.name=Quartz Pickaxe
+
 tile.natura.clouds.cloud_white.name=Cloud
 tile.natura.clouds.cloud_gray.name=Dark Cloud
 tile.natura.clouds.cloud_dark.name=Ash Cloud
