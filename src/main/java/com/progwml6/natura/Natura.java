@@ -1,7 +1,9 @@
 package com.progwml6.natura;
 
-import java.util.Random;
-
+import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.items.ItemsNatura;
+import com.progwml6.natura.worldgen.CloudWorldgen;
+import com.progwml6.natura.worldgen.CropWorldGen;
 import mantle.pulsar.control.PulseManager;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityCow;
@@ -18,148 +20,151 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.progwml6.natura.blocks.BlocksNatura;
-import com.progwml6.natura.items.ItemsNatura;
-import com.progwml6.natura.worldgen.CloudWorldgen;
-import com.progwml6.natura.worldgen.CropWorldGen;
+import java.util.Random;
 
 @Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
 public class Natura
 {
-	/* Proxies for sides, used for graphics processing */
-	@SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.CommonProxy")
-	public static CommonProxy proxy;
+    public static final String modID = "natura";
 
-	public static final String modID = "natura";
+    public static final PulseManager pulsar = new PulseManager(modID);
 
-	/* Instance of this mod, used for grabbing prototype fields */
-	@Instance(modID)
-	public static Natura instance;
+    /* Proxies for sides, used for graphics processing */
+    @SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.CommonProxy")
+    public static CommonProxy proxy;
 
-	public static Logger logger = LogManager.getLogger(modID);
+    /* Instance of this mod, used for grabbing prototype fields */
+    @Instance(modID)
+    public static Natura instance;
 
-	public static final PulseManager pulsar = new PulseManager(modID);
+    public static Logger logger = LogManager.getLogger(modID);
 
-	public static Random random = new Random();
+    public static Random random = new Random();
 
-	public static boolean retrogen;
+    public static boolean retrogen;
 
-	private BlocksNatura blocks = new BlocksNatura();
+    public static CloudWorldgen clouds;
 
-	private ItemsNatura items = new ItemsNatura();
+    public static CropWorldGen crops;
 
-	public static CloudWorldgen clouds;
+    private BlocksNatura blocks = new BlocksNatura();
 
-	public static CropWorldGen crops;
+    private ItemsNatura items = new ItemsNatura();
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent evt)
-	{
-		MinecraftForge.EVENT_BUS.register(this);
-		PHNatura.initProps(evt.getSuggestedConfigurationFile());
+    public static BlocksNatura getBlocks()
+    {
+        return Natura.instance.blocks;
+    }
 
-		pulsar.preInit(evt);
-		this.blocks.preInit();
-		this.items.preInit();
-	}
+    public static ItemsNatura getItems()
+    {
+        return Natura.instance.items;
+    }
 
-	@EventHandler
-	public void init(FMLInitializationEvent evt)
-	{
-		proxy.init();
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent evt)
+    {
+        MinecraftForge.EVENT_BUS.register(this);
+        PHNatura.initProps(evt.getSuggestedConfigurationFile());
 
-		random.setSeed(2 ^ 16 + 2 ^ 8 + (4 * 3 * 271));
+        pulsar.preInit(evt);
+        this.blocks.preInit();
+        this.items.preInit();
+    }
 
-		this.blocks.init();
-		this.items.init();
+    @EventHandler
+    public void init(FMLInitializationEvent evt)
+    {
+        proxy.init();
 
-		GameRegistry.registerWorldGenerator(clouds = new CloudWorldgen(), 20); // TODO 1.8 Find correct weight (param 2)
-		GameRegistry.registerWorldGenerator(crops = new CropWorldGen(), 20); // TODO 1.8 Find correct weight (param 2)
-	}
+        random.setSeed(2 ^ 16 + 2 ^ 8 + (4 * 3 * 271));
 
-	@SubscribeEvent
-	public void bonemealEvent(BonemealEvent event)
-	{
-		/**if (!event.world.isRemote && !event.isCanceled() && event.getResult() != Result.ALLOW)
-		{
-			if (event.block == NContent.glowshroom)
-			{
-				if (NContent.glowshroom.fertilizeMushroom(event.world, event.pos, event.world.rand))
-					event.setResult(Result.ALLOW);
-			}
-			if (event.block == NContent.berryBush)
-			{
-				if (NContent.berryBush.boneFertilize(event.world, event.pos, event.world.rand))
-					event.setResult(Result.ALLOW);
-			}
-			if (event.block == NContent.netherBerryBush)
-			{
-				if (NContent.netherBerryBush.boneFertilize(event.world, event.pos, event.world.rand))
-					event.setResult(Result.ALLOW);
-			}
-		}*/
-	}
+        this.blocks.init();
+        this.items.init();
 
-	@SubscribeEvent
-	public void interactEvent(EntityInteractEvent event)
-	{
-		//if (event.target == null)
-		if (event.target instanceof EntityCow || event.target instanceof EntitySheep)
-		{
-			ItemStack equipped = event.entityPlayer.getCurrentEquippedItem();
-			EntityAnimal creature = (EntityAnimal) event.target;
-			if (equipped != null && equipped.getItem() == this.getItems().barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
-			{
-				EntityPlayer player = event.entityPlayer;
-				if (!player.capabilities.isCreativeMode)
-				{
-					--equipped.stackSize;
+        GameRegistry.registerWorldGenerator(clouds = new CloudWorldgen(), 20); // TODO 1.8 Find correct weight (param 2)
+        GameRegistry.registerWorldGenerator(crops = new CropWorldGen(), 20); // TODO 1.8 Find correct weight (param 2)
+    }
 
-					if (equipped.stackSize <= 0)
-					{
-						player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
-					}
-				}
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent evt)
+    {
+        this.proxy.postInit();
+    }
 
-				creature.setInLove(event.entityPlayer);
-			}
-		}
-	}
+    @SubscribeEvent
+    public void bonemealEvent(BonemealEvent event)
+    {
+        /**if (!event.world.isRemote && !event.isCanceled() && event.getResult() != Result.ALLOW)
+         {
+         if (event.block == NContent.glowshroom)
+         {
+         if (NContent.glowshroom.fertilizeMushroom(event.world, event.pos, event.world.rand))
+         event.setResult(Result.ALLOW);
+         }
+         if (event.block == NContent.berryBush)
+         {
+         if (NContent.berryBush.boneFertilize(event.world, event.pos, event.world.rand))
+         event.setResult(Result.ALLOW);
+         }
+         if (event.block == NContent.netherBerryBush)
+         {
+         if (NContent.netherBerryBush.boneFertilize(event.world, event.pos, event.world.rand))
+         event.setResult(Result.ALLOW);
+         }
+         }*/
+    }
 
-	@SubscribeEvent
-	public void spawnEvent(EntityJoinWorldEvent event)
-	{
-		/**if (event.entity instanceof EntityCow || event.entity instanceof EntitySheep)
-		{
-			((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, NContent.plantItem, false));
-		}
+    @SubscribeEvent
+    public void interactEvent(EntityInteractEvent event)
+    {
+        //if (event.target == null)
+        if (event.target instanceof EntityCow || event.target instanceof EntitySheep)
+        {
+            ItemStack equipped = event.entityPlayer.getCurrentEquippedItem();
+            EntityAnimal creature = (EntityAnimal) event.target;
+            if (equipped != null && equipped.getItem() == this.getItems().barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
+            {
+                EntityPlayer player = event.entityPlayer;
+                if (!player.capabilities.isCreativeMode)
+                {
+                    --equipped.stackSize;
 
-		if (event.entity instanceof EntityChicken)
-		{
-			((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, NContent.seeds, false));
-		}*/
-	}
+                    if (equipped.stackSize <= 0)
+                    {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
 
-	@SubscribeEvent
-	public void chunkDataSave(ChunkDataEvent.Save event)
-	{
-		event.getData().setBoolean("Natura.Retrogen", true);
-	}
+                creature.setInLove(event.entityPlayer);
+            }
+        }
+    }
 
-	public static BlocksNatura getBlocks()
-	{
-		return Natura.instance.blocks;
-	}
+    @SubscribeEvent
+    public void spawnEvent(EntityJoinWorldEvent event)
+    {
+        /**if (event.entity instanceof EntityCow || event.entity instanceof EntitySheep)
+         {
+         ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, NContent.plantItem, false));
+         }
 
-	public static ItemsNatura getItems()
-	{
-		return Natura.instance.items;
-	}
+         if (event.entity instanceof EntityChicken)
+         {
+         ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, NContent.seeds, false));
+         }*/
+    }
+
+    @SubscribeEvent
+    public void chunkDataSave(ChunkDataEvent.Save event)
+    {
+        event.getData().setBoolean("Natura.Retrogen", true);
+    }
 }
