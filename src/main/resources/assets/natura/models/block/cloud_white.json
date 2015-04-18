@@ -1,6 +1,6 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "natura:blocks/cloud_white"
-	}
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "natura:blocks/cloud_white"
+    }
 }

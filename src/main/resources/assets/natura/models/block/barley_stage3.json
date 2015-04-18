@@ -1,6 +1,6 @@
 {
-	"parent": "block/crop",
-	"textures": {
-		"crop": "natura:blocks/barley_stage_3"
-	}
+    "parent": "block/crop",
+    "textures": {
+        "crop": "natura:blocks/barley_stage_3"
+    }
 }

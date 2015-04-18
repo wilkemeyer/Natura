@@ -1,6 +1,6 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "natura:blocks/redwood_heart"
-	}
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "natura:blocks/redwood_heart"
+    }
 }
