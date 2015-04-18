@@ -1,7 +1,8 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-		"layer0": "natura:items/ghostwood_axe"
+		"layer0": "items/spawn_egg",
+		"layer1": "items/spawn_egg_overlay"
 	},
 	"display": {
 		"thirdperson": {

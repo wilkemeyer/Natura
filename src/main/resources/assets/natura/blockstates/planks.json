@@ -1,20 +1,20 @@
 {
-    "variants": {
-        "variant=eucalyptus_planks": { "model": "natura:eucalyptus_planks" },
-        "variant=sakura_planks": { "model": "natura:sakura_planks" },
-        "variant=ghostwood_planks": { "model": "natura:ghostwood_planks" },
-        "variant=redwood_planks": { "model": "natura:redwood_planks" },
-        "variant=bloodwood_planks": { "model": "natura:bloodwood_planks" },
-        "variant=hopseed_planks": { "model": "natura:hopseed_planks" },
-        "variant=maple_planks": { "model": "natura:maple_planks" },
-        "variant=silverbell_planks": { "model": "natura:silverbell_planks" },
-        "variant=purpleheart_planks": { "model": "natura:purpleheart_planks" },
-        "variant=tiger_planks": { "model": "natura:tiger_planks" },
-        "variant=willow_planks": { "model": "natura:willow_planks" },
-        "variant=darkwood_planks": { "model": "natura:darkwood_planks" },
-        "variant=fusewood_planks": { "model": "natura:fusewood_planks" },
-        "variant=redwood_bark": { "model": "natura:redwood_bark" },
-        "variant=redwood_heart": { "model": "natura:redwood_heart" },
-        "variant=redwood_root": { "model": "natura:redwood_root" }
-    }
+	"variants": {
+		"variant=eucalyptus_planks": { "model": "natura:eucalyptus_planks" },
+		"variant=sakura_planks": { "model": "natura:sakura_planks" },
+		"variant=ghostwood_planks": { "model": "natura:ghostwood_planks" },
+		"variant=redwood_planks": { "model": "natura:redwood_planks" },
+		"variant=bloodwood_planks": { "model": "natura:bloodwood_planks" },
+		"variant=hopseed_planks": { "model": "natura:hopseed_planks" },
+		"variant=maple_planks": { "model": "natura:maple_planks" },
+		"variant=silverbell_planks": { "model": "natura:silverbell_planks" },
+		"variant=purpleheart_planks": { "model": "natura:purpleheart_planks" },
+		"variant=tiger_planks": { "model": "natura:tiger_planks" },
+		"variant=willow_planks": { "model": "natura:willow_planks" },
+		"variant=darkwood_planks": { "model": "natura:darkwood_planks" },
+		"variant=fusewood_planks": { "model": "natura:fusewood_planks" },
+		"variant=redwood_bark": { "model": "natura:redwood_bark" },
+		"variant=redwood_heart": { "model": "natura:redwood_heart" },
+		"variant=redwood_root": { "model": "natura:redwood_root" }
+	}
 }

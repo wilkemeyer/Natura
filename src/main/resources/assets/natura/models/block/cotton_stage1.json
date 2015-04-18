@@ -1,6 +1,6 @@
 {
-    "parent": "block/crop",
-    "textures": {
-        "crop": "natura:blocks/cotton_stage_1"
-    }
+	"parent": "block/crop",
+	"textures": {
+		"crop": "natura:blocks/cotton_stage_1"
+	}
 }
