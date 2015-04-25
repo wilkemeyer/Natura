@@ -1,4 +1,4 @@
-package com.progwml6.natura.client;
+package com.progwml6.natura.client.misc;
 
 import com.progwml6.natura.Natura;
 import net.minecraftforge.fml.relauncher.Side;

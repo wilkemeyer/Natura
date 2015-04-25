@@ -1,23 +1,20 @@
 {
     "variants": {
-        "axis=y,variant=eucalyptus_log":    { "model": "natura:eucalyptus_log" },
-        "axis=z,variant=eucalyptus_log":     { "model": "natura:eucalyptus_log_side" },
-        "axis=x,variant=eucalyptus_log":     { "model": "natura:eucalyptus_log_side", "y": 90 },
-        "axis=none,variant=eucalyptus_log":   { "model": "natura:eucalyptus_bark" },
-
-        "axis=y,variant=sakura_log":    { "model": "natura:sakura_log" },
-        "axis=z,variant=sakura_log":     { "model": "natura:sakura_log_side" },
-        "axis=x,variant=sakura_log":     { "model": "natura:sakura_log_side", "y": 90 },
-        "axis=none,variant=sakura_log":   { "model": "natura:sakura_bark" },
-
-        "axis=y,variant=ghostwood_log":    { "model": "natura:ghostwood_log" },
-        "axis=z,variant=ghostwood_log":     { "model": "natura:ghostwood_log_side" },
-        "axis=x,variant=ghostwood_log":     { "model": "natura:ghostwood_log_side", "y": 90 },
-        "axis=none,variant=ghostwood_log":   { "model": "natura:ghostwood_bark" },
-
-        "axis=y,variant=hopseed_log":    { "model": "natura:hopseed_log" },
-        "axis=z,variant=hopseed_log":     { "model": "natura:hopseed_log_side" },
-        "axis=x,variant=hopseed_log":     { "model": "natura:hopseed_log_side", "y": 90 },
-        "axis=none,variant=hopseed_log":   { "model": "natura:hopseed_bark" }
+        "axis=y,variant=eucalyptus_log": { "model": "natura:eucalyptus_log" },
+        "axis=z,variant=eucalyptus_log": { "model": "natura:eucalyptus_log_side" },
+        "axis=x,variant=eucalyptus_log": { "model": "natura:eucalyptus_log_side", "y": 90 },
+        "axis=none,variant=eucalyptus_log": { "model": "natura:eucalyptus_bark" },
+        "axis=y,variant=sakura_log": { "model": "natura:sakura_log" },
+        "axis=z,variant=sakura_log": { "model": "natura:sakura_log_side" },
+        "axis=x,variant=sakura_log": { "model": "natura:sakura_log_side", "y": 90 },
+        "axis=none,variant=sakura_log": { "model": "natura:sakura_bark" },
+        "axis=y,variant=ghostwood_log": { "model": "natura:ghostwood_log" },
+        "axis=z,variant=ghostwood_log": { "model": "natura:ghostwood_log_side" },
+        "axis=x,variant=ghostwood_log": { "model": "natura:ghostwood_log_side", "y": 90 },
+        "axis=none,variant=ghostwood_log": { "model": "natura:ghostwood_bark" },
+        "axis=y,variant=hopseed_log": { "model": "natura:hopseed_log" },
+        "axis=z,variant=hopseed_log": { "model": "natura:hopseed_log_side" },
+        "axis=x,variant=hopseed_log": { "model": "natura:hopseed_log_side", "y": 90 },
+        "axis=none,variant=hopseed_log": { "model": "natura:hopseed_bark" }
     }
 }

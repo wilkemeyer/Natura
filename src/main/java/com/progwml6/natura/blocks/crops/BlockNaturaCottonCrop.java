@@ -1,6 +1,7 @@
 package com.progwml6.natura.blocks.crops;
 
-import com.progwml6.natura.Natura;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.Random;
+import com.progwml6.natura.Natura;
 
 public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
 {
@@ -191,7 +192,7 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
 
     protected Item getSeed()
     {
-        return Natura.getItems().cotton_seeds;
+        return Natura.INSTANCE.getItems().cotton_seeds;
     }
 
     @Override

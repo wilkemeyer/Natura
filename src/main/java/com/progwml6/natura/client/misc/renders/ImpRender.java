@@ -1,4 +1,4 @@
-package com.progwml6.natura.client.renders;
+package com.progwml6.natura.client.misc.renders;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -8,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class ImpRender extends RenderLiving
 {
-
     static final ResourceLocation texture = new ResourceLocation("natura", "textures/mob/imp.png");
 
     public ImpRender(RenderManager renderManagerIn, ModelBase par1ModelBase, float par2)
@@ -21,5 +20,4 @@ public class ImpRender extends RenderLiving
     {
         return texture;
     }
-
 }

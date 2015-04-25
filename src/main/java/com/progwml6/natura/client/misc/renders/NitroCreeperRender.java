@@ -1,4 +1,4 @@
-package com.progwml6.natura.client.renders;
+package com.progwml6.natura.client.misc.renders;
 
 import net.minecraft.client.renderer.entity.RenderCreeper;
 import net.minecraft.client.renderer.entity.RenderManager;

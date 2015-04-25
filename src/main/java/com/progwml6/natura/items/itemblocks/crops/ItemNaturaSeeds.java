@@ -1,6 +1,7 @@
 package com.progwml6.natura.items.itemblocks.crops;
 
-import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +17,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
+import com.progwml6.natura.Natura;
 
 public class ItemNaturaSeeds extends Item implements IPlantable
 {
@@ -28,7 +29,7 @@ public class ItemNaturaSeeds extends Item implements IPlantable
     {
         this.crops = crops;
         this.tag = tag;
-        this.setCreativeTab(NaturaCreativeTabs.tab);
+        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
     }
 
     @Override

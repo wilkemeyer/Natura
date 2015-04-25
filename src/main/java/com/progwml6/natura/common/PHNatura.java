@@ -1,9 +1,11 @@
-package com.progwml6.natura;
+package com.progwml6.natura.common;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 
 import java.io.File;
+
+import com.progwml6.natura.Natura;
 
 public class PHNatura
 {

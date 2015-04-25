@@ -1,7 +1,7 @@
 package com.progwml6.natura.worldgen;
 
-import com.progwml6.natura.Natura;
-import com.progwml6.natura.PHNatura;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -11,7 +11,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.Random;
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.common.PHNatura;
 
 public class CloudWorldgen implements IWorldGenerator
 {
@@ -20,24 +21,24 @@ public class CloudWorldgen implements IWorldGenerator
 
     public CloudWorldgen()
     {
-        smallcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(0), 10, false);
-        mediumcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(0), 20, false);
-        largecloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(0), 30, false);
-        hugecloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(0), 40, false);
-        smalldarkcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(1), 10, false);
-        mediumdarkcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(1), 20, false);
-        largedarkcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(1), 30, false);
-        hugedarkcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(1), 40, false);
-        tinyashcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(2), 3, false);
-        smallashcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(2), 10, false);
-        mediumashcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(2), 18, false);
-        largeashcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(2), 27, false);
-        hugeashcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(2), 37, false);
-        tinysulfurcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(3), 3, false);
-        smallsulfurcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(3), 10, false);
-        mediumsulfurcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(3), 18, false);
-        largesulfurcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(3), 27, false);
-        hugesulfurcloud = new CloudGen(Natura.getBlocks().clouds.getStateFromMeta(3), 37, false);
+        smallcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 10, false);
+        mediumcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 20, false);
+        largecloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 30, false);
+        hugecloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 40, false);
+        smalldarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 10, false);
+        mediumdarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 20, false);
+        largedarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 30, false);
+        hugedarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 40, false);
+        tinyashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 3, false);
+        smallashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 10, false);
+        mediumashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 18, false);
+        largeashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 27, false);
+        hugeashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 37, false);
+        tinysulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 3, false);
+        smallsulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 10, false);
+        mediumsulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 18, false);
+        largesulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 27, false);
+        hugesulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 37, false);
     }
 
     @Override

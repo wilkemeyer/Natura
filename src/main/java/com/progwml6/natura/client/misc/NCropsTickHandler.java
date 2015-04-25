@@ -1,4 +1,4 @@
-package com.progwml6.natura.client;
+package com.progwml6.natura.client.misc;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;

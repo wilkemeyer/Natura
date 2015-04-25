@@ -1,6 +1,10 @@
-package com.progwml6.natura;
+package com.progwml6.natura.common;
 
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +14,8 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import com.progwml6.natura.Natura;
 
 public class NaturaEvents
 {
@@ -39,12 +45,11 @@ public class NaturaEvents
     @SubscribeEvent
     public void interactEvent(EntityInteractEvent event)
     {
-        //if (event.target == null)
         if (event.target instanceof EntityCow || event.target instanceof EntitySheep)
         {
             ItemStack equipped = event.entityPlayer.getCurrentEquippedItem();
             EntityAnimal creature = (EntityAnimal) event.target;
-            if (equipped != null && equipped.getItem() == Natura.getItems().barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
+            if (equipped != null && equipped.getItem() == Natura.INSTANCE.getItems().barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
             {
                 EntityPlayer player = event.entityPlayer;
                 if (!player.capabilities.isCreativeMode)
@@ -65,15 +70,16 @@ public class NaturaEvents
     @SubscribeEvent
     public void spawnEvent(EntityJoinWorldEvent event)
     {
-        /**if (event.entity instanceof EntityCow || event.entity instanceof EntitySheep)
-         {
-         ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, NContent.plantItem, false));
-         }
+        //if (event.entity instanceof EntityCow || event.entity instanceof EntitySheep)
+        //{
+        //    ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, Natura.getItems().plantItem, false));
+        //}
 
-         if (event.entity instanceof EntityChicken)
-         {
-         ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, NContent.seeds, false));
-         }*/
+        if (event.entity instanceof EntityChicken)
+        {
+            ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, Natura.INSTANCE.getItems().cotton_seeds, false));
+            ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, Natura.INSTANCE.getItems().barley_seeds, false));
+        }
     }
 
     @SubscribeEvent

@@ -1,14 +1,21 @@
-package com.progwml6.natura;
+package com.progwml6.natura.common;
 
-import com.progwml6.natura.entity.NitroCreeper;
 import mantle.client.ModelVariant;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.entity.NitroCreeper;
+
 public class CommonProxy
 {
+    public void preInit()
+    {
+
+    }
+
     public void init()
     {
 
@@ -16,7 +23,7 @@ public class CommonProxy
 
     public void postInit()
     {
-        EntityRegistry.registerModEntity(NitroCreeper.class, "NitroCreeper", 2, Natura.instance, 64, 5, true);
+        EntityRegistry.registerModEntity(NitroCreeper.class, "NitroCreeper", 2, Natura.INSTANCE, 64, 5, true);
 
         BiomeGenBase[] nether = BiomeDictionary.getBiomesForType(BiomeDictionary.Type.NETHER);
 

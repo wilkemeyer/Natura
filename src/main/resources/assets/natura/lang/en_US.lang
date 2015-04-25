@@ -1,4 +1,4 @@
-itemGroup.natura=Natura
+itemGroup.naturaMisc=Natura
 
 item.natura.cotton_seeds.name=Cotton Seeds
 item.natura.barley_seeds.name=Barley Seeds
@@ -44,6 +44,14 @@ tile.natura.logs.eucalyptus_log.name=Eucalyptus Wood
 tile.natura.logs.sakura_log.name=Sakura Wood
 tile.natura.logs.ghostwood_log.name=Ghostwood
 tile.natura.logs.hopseed_log.name=Hopseed Wood
+
+item.natura.spawn_egg.name=Spawn 
+entity.natura.Imp.name=Imp
+entity.natura.HeatscarSpider.name=Heatscar Spider
+entity.natura.BabyHeatscarSpider.name=Baby Heatscar Spider
+entity.natura.FlameSpider.name=Heatscar Spider
+entity.natura.FlameSpiderBaby.name=Baby Heatscar Spider
+entity.natura.NitroCreeper.name=Nitro Creeper
 
 tile.natura.planks.eucalyptus_planks.name=Eucalyptus Planks
 tile.natura.planks.sakura_planks.name=Sakura Planks

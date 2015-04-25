@@ -1,6 +1,8 @@
 package com.progwml6.natura.blocks.natural;
 
-import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+import java.util.List;
+import java.util.Random;
+
 import mantle.blocks.util.BlockVariant;
 import mantle.blocks.util.IBlockWithVariants;
 import mantle.blocks.util.PropertyVariant;
@@ -20,16 +22,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
-import java.util.Random;
+import com.progwml6.natura.Natura;
 
 public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
 {
     public static final BlockVariant
-    EUCALYPTUS = new BlockVariant(0, "eucalyptus_log"),
-    SAKURA = new BlockVariant(1, "sakura_log"),
-    GHOSTWOOD = new BlockVariant(2, "ghostwood_log"),
-    HOPSEED = new BlockVariant(3, "hopseed_log");
+            EUCALYPTUS = new BlockVariant(0, "eucalyptus_log"),
+            SAKURA = new BlockVariant(1, "sakura_log"),
+            GHOSTWOOD = new BlockVariant(2, "ghostwood_log"),
+            HOPSEED = new BlockVariant(3, "hopseed_log");
 
     public static final PropertyVariant LOG_TYPE = PropertyVariant.create("variant", EUCALYPTUS, SAKURA, GHOSTWOOD, HOPSEED);
 
@@ -41,7 +42,7 @@ public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
         this.setStepSound(Block.soundTypeWood);
         Blocks.fire.setFireInfo(this, 5, 20);
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(LOG_TYPE, EUCALYPTUS).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
-        this.setCreativeTab(NaturaCreativeTabs.tab);
+        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
     }
 
     @Override

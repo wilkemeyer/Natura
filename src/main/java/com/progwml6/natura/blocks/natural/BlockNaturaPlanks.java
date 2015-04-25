@@ -1,6 +1,7 @@
 package com.progwml6.natura.blocks.natural;
 
-import com.progwml6.natura.creativetabs.NaturaCreativeTabs;
+import java.util.List;
+
 import mantle.blocks.util.BlockVariant;
 import mantle.blocks.util.IBlockWithVariants;
 import mantle.blocks.util.PropertyVariant;
@@ -19,27 +20,27 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
+import com.progwml6.natura.Natura;
 
 public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 {
     public static final BlockVariant
-    EUCALYPTUS = new BlockVariant(0, "eucalyptus_planks"),
-    SAKURA = new BlockVariant(1, "sakura_planks"),
-    GHOSTWOOD = new BlockVariant(2, "ghostwood_planks"),
-    REDWOOD = new BlockVariant(3, "redwood_planks"),
-    BLOODWOOD = new BlockVariant(4, "bloodwood_planks"),
-    HOPSEED = new BlockVariant(5, "hopseed_planks"),
-    MAPLE = new BlockVariant(6, "maple_planks"),
-    SILVERBELL = new BlockVariant(7, "silverbell_planks"),
-    PURPLEHEART = new BlockVariant(8, "purpleheart_planks"),
-    TIGER = new BlockVariant(9, "tiger_planks"),
-    WILLOW = new BlockVariant(10, "willow_planks"),
-    DARKWOOD = new BlockVariant(11, "darkwood_planks"),
-    FUSEWOOD = new BlockVariant(12, "fusewood_planks"),
-    REDWOOD_BARK = new BlockVariant(13, "redwood_bark"),
-    REDWOOD_HEART = new BlockVariant(14, "redwood_heart"),
-    REDWOOD_ROOT = new BlockVariant(15, "redwood_root");
+            EUCALYPTUS = new BlockVariant(0, "eucalyptus_planks"),
+            SAKURA = new BlockVariant(1, "sakura_planks"),
+            GHOSTWOOD = new BlockVariant(2, "ghostwood_planks"),
+            REDWOOD = new BlockVariant(3, "redwood_planks"),
+            BLOODWOOD = new BlockVariant(4, "bloodwood_planks"),
+            HOPSEED = new BlockVariant(5, "hopseed_planks"),
+            MAPLE = new BlockVariant(6, "maple_planks"),
+            SILVERBELL = new BlockVariant(7, "silverbell_planks"),
+            PURPLEHEART = new BlockVariant(8, "purpleheart_planks"),
+            TIGER = new BlockVariant(9, "tiger_planks"),
+            WILLOW = new BlockVariant(10, "willow_planks"),
+            DARKWOOD = new BlockVariant(11, "darkwood_planks"),
+            FUSEWOOD = new BlockVariant(12, "fusewood_planks"),
+            REDWOOD_BARK = new BlockVariant(13, "redwood_bark"),
+            REDWOOD_HEART = new BlockVariant(14, "redwood_heart"),
+            REDWOOD_ROOT = new BlockVariant(15, "redwood_root");
 
     public static final PropertyVariant PLANK_TYPE = PropertyVariant.create("variant", EUCALYPTUS, SAKURA, GHOSTWOOD, REDWOOD, BLOODWOOD, HOPSEED, MAPLE, SILVERBELL, PURPLEHEART, TIGER, WILLOW, DARKWOOD, FUSEWOOD, REDWOOD_BARK, REDWOOD_HEART, REDWOOD_ROOT);
 
@@ -51,7 +52,7 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
         this.setStepSound(Block.soundTypeWood);
 
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(PLANK_TYPE, EUCALYPTUS));
-        this.setCreativeTab(NaturaCreativeTabs.tab);
+        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
     }
 
     @Override
