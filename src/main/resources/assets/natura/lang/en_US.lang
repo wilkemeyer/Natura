@@ -1,49 +1,75 @@
 itemGroup.naturaMisc=Natura
 
-item.natura.cotton_seeds.name=Cotton Seeds
-item.natura.barley_seeds.name=Barley Seeds
+natura.item.cotton_seeds.name=Cotton Seeds
+natura.item.barley_seeds.name=Barley Seeds
 tooltip.barley=Similar to wheat, it grows in the wild
 tooltip.cotton=The source of all string and wool
 
-item.natura.ghostwood_axe.name=Ghostwood Hatchet
-item.natura.ghostwood_pickaxe.name=Ghostwood Pickaxe
-item.natura.ghostwood_shovel.name=Ghostwood Shovel
-item.natura.ghostwood_sword.name=Ghostwood Sword
+natura.item.impmeat.raw.name=Raw Imphide
+natura.item.impmeat.cooked.name=Cooked Imphide
 
-item.natura.bloodwood_axe.name=Bloodwood Hatchet
-item.natura.bloodwood_pickaxe.name=Bloodwood Pickaxe
-item.natura.bloodwood_shovel.name=Bloodwood Shovel
-item.natura.bloodwood_sword.name=Bloodwood Sword
+tooltip.impmeat1=Eating this probably isn't good for you
+tooltip.impmeat2=It's warm to the touch
 
-item.natura.darkwood_axe.name=Darkwood Hatchet
-item.natura.darkwood_pickaxe.name=Darkwood Pickaxe
-item.natura.darkwood_shovel.name=Darkwood Shovel
-item.natura.darkwood_sword.name=Darkwood Sword
+item.bowl.mushroom.name=Mushroom Stew
+item.bowl.glowshroom.name=Glowshroom Stew
 
-item.natura.fusewood_axe.name=Fusewood Hatchet
-item.natura.fusewood_pickaxe.name=Fusewood Pickaxe
-item.natura.fusewood_shovel.name=Fusewood Shovel
-item.natura.fusewood_sword.name=Fusewood Sword
+natura.item.barley.plant.name=Barley
+natura.item.barley.flour.name=Barley Flour
+natura.item.wheat.flour.name=Wheat Flour
+natura.item.cotton.plant.name=Cotton
+natura.item.powder.sulfur.name=Sulfur
+natura.item.fletching.ghostwood.name=Ghostwood Fletching
+natura.item.leather.imp.name=Imp Leather
+natura.item.string.flame.name=Flamestring
+natura.item.dye.blue.name=Blue Dye
 
-item.natura.netherquartz_axe.name=Quartz Hatchet
-item.natura.netherquartz_pickaxe.name=Quartz Pickaxe
-item.natura.netherquartz_shovel.name=Quartz Shovel
-item.natura.netherquartz_sword.name=Quartz Sword
+tooltip.flour1=Bake me to make bread
+tooltip.flour2=Also used in baking cake
+tooltip.sulfur=2x2 converts into gunpowder
+tooltip.fletching=Arrow crafting component
+tooltip.imp=Resist the heat of the Nether
+tooltip.string=Somewhat more durable than string
 
-tile.natura.clouds.cloud_white.name=Cloud
-tile.natura.clouds.cloud_gray.name=Dark Cloud
-tile.natura.clouds.cloud_dark.name=Ash Cloud
-tile.natura.clouds.cloud_sulfur.name=Sulfur Cloud
+natura.item.ghostwood_axe.name=Ghostwood Hatchet
+natura.item.ghostwood_pickaxe.name=Ghostwood Pickaxe
+natura.item.ghostwood_shovel.name=Ghostwood Shovel
+natura.item.ghostwood_sword.name=Ghostwood Sword
+
+natura.item.bloodwood_axe.name=Bloodwood Hatchet
+natura.item.bloodwood_pickaxe.name=Bloodwood Pickaxe
+natura.item.bloodwood_shovel.name=Bloodwood Shovel
+natura.item.bloodwood_sword.name=Bloodwood Sword
+
+natura.item.darkwood_axe.name=Darkwood Hatchet
+natura.item.darkwood_pickaxe.name=Darkwood Pickaxe
+natura.item.darkwood_shovel.name=Darkwood Shovel
+natura.item.darkwood_sword.name=Darkwood Sword
+
+natura.item.fusewood_axe.name=Fusewood Hatchet
+natura.item.fusewood_pickaxe.name=Fusewood Pickaxe
+natura.item.fusewood_shovel.name=Fusewood Shovel
+natura.item.fusewood_sword.name=Fusewood Sword
+
+natura.item.netherquartz_axe.name=Quartz Hatchet
+natura.item.netherquartz_pickaxe.name=Quartz Pickaxe
+natura.item.netherquartz_shovel.name=Quartz Shovel
+natura.item.netherquartz_sword.name=Quartz Sword
+
+natura.tile.clouds.cloud_white.name=Cloud
+natura.tile.clouds.cloud_gray.name=Dark Cloud
+natura.tile.clouds.cloud_dark.name=Ash Cloud
+natura.tile.clouds.cloud_sulfur.name=Sulfur Cloud
 tooltip.cloud1=So light and fluffy!
 tooltip.cloud2=Saves you when you fall
 tooltip.cloud3=Causes lightning strikes
 tooltip.cloud4=3x3 Converts into charcoal
 tooltip.cloud5=2x2 Converts into sulfur
 
-tile.natura.logs.eucalyptus_log.name=Eucalyptus Wood
-tile.natura.logs.sakura_log.name=Sakura Wood
-tile.natura.logs.ghostwood_log.name=Ghostwood
-tile.natura.logs.hopseed_log.name=Hopseed Wood
+natura.tile.logs.eucalyptus_log.name=Eucalyptus Wood
+natura.tile.logs.sakura_log.name=Sakura Wood
+natura.tile.logs.ghostwood_log.name=Ghostwood
+natura.tile.logs.hopseed_log.name=Hopseed Wood
 
 item.natura.spawn_egg.name=Spawn 
 entity.natura.Imp.name=Imp
@@ -53,22 +79,22 @@ entity.natura.FlameSpider.name=Heatscar Spider
 entity.natura.FlameSpiderBaby.name=Baby Heatscar Spider
 entity.natura.NitroCreeper.name=Nitro Creeper
 
-tile.natura.planks.eucalyptus_planks.name=Eucalyptus Planks
-tile.natura.planks.sakura_planks.name=Sakura Planks
-tile.natura.planks.ghostwood_planks.name=Ghostwood Planks
-tile.natura.planks.redwood_planks.name=Redwood Planks
-tile.natura.planks.bloodwood_planks.name=Bloodwood Planks
-tile.natura.planks.hopseed_planks.name=Hopseed Planks
-tile.natura.planks.maple_planks.name=Maple Planks
-tile.natura.planks.silverbell_planks.name=Silverbell Planks
-tile.natura.planks.purpleheart_planks.name=Amaranth Planks
-tile.natura.planks.tiger_planks.name=Tigerwood Planks
-tile.natura.planks.willow_planks.name=Willow Planks
-tile.natura.planks.darkwood_planks.name=Darkwood Planks
-tile.natura.planks.fusewood_planks.name=Fusewood Planks
-tile.natura.planks.redwood_bark.name=Redwood Bark
-tile.natura.planks.redwood_heart.name=Redwood
-tile.natura.planks.redwood_root.name=Redwood Root
+natura.tile.planks.eucalyptus_planks.name=Eucalyptus Planks
+natura.tile.planks.sakura_planks.name=Sakura Planks
+natura.tile.planks.ghostwood_planks.name=Ghostwood Planks
+natura.tile.planks.redwood_planks.name=Redwood Planks
+natura.tile.planks.bloodwood_planks.name=Bloodwood Planks
+natura.tile.planks.hopseed_planks.name=Hopseed Planks
+natura.tile.planks.maple_planks.name=Maple Planks
+natura.tile.planks.silverbell_planks.name=Silverbell Planks
+natura.tile.planks.purpleheart_planks.name=Amaranth Planks
+natura.tile.planks.tiger_planks.name=Tigerwood Planks
+natura.tile.planks.willow_planks.name=Willow Planks
+natura.tile.planks.darkwood_planks.name=Darkwood Planks
+natura.tile.planks.fusewood_planks.name=Fusewood Planks
+natura.tile.planks.redwood_bark.name=Redwood Bark
+natura.tile.planks.redwood_heart.name=Redwood
+natura.tile.planks.redwood_root.name=Redwood Root
 
 tooltip.tree1=The pink wood
 tooltip.tree2=Flowering Cherry

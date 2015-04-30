@@ -16,6 +16,8 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
+import com.progwml6.natura.Natura;
+
 public class BabyHeatscarSpider extends EntitySpider
 {
     public BabyHeatscarSpider(World par1World)
@@ -128,7 +130,7 @@ public class BabyHeatscarSpider extends EntitySpider
     @Override
     protected Item getDropItem()
     {
-        return NContent.plantItem;
+        return Natura.INSTANCE.getItems().materials;
     }
 
     @Override

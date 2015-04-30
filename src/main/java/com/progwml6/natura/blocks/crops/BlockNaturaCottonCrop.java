@@ -12,12 +12,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -38,6 +38,12 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
         this.setHardness(0.0F);
         this.setStepSound(soundTypeGrass);
         this.disableStats();
+    }
+
+    @Override
+    public String getLocalizedName()
+    {
+        return StatCollector.translateToLocal("natura." + this.getUnlocalizedName() + ".name");
     }
 
     protected static float getGrowthChance(Block blockIn, World worldIn, BlockPos pos)
@@ -104,7 +110,7 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
             if (((Integer) state.getValue(AGE)).intValue() == 4)
             {
                 world.setBlockState(pos, state.withProperty(AGE, 2), 3);
-                EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Items.apple, 3, 1));
+                EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Natura.INSTANCE.getItems().materials, 1, 3));
                 world.spawnEntityInWorld(entityitem);
                 entityitem.onCollideWithPlayer(player);
             }
@@ -121,7 +127,7 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
                 return true;
 
             worldIn.setBlockState(pos, state.withProperty(AGE, 2), 3);
-            EntityItem entityitem = new EntityItem(worldIn, playerIn.posX, playerIn.posY - 1.0D, playerIn.posZ, new ItemStack(Items.apple, 3, 1));
+            EntityItem entityitem = new EntityItem(worldIn, playerIn.posX, playerIn.posY - 1.0D, playerIn.posZ, new ItemStack(Natura.INSTANCE.getItems().materials, 1, 3));
             worldIn.spawnEntityInWorld(entityitem);
             entityitem.onCollideWithPlayer(playerIn);
             return true;

@@ -8,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class ImpRender extends RenderLiving
 {
-    static final ResourceLocation texture = new ResourceLocation("natura", "textures/mob/imp.png");
 
     public ImpRender(RenderManager renderManagerIn, ModelBase par1ModelBase, float par2)
     {
@@ -20,4 +19,7 @@ public class ImpRender extends RenderLiving
     {
         return texture;
     }
+
+    static final ResourceLocation texture = new ResourceLocation("natura", "textures/mob/imp.png");
+
 }

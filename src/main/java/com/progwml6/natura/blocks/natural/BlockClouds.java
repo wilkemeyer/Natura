@@ -22,6 +22,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -49,6 +50,12 @@ public class BlockClouds extends Block implements IBlockWithVariants
 
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(CLOUD_TYPE, WHITE));
         this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+    }
+
+    @Override
+    public String getLocalizedName()
+    {
+        return StatCollector.translateToLocal("natura." + this.getUnlocalizedName() + ".name");
     }
 
     @Override

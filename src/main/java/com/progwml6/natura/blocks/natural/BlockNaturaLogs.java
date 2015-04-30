@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -43,6 +44,12 @@ public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
         Blocks.fire.setFireInfo(this, 5, 20);
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(LOG_TYPE, EUCALYPTUS).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
         this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+    }
+
+    @Override
+    public String getLocalizedName()
+    {
+        return StatCollector.translateToLocal("natura." + this.getUnlocalizedName() + ".name");
     }
 
     @Override

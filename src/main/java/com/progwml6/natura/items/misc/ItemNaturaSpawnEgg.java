@@ -28,6 +28,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.progwml6.natura.Natura;
+
 public class ItemNaturaSpawnEgg extends Item
 {
     static ArrayList<EntityEggStuff> spawnList = new ArrayList<EntityEggStuff>();
@@ -56,6 +58,7 @@ public class ItemNaturaSpawnEgg extends Item
     public ItemNaturaSpawnEgg()
     {
         setHasSubtypes(true);
+        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
     }
 
     @Override

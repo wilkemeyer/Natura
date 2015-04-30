@@ -1,5 +1,7 @@
 package com.progwml6.natura;
 
+import java.util.Random;
+
 import mantle.pulsar.control.PulseManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +48,8 @@ public class Natura
 
     private NaturaCreativeTabs tabs = new NaturaCreativeTabs();
 
+    public static Random random = new Random();
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent evt)
     {
@@ -53,11 +57,11 @@ public class Natura
         PHNatura.initProps(evt.getSuggestedConfigurationFile());
         pulsar.preInit(evt);
 
+        PROXY.preInit();
+
         this.blocks.preInit();
         this.items.preInit();
         this.tabs.preInit();
-
-        PROXY.preInit();
     }
 
     @EventHandler
@@ -67,6 +71,8 @@ public class Natura
 
         GameRegistry.registerWorldGenerator(new CloudWorldgen(), 20); // TODO 1.8 Find correct weight (param 2)
         GameRegistry.registerWorldGenerator(new CropWorldGen(), 20); // TODO 1.8 Find correct weight (param 2)
+
+        random.setSeed(2 ^ 16 + 2 ^ 8 + (4 * 3 * 271));
     }
 
     @EventHandler

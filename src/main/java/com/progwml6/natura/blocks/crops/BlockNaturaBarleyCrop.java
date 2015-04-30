@@ -13,6 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,6 +34,12 @@ public class BlockNaturaBarleyCrop extends BlockBush implements IGrowable
         this.setHardness(0.0F);
         this.setStepSound(soundTypeGrass);
         this.disableStats();
+    }
+
+    @Override
+    public String getLocalizedName()
+    {
+        return StatCollector.translateToLocal("natura." + this.getUnlocalizedName() + ".name");
     }
 
     protected static float getGrowthChance(Block blockIn, World worldIn, BlockPos pos)

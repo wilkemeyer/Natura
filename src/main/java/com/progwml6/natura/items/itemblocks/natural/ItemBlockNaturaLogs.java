@@ -1,5 +1,7 @@
 package com.progwml6.natura.items.itemblocks.natural;
 
+import java.util.List;
+
 import mantle.blocks.abstracts.ItemBlockVariants;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,13 +10,17 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
-
 public class ItemBlockNaturaLogs extends ItemBlockVariants
 {
     public ItemBlockNaturaLogs(Block block)
     {
         super(block);
+    }
+
+    @Override
+    public String getItemStackDisplayName(ItemStack stack)
+    {
+        return ("" + StatCollector.translateToLocal("natura." + this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })

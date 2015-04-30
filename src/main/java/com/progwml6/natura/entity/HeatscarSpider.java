@@ -19,6 +19,7 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.progwml6.natura.Natura;
 import com.progwml6.natura.common.PHNatura;
 
 public class HeatscarSpider extends EntitySpider
@@ -146,7 +147,7 @@ public class HeatscarSpider extends EntitySpider
     @Override
     protected Item getDropItem()
     {
-        return NContent.plantItem;
+        return Natura.INSTANCE.getItems().materials;
     }
 
     @Override

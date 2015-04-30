@@ -6,7 +6,11 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.items.food.ItemEmptyBowl;
+import com.progwml6.natura.items.food.ItemImpMeat;
+import com.progwml6.natura.items.food.ItemStewBowl;
 import com.progwml6.natura.items.itemblocks.crops.ItemNaturaSeeds;
+import com.progwml6.natura.items.misc.ItemNaturaMaterial;
 import com.progwml6.natura.items.misc.ItemNaturaSpawnEgg;
 import com.progwml6.natura.items.tools.ItemNaturaAxe;
 import com.progwml6.natura.items.tools.ItemNaturaPickaxe;
@@ -15,7 +19,7 @@ import com.progwml6.natura.items.tools.ItemNaturaSword;
 
 public class ItemsNatura
 {
-    public Item cotton_seeds, barley_seeds, spawn_egg;
+    public Item cotton_seeds, barley_seeds, spawn_egg, impMeat, bowlStew, bowlEmpty, materials;
 
     public ToolMaterial bloodwood = EnumHelper.addToolMaterial("Bloodwood", 3, 350, 7f, 3, 24);
 
@@ -29,11 +33,18 @@ public class ItemsNatura
 
     public void preInit()
     {
+        ItemNaturaSpawnEgg.addMapping("Imp", 0xF29735, 0x2E1F10);
+        ItemNaturaSpawnEgg.addMapping("FlameSpider", 0xE64D10, 0x57B1BD);
         ItemNaturaSpawnEgg.addMapping("NitroCreeper", 0xF73E6C, 0x9B5004);
+        ItemNaturaSpawnEgg.addMapping("FlameSpiderBaby", 0xE64D10, 0x57B1BD);
 
         this.spawn_egg = this.registerItem("spawn_egg", new ItemNaturaSpawnEgg());
         this.cotton_seeds = this.registerItem("cotton_seeds", new ItemNaturaSeeds(Natura.INSTANCE.getBlocks().cottonCrop, "tooltip.cotton"));
         this.barley_seeds = this.registerItem("barley_seeds", new ItemNaturaSeeds(Natura.INSTANCE.getBlocks().barleyCrop, "tooltip.barley"));
+        this.impMeat = this.registerItem("impmeat", new ItemImpMeat());
+        this.bowlStew = this.registerItem("bowl_stew", new ItemStewBowl());
+        this.bowlEmpty = this.registerItem("bowl_empty", new ItemEmptyBowl());
+        this.materials = this.registerItem("materals", new ItemNaturaMaterial());
 
         this.ghostwoodPickaxe = this.registerItem("ghostwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.WOOD));
         this.ghostwoodAxe = this.registerItem("ghostwood_axe", new ItemNaturaAxe(ToolMaterial.WOOD));
@@ -63,7 +74,7 @@ public class ItemsNatura
 
     private <T extends Item> T registerItem(String name, T item)
     {
-        item.setUnlocalizedName("natura." + name);
+        item.setUnlocalizedName(name);
         GameRegistry.registerItem(item, name);
 
         return item;

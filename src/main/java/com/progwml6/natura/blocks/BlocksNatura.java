@@ -41,7 +41,7 @@ public class BlocksNatura
 
     private Block registerBlock(String name, Class<? extends ItemBlock> itemblock, Block block)
     {
-        block.setUnlocalizedName("natura." + name);
+        block.setUnlocalizedName(name);
         GameRegistry.registerBlock(block, itemblock, name);
 
         return block;

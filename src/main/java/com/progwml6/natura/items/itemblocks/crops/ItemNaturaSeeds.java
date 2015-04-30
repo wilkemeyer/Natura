@@ -33,6 +33,12 @@ public class ItemNaturaSeeds extends Item implements IPlantable
     }
 
     @Override
+    public String getItemStackDisplayName(ItemStack stack)
+    {
+        return ("" + StatCollector.translateToLocal("natura." + this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
+    }
+
+    @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         if (side != EnumFacing.UP)

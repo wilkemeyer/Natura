@@ -21,6 +21,7 @@ public class ModelNatura extends ModelVariant
     {
         this.registerBlockModels();
         this.registerItemModels();
+        this.registerItemVariantModels();
     }
 
     private void registerBlockModels()
@@ -34,13 +35,23 @@ public class ModelNatura extends ModelVariant
         this.registerBlockModel(blocks.barleyCrop);
     }
 
+    private void registerItemVariantModels()
+    {
+        ItemsNatura items = Natura.INSTANCE.getItems();
+
+        this.registerItemModelVariants(items.impMeat);
+        this.registerItemModelVariants(items.bowlStew);
+        this.registerItemModelVariants(items.bowlEmpty);
+        this.registerItemModelVariants(items.materials);
+        this.registerItemSubTypesModel(items.spawn_egg, Natura.INSTANCE.getCreativeTabs().tabMisc);
+    }
+
     private void registerItemModels()
     {
         ItemsNatura items = Natura.INSTANCE.getItems();
 
         this.registerItemModel(items.cotton_seeds);
         this.registerItemModel(items.barley_seeds);
-        this.registerItemModel(items.spawn_egg);
 
         this.registerItemModel(items.ghostwoodPickaxe);
         this.registerItemModel(items.ghostwoodAxe);

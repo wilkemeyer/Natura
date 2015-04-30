@@ -9,9 +9,18 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import com.progwml6.natura.client.misc.GrassColorizerAlternate;
 import com.progwml6.natura.client.misc.NCropsTickHandler;
+import com.progwml6.natura.client.misc.models.ImpModel;
 import com.progwml6.natura.client.misc.models.ModelNatura;
+import com.progwml6.natura.client.misc.renders.FlameSpiderBabyRender;
+import com.progwml6.natura.client.misc.renders.FlameSpiderRender;
+import com.progwml6.natura.client.misc.renders.FusewoodArrowRender;
+import com.progwml6.natura.client.misc.renders.ImpRender;
 import com.progwml6.natura.client.misc.renders.NitroCreeperRender;
 import com.progwml6.natura.common.CommonProxy;
+import com.progwml6.natura.entity.BabyHeatscarSpider;
+import com.progwml6.natura.entity.FusewoodArrow;
+import com.progwml6.natura.entity.HeatscarSpider;
+import com.progwml6.natura.entity.ImpEntity;
 import com.progwml6.natura.entity.NitroCreeper;
 
 public class ClientProxy extends CommonProxy
@@ -36,11 +45,11 @@ public class ClientProxy extends CommonProxy
         this.models.registerModels();
         FMLCommonHandler.instance().bus().register(new NCropsTickHandler());
 
-        //RenderingRegistry.registerEntityRenderingHandler(ImpEntity.class, new ImpRender(Minecraft.getMinecraft().getRenderManager(), new ImpModel(), 0f));
-        //RenderingRegistry.registerEntityRenderingHandler(HeatscarSpider.class, new FlameSpiderRender(Minecraft.getMinecraft().getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(ImpEntity.class, new ImpRender(Minecraft.getMinecraft().getRenderManager(), new ImpModel(), 0f));
+        RenderingRegistry.registerEntityRenderingHandler(HeatscarSpider.class, new FlameSpiderRender(Minecraft.getMinecraft().getRenderManager()));
         RenderingRegistry.registerEntityRenderingHandler(NitroCreeper.class, new NitroCreeperRender(Minecraft.getMinecraft().getRenderManager()));
-        //RenderingRegistry.registerEntityRenderingHandler(FusewoodArrow.class, new FusewoodArrowRender(Minecraft.getMinecraft().getRenderManager()));
-        //RenderingRegistry.registerEntityRenderingHandler(BabyHeatscarSpider.class, new FlameSpiderBabyRender(Minecraft.getMinecraft().getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(FusewoodArrow.class, new FusewoodArrowRender(Minecraft.getMinecraft().getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(BabyHeatscarSpider.class, new FlameSpiderBabyRender(Minecraft.getMinecraft().getRenderManager()));
 
         Minecraft mc = Minecraft.getMinecraft();
         try

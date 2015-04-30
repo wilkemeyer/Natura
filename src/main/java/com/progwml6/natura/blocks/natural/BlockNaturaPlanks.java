@@ -16,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -53,6 +54,12 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(PLANK_TYPE, EUCALYPTUS));
         this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+    }
+
+    @Override
+    public String getLocalizedName()
+    {
+        return StatCollector.translateToLocal("natura." + this.getUnlocalizedName() + ".name");
     }
 
     @Override
