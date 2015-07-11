@@ -24,7 +24,7 @@ import com.progwml6.natura.items.ItemsNatura;
 import com.progwml6.natura.worldgen.CloudWorldgen;
 import com.progwml6.natura.worldgen.CropWorldGen;
 
-@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle")
+@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
 public class Natura
 {
     @Instance(Natura.MOD_ID)
