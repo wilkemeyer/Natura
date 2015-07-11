@@ -24,7 +24,7 @@ import com.progwml6.natura.items.ItemsNatura;
 import com.progwml6.natura.worldgen.CloudWorldgen;
 import com.progwml6.natura.worldgen.CropWorldGen;
 
-@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
+@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle")
 public class Natura
 {
     @Instance(Natura.MOD_ID)
@@ -42,12 +42,6 @@ public class Natura
 
     public static boolean retrogen;
 
-    private BlocksNatura blocks = new BlocksNatura();
-
-    private ItemsNatura items = new ItemsNatura();
-
-    private NaturaCreativeTabs tabs = new NaturaCreativeTabs();
-
     public static Random random = new Random();
 
     @EventHandler
@@ -56,18 +50,14 @@ public class Natura
         MinecraftForge.EVENT_BUS.register(new NaturaEvents());
         PHNatura.initProps(evt.getSuggestedConfigurationFile());
         pulsar.preInit(evt);
-
-        PROXY.preInit();
-
-        this.blocks.preInit();
-        this.items.preInit();
-        this.tabs.preInit();
+        
+        PROXY.preInit(evt);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent evt)
     {
-        PROXY.init();
+        PROXY.init(evt);
 
         GameRegistry.registerWorldGenerator(new CloudWorldgen(), 20); // TODO 1.8 Find correct weight (param 2)
         GameRegistry.registerWorldGenerator(new CropWorldGen(), 20); // TODO 1.8 Find correct weight (param 2)
@@ -79,20 +69,5 @@ public class Natura
     public void postInit(FMLPostInitializationEvent evt)
     {
         PROXY.postInit();
-    }
-
-    public BlocksNatura getBlocks()
-    {
-        return Natura.INSTANCE.blocks;
-    }
-
-    public ItemsNatura getItems()
-    {
-        return Natura.INSTANCE.items;
-    }
-
-    public NaturaCreativeTabs getCreativeTabs()
-    {
-        return Natura.INSTANCE.tabs;
     }
 }

@@ -6,6 +6,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.BlocksNatura;
 import com.progwml6.natura.items.food.ItemEmptyBowl;
 import com.progwml6.natura.items.food.ItemImpMeat;
 import com.progwml6.natura.items.food.ItemStewBowl;
@@ -19,60 +20,60 @@ import com.progwml6.natura.items.tools.ItemNaturaSword;
 
 public class ItemsNatura
 {
-    public Item cotton_seeds, barley_seeds, spawn_egg, impMeat, bowlStew, bowlEmpty, materials;
+    public static Item cotton_seeds, barley_seeds, spawn_egg, impMeat, bowlEmpty, materials;//, bowlStew, bowlEmpty, materials;
 
-    public ToolMaterial bloodwood = EnumHelper.addToolMaterial("Bloodwood", 3, 350, 7f, 3, 24);
+    public static ToolMaterial bloodwood = EnumHelper.addToolMaterial("Bloodwood", 3, 350, 7f, 3, 24);
 
-    public ItemNaturaAxe ghostwoodAxe, bloodwoodAxe, darkwoodAxe, fusewoodAxe, netherquartzAxe;
+    public static ItemNaturaAxe ghostwoodAxe, bloodwoodAxe, darkwoodAxe, fusewoodAxe, netherquartzAxe;
 
-    public ItemNaturaPickaxe ghostwoodPickaxe, bloodwoodPickaxe, darkwoodPickaxe, fusewoodPickaxe, netherquartzPickaxe;
+    public static ItemNaturaPickaxe ghostwoodPickaxe, bloodwoodPickaxe, darkwoodPickaxe, fusewoodPickaxe, netherquartzPickaxe;
 
-    public ItemNaturaShovel ghostwoodShovel, bloodwoodShovel, darkwoodShovel, fusewoodShovel, netherquartzShovel;
+    public static ItemNaturaShovel ghostwoodShovel, bloodwoodShovel, darkwoodShovel, fusewoodShovel, netherquartzShovel;
 
-    public ItemNaturaSword ghostwoodSword, bloodwoodSword, darkwoodSword, fusewoodSword, netherquartzSword;
+    public static ItemNaturaSword ghostwoodSword, bloodwoodSword, darkwoodSword, fusewoodSword, netherquartzSword;
 
-    public void preInit()
+    public static void preInit()
     {
         ItemNaturaSpawnEgg.addMapping("Imp", 0xF29735, 0x2E1F10);
         ItemNaturaSpawnEgg.addMapping("FlameSpider", 0xE64D10, 0x57B1BD);
         ItemNaturaSpawnEgg.addMapping("NitroCreeper", 0xF73E6C, 0x9B5004);
         ItemNaturaSpawnEgg.addMapping("FlameSpiderBaby", 0xE64D10, 0x57B1BD);
 
-        this.spawn_egg = this.registerItem("spawn_egg", new ItemNaturaSpawnEgg());
-        this.cotton_seeds = this.registerItem("cotton_seeds", new ItemNaturaSeeds(Natura.INSTANCE.getBlocks().cottonCrop, "tooltip.cotton"));
-        this.barley_seeds = this.registerItem("barley_seeds", new ItemNaturaSeeds(Natura.INSTANCE.getBlocks().barleyCrop, "tooltip.barley"));
-        this.impMeat = this.registerItem("impmeat", new ItemImpMeat());
-        this.bowlStew = this.registerItem("bowl_stew", new ItemStewBowl());
-        this.bowlEmpty = this.registerItem("bowl_empty", new ItemEmptyBowl());
-        this.materials = this.registerItem("materals", new ItemNaturaMaterial());
+        spawn_egg = registerItem("spawn_egg", new ItemNaturaSpawnEgg());
+        cotton_seeds = registerItem("cotton_seeds", new ItemNaturaSeeds(BlocksNatura.cottonCrop, "tooltip.cotton"));
+        barley_seeds = registerItem("barley_seeds", new ItemNaturaSeeds(BlocksNatura.barleyCrop, "tooltip.barley"));
+        impMeat = registerItem("impmeat", new ItemImpMeat());
+        //bowlStew = registerItem("bowl_stew", new ItemStewBowl());
+        bowlEmpty = registerItem("bowl_empty", new ItemEmptyBowl());
+        materials = registerItem("materals", new ItemNaturaMaterial());
 
-        this.ghostwoodPickaxe = this.registerItem("ghostwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.WOOD));
-        this.ghostwoodAxe = this.registerItem("ghostwood_axe", new ItemNaturaAxe(ToolMaterial.WOOD));
-        this.ghostwoodShovel = this.registerItem("ghostwood_shovel", new ItemNaturaShovel(ToolMaterial.WOOD));
-        this.ghostwoodSword = this.registerItem("ghostwood_sword", new ItemNaturaSword(ToolMaterial.WOOD));
+        ghostwoodPickaxe = registerItem("ghostwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.WOOD));
+        ghostwoodAxe = registerItem("ghostwood_axe", new ItemNaturaAxe(ToolMaterial.WOOD));
+        ghostwoodShovel = registerItem("ghostwood_shovel", new ItemNaturaShovel(ToolMaterial.WOOD));
+        ghostwoodSword = registerItem("ghostwood_sword", new ItemNaturaSword(ToolMaterial.WOOD));
 
-        this.bloodwoodPickaxe = this.registerItem("bloodwood_pickaxe", new ItemNaturaPickaxe(bloodwood));
-        this.bloodwoodAxe = this.registerItem("bloodwood_axe", new ItemNaturaAxe(bloodwood));
-        this.bloodwoodShovel = this.registerItem("bloodwood_shovel", new ItemNaturaShovel(bloodwood));
-        this.bloodwoodSword = this.registerItem("bloodwood_sword", new ItemNaturaSword(bloodwood));
+        bloodwoodPickaxe = registerItem("bloodwood_pickaxe", new ItemNaturaPickaxe(bloodwood));
+        bloodwoodAxe = registerItem("bloodwood_axe", new ItemNaturaAxe(bloodwood));
+        bloodwoodShovel = registerItem("bloodwood_shovel", new ItemNaturaShovel(bloodwood));
+        bloodwoodSword = registerItem("bloodwood_sword", new ItemNaturaSword(bloodwood));
 
-        this.darkwoodPickaxe = this.registerItem("darkwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
-        this.darkwoodAxe = this.registerItem("darkwood_axe", new ItemNaturaAxe(ToolMaterial.STONE));
-        this.darkwoodShovel = this.registerItem("darkwood_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
-        this.darkwoodSword = this.registerItem("darkwood_sword", new ItemNaturaSword(ToolMaterial.STONE));
+        darkwoodPickaxe = registerItem("darkwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
+        darkwoodAxe = registerItem("darkwood_axe", new ItemNaturaAxe(ToolMaterial.STONE));
+        darkwoodShovel = registerItem("darkwood_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
+        darkwoodSword = registerItem("darkwood_sword", new ItemNaturaSword(ToolMaterial.STONE));
 
-        this.fusewoodPickaxe = this.registerItem("fusewood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.IRON));
-        this.fusewoodAxe = this.registerItem("fusewood_axe", new ItemNaturaAxe(ToolMaterial.IRON));
-        this.fusewoodShovel = this.registerItem("fusewood_shovel", new ItemNaturaShovel(ToolMaterial.IRON));
-        this.fusewoodSword = this.registerItem("fusewood_sword", new ItemNaturaSword(ToolMaterial.IRON));
+        fusewoodPickaxe = registerItem("fusewood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.IRON));
+        fusewoodAxe = registerItem("fusewood_axe", new ItemNaturaAxe(ToolMaterial.IRON));
+        fusewoodShovel = registerItem("fusewood_shovel", new ItemNaturaShovel(ToolMaterial.IRON));
+        fusewoodSword = registerItem("fusewood_sword", new ItemNaturaSword(ToolMaterial.IRON));
 
-        this.netherquartzPickaxe = this.registerItem("netherquartz_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
-        this.netherquartzAxe = this.registerItem("netherquartz_axe", new ItemNaturaAxe(ToolMaterial.STONE));
-        this.netherquartzShovel = this.registerItem("netherquartz_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
-        this.netherquartzSword = this.registerItem("netherquartz_sword", new ItemNaturaSword(ToolMaterial.STONE));
+        netherquartzPickaxe = registerItem("netherquartz_pickaxe", new ItemNaturaPickaxe(ToolMaterial.STONE));
+        netherquartzAxe = registerItem("netherquartz_axe", new ItemNaturaAxe(ToolMaterial.STONE));
+        netherquartzShovel = registerItem("netherquartz_shovel", new ItemNaturaShovel(ToolMaterial.STONE));
+        netherquartzSword = registerItem("netherquartz_sword", new ItemNaturaSword(ToolMaterial.STONE));
     }
 
-    private <T extends Item> T registerItem(String name, T item)
+    private static <T extends Item> T registerItem(String name, T item)
     {
         item.setUnlocalizedName(name);
         GameRegistry.registerItem(item, name);

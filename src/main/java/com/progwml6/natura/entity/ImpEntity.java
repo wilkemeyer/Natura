@@ -22,6 +22,7 @@ import net.minecraft.world.WorldProviderHell;
 
 import com.google.common.base.Predicate;
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.items.ItemsNatura;
 
 public class ImpEntity extends EntityAnimal
 {
@@ -34,7 +35,7 @@ public class ImpEntity extends EntityAnimal
         float f = 0.25F;
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 0.38F));
-        this.tasks.addTask(2, new EntityAITempt(this, 0.3F, Natura.INSTANCE.getItems().bowlStew, false));
+        //this.tasks.addTask(2, new EntityAITempt(this, 0.3F, ItemsNatura.bowlStew, false));
         this.tasks.addTask(3, new EntityAIMate(this, f));
         this.tasks.addTask(3, new EntityAIAvoidEntity(this, new Predicate()
         {
@@ -109,7 +110,7 @@ public class ImpEntity extends EntityAnimal
     @Override
     protected Item getDropItem()
     {
-        return Natura.INSTANCE.getItems().impMeat;
+        return ItemsNatura.impMeat;
     }
 
     /**
@@ -123,13 +124,13 @@ public class ImpEntity extends EntityAnimal
 
         for (int iter = 0; iter < amount; ++iter)
         {
-            this.dropItem(Natura.INSTANCE.getItems().impMeat, 1);
+            this.dropItem(ItemsNatura.impMeat, 1);
         }
 
         amount = this.rand.nextInt(5) + 2 + this.rand.nextInt(1 + par2 * 2);
         for (int iter = 0; iter < amount; ++iter)
         {
-            this.entityDropItem(new ItemStack(Natura.INSTANCE.getItems().materials, 1, 6), 0f); //TODO: FIX
+            this.entityDropItem(new ItemStack(ItemsNatura.materials, 1, 6), 0f); //TODO: FIX
         }
     }
 
@@ -148,7 +149,7 @@ public class ImpEntity extends EntityAnimal
     @Override
     public boolean isBreedingItem(ItemStack par1ItemStack)
     {
-        return par1ItemStack != null && par1ItemStack.getItem() == Natura.INSTANCE.getItems().bowlStew && par1ItemStack.getItemDamage() >= 13;
+        return par1ItemStack != null && par1ItemStack.getItem() == ItemsNatura.bowlEmpty; //TODO: FIX //par1ItemStack != null && par1ItemStack.getItem() == ItemsNatura.bowlStew && par1ItemStack.getItemDamage() >= 13;
     }
 
     @Override

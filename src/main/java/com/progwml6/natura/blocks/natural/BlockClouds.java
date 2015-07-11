@@ -2,9 +2,13 @@ package com.progwml6.natura.blocks.natural;
 
 import java.util.List;
 
-import mantle.blocks.util.BlockVariant;
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
+import com.progwml6.natura.blocks.BlocksNatura;
+
 import mantle.blocks.util.IBlockWithVariants;
-import mantle.blocks.util.PropertyVariant;
+import mantle.blocks.util.blockstates.BlockVariant;
+import mantle.blocks.util.blockstates.PropertyVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
@@ -29,13 +33,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import com.progwml6.natura.Natura;
-import com.progwml6.natura.blocks.BlocksNatura;
-
 public class BlockClouds extends Block implements IBlockWithVariants
 {
-    public static final BlockVariant
-            WHITE = new BlockVariant(0, "cloud_white"),
+    public static final BlockVariant WHITE = new BlockVariant(0, "cloud_white"),
             GREY = new BlockVariant(1, "cloud_gray"),
             DARK = new BlockVariant(2, "cloud_dark"),
             SULFER = new BlockVariant(3, "cloud_sulfur");
@@ -49,7 +49,7 @@ public class BlockClouds extends Block implements IBlockWithVariants
         this.setHardness(0.3F);
 
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(CLOUD_TYPE, WHITE));
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class BlockClouds extends Block implements IBlockWithVariants
     public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
     {
         Block block = worldIn.getBlockState(pos).getBlock();
-        return block != Natura.INSTANCE.getBlocks().clouds && super.shouldSideBeRendered(worldIn, pos, side);
+        return block != BlocksNatura.clouds && super.shouldSideBeRendered(worldIn, pos, side);
     }
 
     @Override
@@ -151,13 +151,13 @@ public class BlockClouds extends Block implements IBlockWithVariants
     public boolean isBlockSolid(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
     {
         Block block = worldIn.getBlockState(pos).getBlock();
-        return block != Natura.INSTANCE.getBlocks().clouds && super.isBlockSolid(worldIn, pos, side);
+        return block != BlocksNatura.clouds && super.isBlockSolid(worldIn, pos, side);
     }
 
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
     {
-        if (worldIn.getBlockState(pos.down()).getBlock() == Natura.INSTANCE.getBlocks().clouds)
+        if (worldIn.getBlockState(pos.down()).getBlock() == BlocksNatura.clouds)
         {
             return null;
         }
@@ -170,7 +170,7 @@ public class BlockClouds extends Block implements IBlockWithVariants
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(CLOUD_TYPE, CLOUD_TYPE.getVariantFromMeta(meta));
+        return this.getDefaultState().withProperty(CLOUD_TYPE, CLOUD_TYPE.fromMeta(meta));
     }
 
     @Override
@@ -194,7 +194,7 @@ public class BlockClouds extends Block implements IBlockWithVariants
     @Override
     public String getVariantNameFromStack(ItemStack stack)
     {
-        return CLOUD_TYPE.getVariantFromMeta(stack.getMetadata()).getName();
+        return CLOUD_TYPE.fromMeta(stack.getMetadata()).getName();
     }
 
 }

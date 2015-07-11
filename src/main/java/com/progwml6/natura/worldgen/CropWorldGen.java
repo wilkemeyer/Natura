@@ -10,6 +10,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.BlocksNatura;
 import com.progwml6.natura.blocks.crops.BlockNaturaBarleyCrop;
 import com.progwml6.natura.blocks.crops.BlockNaturaCottonCrop;
 import com.progwml6.natura.common.PHNatura;
@@ -52,7 +53,7 @@ public class CropWorldGen implements IWorldGenerator
             BlockPos pos = new BlockPos(i1, j1, k1);
             if (world.isAirBlock(pos) && Blocks.yellow_flower.canBlockStay(world, pos, world.getBlockState(pos)))
             {
-                world.setBlockState(pos, Natura.INSTANCE.getBlocks().barleyCrop.getDefaultState().withProperty(BlockNaturaBarleyCrop.AGE, 3), 2);
+                world.setBlockState(pos, BlocksNatura.barleyCrop.getDefaultState().withProperty(BlockNaturaBarleyCrop.AGE, 3), 2);
             }
         }
 
@@ -69,7 +70,7 @@ public class CropWorldGen implements IWorldGenerator
             BlockPos pos = new BlockPos(i1, j1, k1);
             if (world.isAirBlock(pos) && Blocks.yellow_flower.canBlockStay(world, pos, world.getBlockState(pos)))
             {
-                world.setBlockState(pos, Natura.INSTANCE.getBlocks().cottonCrop.getDefaultState().withProperty(BlockNaturaCottonCrop.AGE, 4), 2);
+                world.setBlockState(pos, BlocksNatura.cottonCrop.getDefaultState().withProperty(BlockNaturaCottonCrop.AGE, 4), 2);
             }
         }
 

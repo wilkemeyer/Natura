@@ -19,6 +19,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.items.ItemsNatura;
 
 public class BlockNaturaBarleyCrop extends BlockBush implements IGrowable
 {
@@ -160,7 +162,7 @@ public class BlockNaturaBarleyCrop extends BlockBush implements IGrowable
 
     protected Item getSeed()
     {
-        return Natura.INSTANCE.getItems().barley_seeds;
+        return ItemsNatura.barley_seeds;
     }
 
     @Override

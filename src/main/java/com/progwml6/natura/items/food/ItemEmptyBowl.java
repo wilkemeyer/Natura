@@ -1,25 +1,29 @@
 package com.progwml6.natura.items.food;
 
-import mantle.items.util.IItemWithVariants;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.progwml6.natura.Natura;
+import java.util.List;
 
-public class ItemEmptyBowl extends Item implements IItemWithVariants
+import com.progwml6.natura.NaturaCreativeTabs;
+
+public class ItemEmptyBowl extends Item
 {
     public static String[] variantNames = new String[] { "bowl", "ghostwood", "bloodwood", "darkwood", "fusewood" };
 
     public ItemEmptyBowl()
     {
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
-
+    
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public String[] getVariantNames()
+    public void getSubItems(Item id, CreativeTabs tab, List list)
     {
-        return variantNames;
+        for (int i = 0; i < variantNames.length; i++)
+            list.add(new ItemStack(id, 1, i));
     }
 
     @Override

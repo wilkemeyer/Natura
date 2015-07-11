@@ -6,7 +6,10 @@ import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import com.progwml6.natura.NaturaCreativeTabs;
 import com.progwml6.natura.client.misc.GrassColorizerAlternate;
 import com.progwml6.natura.client.misc.NCropsTickHandler;
 import com.progwml6.natura.client.misc.models.ImpModel;
@@ -32,17 +35,22 @@ public class ClientProxy extends CommonProxy
     private ModelNatura models;
 
     @Override
-    public void preInit()
+    public void preInit(FMLPreInitializationEvent event)
     {
+        super.preInit(event);
+
+        NaturaCreativeTabs.registerTabIcons();
         this.models = new ModelNatura();
 
-        //this.models.prepareModels();
+        this.models.preInit();
     }
 
     @Override
-    public void init()
+    public void init(FMLInitializationEvent event)
     {
-        this.models.registerModels();
+        super.init(event);
+        
+        this.models.init();
         FMLCommonHandler.instance().bus().register(new NCropsTickHandler());
 
         RenderingRegistry.registerEntityRenderingHandler(ImpEntity.class, new ImpRender(Minecraft.getMinecraft().getRenderManager(), new ImpModel(), 0f));

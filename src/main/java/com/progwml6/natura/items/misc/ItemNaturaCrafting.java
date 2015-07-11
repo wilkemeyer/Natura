@@ -2,33 +2,23 @@ package com.progwml6.natura.items.misc;
 
 import java.util.List;
 
-import mantle.items.util.IItemWithVariants;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 
-import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
-public class ItemNaturaCrafting extends Item implements IItemWithVariants
+public class ItemNaturaCrafting extends Item
 {
     public String[] unlocalizedNames;
 
-    public String[] variantNames;
-
-    public ItemNaturaCrafting(String[] names, String[] variant)
+    public ItemNaturaCrafting(String[] names)
     {
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
-        this.variantNames = variant;
         this.unlocalizedNames = names;
-    }
-
-    @Override
-    public String[] getVariantNames()
-    {
-        return variantNames;
     }
 
     @Override

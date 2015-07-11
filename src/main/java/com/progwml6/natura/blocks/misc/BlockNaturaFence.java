@@ -2,9 +2,9 @@ package com.progwml6.natura.blocks.misc;
 
 import java.util.List;
 
-import mantle.blocks.util.BlockVariant;
 import mantle.blocks.util.IBlockWithVariants;
-import mantle.blocks.util.PropertyVariant;
+import mantle.blocks.util.blockstates.BlockVariant;
+import mantle.blocks.util.blockstates.PropertyVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
@@ -24,8 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockNaturaFence extends BlockFence implements IBlockWithVariants
 {
-    public static final BlockVariant
-            EUCALYPTUS = new BlockVariant(0, "eucalyptus"),
+    public static final BlockVariant EUCALYPTUS = new BlockVariant(0, "eucalyptus"),
             SAKURA = new BlockVariant(1, "sakura"),
             GHOSTWOOD = new BlockVariant(2, "ghostwood"),
             REDWOOD = new BlockVariant(3, "redwood"),
@@ -79,7 +78,7 @@ public class BlockNaturaFence extends BlockFence implements IBlockWithVariants
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(FENCE_TYPE, FENCE_TYPE.getVariantFromMeta(meta));
+        return this.getDefaultState().withProperty(FENCE_TYPE, FENCE_TYPE.fromMeta(meta));
     }
 
     @Override
@@ -97,7 +96,7 @@ public class BlockNaturaFence extends BlockFence implements IBlockWithVariants
     @Override
     public String getVariantNameFromStack(ItemStack stack)
     {
-        return FENCE_TYPE.getVariantFromMeta(stack.getMetadata()).getName();
+        return FENCE_TYPE.fromMeta(stack.getMetadata()).getName();
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.progwml6.natura.items.food;
 
 import java.util.List;
 
-import mantle.items.util.IItemWithVariants;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -11,8 +10,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
-public class ItemNaturaFood extends ItemFood implements IItemWithVariants
+public class ItemNaturaFood extends ItemFood
 {
     int[] hunger;
 
@@ -27,7 +27,7 @@ public class ItemNaturaFood extends ItemFood implements IItemWithVariants
         this.saturation = saturation;
         this.variantNames = textureNames;
         this.setHasSubtypes(true);
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override
@@ -61,11 +61,5 @@ public class ItemNaturaFood extends ItemFood implements IItemWithVariants
     {
         for (int i = 0; i < variantNames.length; i++)
             list.add(new ItemStack(id, 1, i));
-    }
-
-    @Override
-    public String[] getVariantNames()
-    {
-        return variantNames;
     }
 }

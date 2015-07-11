@@ -2,9 +2,12 @@ package com.progwml6.natura.blocks.natural;
 
 import java.util.List;
 
-import mantle.blocks.util.BlockVariant;
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
+
 import mantle.blocks.util.IBlockWithVariants;
-import mantle.blocks.util.PropertyVariant;
+import mantle.blocks.util.blockstates.BlockVariant;
+import mantle.blocks.util.blockstates.PropertyVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -21,12 +24,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import com.progwml6.natura.Natura;
-
 public class BlockNaturaPlanks extends Block implements IBlockWithVariants
 {
-    public static final BlockVariant
-            EUCALYPTUS = new BlockVariant(0, "eucalyptus_planks"),
+    public static final BlockVariant EUCALYPTUS = new BlockVariant(0, "eucalyptus_planks"),
             SAKURA = new BlockVariant(1, "sakura_planks"),
             GHOSTWOOD = new BlockVariant(2, "ghostwood_planks"),
             REDWOOD = new BlockVariant(3, "redwood_planks"),
@@ -53,7 +53,7 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
         this.setStepSound(Block.soundTypeWood);
 
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(PLANK_TYPE, EUCALYPTUS));
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override
@@ -66,7 +66,9 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
         if (this.getMetaFromState(world.getBlockState(pos)) == 2 || this.getMetaFromState(world.getBlockState(pos)) == 4 || (this.getMetaFromState(world.getBlockState(pos)) > 10 && this.getMetaFromState(world.getBlockState(pos)) <= 12) || this.getMetaFromState(world.getBlockState(pos)) == 14)
+        {
             return 0;
+        }
         return this.getFlammability(world, pos, face);
     }
 
@@ -74,7 +76,9 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
         if (this.getMetaFromState(world.getBlockState(pos)) == 2 || this.getMetaFromState(world.getBlockState(pos)) == 4 || (this.getMetaFromState(world.getBlockState(pos)) > 10 && this.getMetaFromState(world.getBlockState(pos)) <= 12) || this.getMetaFromState(world.getBlockState(pos)) == 14)
+        {
             return 0;
+        }
         return this.getFireSpreadSpeed(world, pos, face);
     }
 
@@ -92,7 +96,7 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(PLANK_TYPE, PLANK_TYPE.getVariantFromMeta(meta));
+        return this.getDefaultState().withProperty(PLANK_TYPE, PLANK_TYPE.fromMeta(meta));
     }
 
     @Override
@@ -107,7 +111,6 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
         return new BlockState(this, new IProperty[] { PLANK_TYPE });
     }
 
-    @Override
     public int damageDropped(IBlockState state)
     {
         return ((BlockVariant) state.getValue(PLANK_TYPE)).getMeta();
@@ -116,6 +119,6 @@ public class BlockNaturaPlanks extends Block implements IBlockWithVariants
     @Override
     public String getVariantNameFromStack(ItemStack stack)
     {
-        return PLANK_TYPE.getVariantFromMeta(stack.getMetadata()).getName();
+        return PLANK_TYPE.fromMeta(stack.getMetadata()).getName();
     }
 }

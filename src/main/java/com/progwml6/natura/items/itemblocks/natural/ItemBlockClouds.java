@@ -2,7 +2,7 @@ package com.progwml6.natura.items.itemblocks.natural;
 
 import java.util.List;
 
-import mantle.blocks.abstracts.ItemBlockVariants;
+import mantle.blocks.util.ItemBlockVariants;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

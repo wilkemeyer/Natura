@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.items.ItemsNatura;
 
 public class BabyHeatscarSpider extends EntitySpider
 {
@@ -130,7 +131,7 @@ public class BabyHeatscarSpider extends EntitySpider
     @Override
     protected Item getDropItem()
     {
-        return Natura.INSTANCE.getItems().materials;
+        return ItemsNatura.materials;
     }
 
     @Override

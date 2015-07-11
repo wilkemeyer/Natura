@@ -18,6 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
 public class ItemNaturaSeeds extends Item implements IPlantable
 {
@@ -29,7 +30,7 @@ public class ItemNaturaSeeds extends Item implements IPlantable
     {
         this.crops = crops;
         this.tag = tag;
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override

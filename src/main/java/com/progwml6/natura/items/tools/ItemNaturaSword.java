@@ -5,13 +5,14 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
 public class ItemNaturaSword extends ItemSword
 {
     public ItemNaturaSword(ToolMaterial material)
     {
         super(material);
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override

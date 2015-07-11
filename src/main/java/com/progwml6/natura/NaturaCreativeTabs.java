@@ -5,11 +5,12 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.progwml6.natura.blocks.BlocksNatura;
 import com.progwml6.natura.blocks.natural.BlockClouds;
 
 public class NaturaCreativeTabs
 {
-    private class NaturaCreativeTab extends CreativeTabs
+    private static class NaturaCreativeTab extends CreativeTabs
     {
         private Item item;
 
@@ -40,10 +41,10 @@ public class NaturaCreativeTabs
         }
     }
 
-    public NaturaCreativeTab tabMisc = new NaturaCreativeTab("naturaMisc");
+    public static NaturaCreativeTab tabMisc = new NaturaCreativeTab("naturaMisc");
 
-    public void preInit()
+    public static void registerTabIcons()
     {
-        this.tabMisc.setItemToDisplay(Item.getItemFromBlock(Natura.INSTANCE.getBlocks().clouds), BlockClouds.WHITE.getMeta());
+        tabMisc.setItemToDisplay(Item.getItemFromBlock(BlocksNatura.clouds), BlockClouds.WHITE.getMeta());
     }
 }

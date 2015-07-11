@@ -5,13 +5,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
 public class ItemNaturaAxe extends ItemAxe
 {
     public ItemNaturaAxe(ToolMaterial material)
     {
         super(material);
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override

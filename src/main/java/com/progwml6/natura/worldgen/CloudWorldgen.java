@@ -12,6 +12,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.blocks.natural.BlockClouds;
 import com.progwml6.natura.common.PHNatura;
 
 public class CloudWorldgen implements IWorldGenerator
@@ -21,24 +23,24 @@ public class CloudWorldgen implements IWorldGenerator
 
     public CloudWorldgen()
     {
-        smallcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 10, false);
-        mediumcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 20, false);
-        largecloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 30, false);
-        hugecloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(0), 40, false);
-        smalldarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 10, false);
-        mediumdarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 20, false);
-        largedarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 30, false);
-        hugedarkcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(1), 40, false);
-        tinyashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 3, false);
-        smallashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 10, false);
-        mediumashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 18, false);
-        largeashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 27, false);
-        hugeashcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(2), 37, false);
-        tinysulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 3, false);
-        smallsulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 10, false);
-        mediumsulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 18, false);
-        largesulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 27, false);
-        hugesulfurcloud = new CloudGen(Natura.INSTANCE.getBlocks().clouds.getStateFromMeta(3), 37, false);
+        smallcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.WHITE), 10, false);
+        mediumcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.WHITE), 20, false);
+        largecloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.WHITE), 30, false);
+        hugecloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.WHITE), 40, false);
+        smalldarkcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.GREY), 10, false);
+        mediumdarkcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.GREY), 20, false);
+        largedarkcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.GREY), 30, false);
+        hugedarkcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.GREY), 40, false);
+        tinyashcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.DARK), 3, false);
+        smallashcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.DARK), 10, false);
+        mediumashcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.DARK), 18, false);
+        largeashcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.DARK), 27, false);
+        hugeashcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.DARK), 37, false);
+        tinysulfurcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.SULFER), 3, false);
+        smallsulfurcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.SULFER), 10, false);
+        mediumsulfurcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.SULFER), 18, false);
+        largesulfurcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.SULFER), 27, false);
+        hugesulfurcloud = new CloudGen(BlocksNatura.clouds.getDefaultState().withProperty(BlockClouds.CLOUD_TYPE, BlockClouds.SULFER), 37, false);
     }
 
     @Override

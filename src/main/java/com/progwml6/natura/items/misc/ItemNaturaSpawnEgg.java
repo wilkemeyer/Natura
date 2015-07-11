@@ -29,6 +29,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
 public class ItemNaturaSpawnEgg extends Item
 {
@@ -58,7 +59,7 @@ public class ItemNaturaSpawnEgg extends Item
     public ItemNaturaSpawnEgg()
     {
         setHasSubtypes(true);
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override

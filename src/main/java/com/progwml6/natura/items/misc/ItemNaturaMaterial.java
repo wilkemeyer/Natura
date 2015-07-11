@@ -9,14 +9,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
 
 public class ItemNaturaMaterial extends ItemNaturaCrafting
 {
     public ItemNaturaMaterial()
     {
-        super(new String[] { "barley.plant", "barley.flour", "wheat.flour", "cotton.plant", "powder.sulfur", "fletching.ghostwood", "leather.imp", "string.flame", "dye.blue" },
-                new String[] { "barley_plant", "barley_flour", "wheat_flour", "cotton_plant", "sulfur", "ghostwood_fletching", "leather_imp", "flamestring", "dye_blue" });
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        super(new String[] { "barley.plant", "barley.flour", "wheat.flour", "cotton.plant", "powder.sulfur", "fletching.ghostwood", "leather.imp", "string.flame", "dye.blue" });
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override

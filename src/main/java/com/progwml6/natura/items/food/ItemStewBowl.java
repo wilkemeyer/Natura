@@ -2,7 +2,6 @@ package com.progwml6.natura.items.food;
 
 import java.util.List;
 
-import mantle.items.util.IItemWithVariants;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -17,21 +16,17 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
+import com.progwml6.natura.items.ItemsNatura;
 
-public class ItemStewBowl extends ItemFood implements IItemWithVariants
+public class ItemStewBowl extends ItemFood
 {
     public static String[] variantNames = new String[] { "mushroom", "glowshroom" };
 
     public ItemStewBowl()
     {
         super(6, 0.6f, false);
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
-    }
-
-    @Override
-    public String[] getVariantNames()
-    {
-        return variantNames;
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override
@@ -50,13 +45,13 @@ public class ItemStewBowl extends ItemFood implements IItemWithVariants
                 if (stackDamage == 0)
                     return new ItemStack(Items.bowl);
 
-                return new ItemStack(Natura.INSTANCE.getItems().bowlEmpty, 1, stackDamage - 1);
+                return new ItemStack(ItemsNatura.bowlEmpty, 1, stackDamage - 1);
             }
 
             ItemStack returnStack = new ItemStack(Items.bowl);
             int stackDamage = stack.getItemDamage() % 14;
             if (stackDamage != 0)
-                returnStack = new ItemStack(Natura.INSTANCE.getItems().bowlEmpty, 1, stackDamage - 1);
+                returnStack = new ItemStack(ItemsNatura.bowlEmpty, 1, stackDamage - 1);
 
             playerIn.inventory.addItemStackToInventory(returnStack);
         }

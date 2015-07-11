@@ -19,15 +19,15 @@ public class BlocksNatura
 {
     public static Material cloud = new CloudMaterial();
 
-    public Block clouds, logs, planks, cottonCrop, barleyCrop, fence;
+    public static Block clouds, logs, planks, cottonCrop, barleyCrop, fence;
 
-    public void preInit()
+    public static void preInit()
     {
-        this.clouds = this.registerBlock("clouds", ItemBlockClouds.class, new BlockClouds());
-        this.logs = this.registerBlock("logs", ItemBlockNaturaLogs.class, new BlockNaturaLogs());
-        this.planks = this.registerBlock("planks", ItemBlockNaturaPlanks.class, new BlockNaturaPlanks());
-        this.cottonCrop = this.registerBlock("cotton_crops", ItemBlock.class, new BlockNaturaCottonCrop());
-        this.barleyCrop = this.registerBlock("barley_crops", ItemBlock.class, new BlockNaturaBarleyCrop());
+        clouds = registerBlock("clouds", ItemBlockClouds.class, new BlockClouds());
+        logs = registerBlock("logs", ItemBlockNaturaLogs.class, new BlockNaturaLogs());
+        planks = registerBlock("planks", ItemBlockNaturaPlanks.class, new BlockNaturaPlanks());
+        cottonCrop = registerBlock("cotton_crops", ItemBlock.class, new BlockNaturaCottonCrop());
+        barleyCrop = registerBlock("barley_crops", ItemBlock.class, new BlockNaturaBarleyCrop());
         //this.fence = this.registerBlock("fence", ItemBlockVariants.class, new BlockNaturaFence());
     }
 
@@ -39,7 +39,7 @@ public class BlocksNatura
         return block;
     }
 
-    private Block registerBlock(String name, Class<? extends ItemBlock> itemblock, Block block)
+    private static Block registerBlock(String name, Class<? extends ItemBlock> itemblock, Block block)
     {
         block.setUnlocalizedName(name);
         GameRegistry.registerBlock(block, itemblock, name);

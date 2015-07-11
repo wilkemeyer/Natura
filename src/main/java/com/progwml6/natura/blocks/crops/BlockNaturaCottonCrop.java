@@ -23,6 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.items.ItemsNatura;
 
 public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
 {
@@ -110,7 +111,7 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
             if (((Integer) state.getValue(AGE)).intValue() == 4)
             {
                 world.setBlockState(pos, state.withProperty(AGE, 2), 3);
-                EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Natura.INSTANCE.getItems().materials, 1, 3));
+                EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(ItemsNatura.materials, 1, 3));
                 world.spawnEntityInWorld(entityitem);
                 entityitem.onCollideWithPlayer(player);
             }
@@ -127,7 +128,7 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
                 return true;
 
             worldIn.setBlockState(pos, state.withProperty(AGE, 2), 3);
-            EntityItem entityitem = new EntityItem(worldIn, playerIn.posX, playerIn.posY - 1.0D, playerIn.posZ, new ItemStack(Natura.INSTANCE.getItems().materials, 1, 3));
+            EntityItem entityitem = new EntityItem(worldIn, playerIn.posX, playerIn.posY - 1.0D, playerIn.posZ, new ItemStack(ItemsNatura.materials, 1, 3));
             worldIn.spawnEntityInWorld(entityitem);
             entityitem.onCollideWithPlayer(playerIn);
             return true;
@@ -198,7 +199,7 @@ public class BlockNaturaCottonCrop extends BlockBush implements IGrowable
 
     protected Item getSeed()
     {
-        return Natura.INSTANCE.getItems().cotton_seeds;
+        return ItemsNatura.cotton_seeds;
     }
 
     @Override

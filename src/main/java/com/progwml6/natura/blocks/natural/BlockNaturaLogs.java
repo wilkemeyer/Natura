@@ -3,9 +3,12 @@ package com.progwml6.natura.blocks.natural;
 import java.util.List;
 import java.util.Random;
 
-import mantle.blocks.util.BlockVariant;
+import com.progwml6.natura.Natura;
+import com.progwml6.natura.NaturaCreativeTabs;
+
 import mantle.blocks.util.IBlockWithVariants;
-import mantle.blocks.util.PropertyVariant;
+import mantle.blocks.util.blockstates.BlockVariant;
+import mantle.blocks.util.blockstates.PropertyVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
@@ -23,12 +26,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import com.progwml6.natura.Natura;
-
 public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
 {
-    public static final BlockVariant
-            EUCALYPTUS = new BlockVariant(0, "eucalyptus_log"),
+    public static final BlockVariant EUCALYPTUS = new BlockVariant(0, "eucalyptus_log"),
             SAKURA = new BlockVariant(1, "sakura_log"),
             GHOSTWOOD = new BlockVariant(2, "ghostwood_log"),
             HOPSEED = new BlockVariant(3, "hopseed_log");
@@ -43,7 +43,7 @@ public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
         this.setStepSound(Block.soundTypeWood);
         Blocks.fire.setFireInfo(this, 5, 20);
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(LOG_TYPE, EUCALYPTUS).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
-        this.setCreativeTab(Natura.INSTANCE.getCreativeTabs().tabMisc);
+        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
     }
 
     @Override
@@ -90,7 +90,7 @@ public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        IBlockState iblockstate = this.getDefaultState().withProperty(LOG_TYPE, LOG_TYPE.getVariantFromMeta((meta & 3)));
+        IBlockState iblockstate = this.getDefaultState().withProperty(LOG_TYPE, LOG_TYPE.fromMeta((meta & 3)));
 
         switch (meta & 12)
         {
@@ -152,7 +152,7 @@ public class BlockNaturaLogs extends BlockLog implements IBlockWithVariants
     @Override
     public String getVariantNameFromStack(ItemStack stack)
     {
-        return LOG_TYPE.getVariantFromMeta(stack.getMetadata()).getName();
+        return LOG_TYPE.fromMeta(stack.getMetadata()).getName();
     }
 
     static final class SwitchEnumAxis

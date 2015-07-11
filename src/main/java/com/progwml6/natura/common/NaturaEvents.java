@@ -16,6 +16,7 @@ import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.progwml6.natura.Natura;
+import com.progwml6.natura.items.ItemsNatura;
 
 public class NaturaEvents
 {
@@ -49,7 +50,7 @@ public class NaturaEvents
         {
             ItemStack equipped = event.entityPlayer.getCurrentEquippedItem();
             EntityAnimal creature = (EntityAnimal) event.target;
-            if (equipped != null && equipped.getItem() == Natura.INSTANCE.getItems().barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
+            if (equipped != null && equipped.getItem() == ItemsNatura.barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
             {
                 EntityPlayer player = event.entityPlayer;
                 if (!player.capabilities.isCreativeMode)
@@ -77,8 +78,8 @@ public class NaturaEvents
 
         if (event.entity instanceof EntityChicken)
         {
-            ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, Natura.INSTANCE.getItems().cotton_seeds, false));
-            ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, Natura.INSTANCE.getItems().barley_seeds, false));
+            ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, ItemsNatura.cotton_seeds, false));
+            ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, ItemsNatura.barley_seeds, false));
         }
     }
 
