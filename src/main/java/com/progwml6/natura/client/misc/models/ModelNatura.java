@@ -25,6 +25,8 @@ public class ModelNatura extends ModelVariant
         this.addVariantNames(BlocksNatura.logs, "eucalyptus_log", "sakura_log", "ghostwood_log", "hopseed_log");
         this.addVariantNames(BlocksNatura.planks, "eucalyptus_planks", "sakura_planks", "ghostwood_planks", "redwood_planks", "bloodwood_planks", "hopseed_planks", "maple_planks", "silverbell_planks", "purpleheart_planks", "tiger_planks", "willow_planks", "darkwood_planks", "fusewood_planks", "redwood_bark", "redwood_heart", "redwood_root");
         this.addVariantNames(BlocksNatura.crafting_table, "table_eucalyptus", "table_sakura", "table_ghostwood", "table_redwood", "table_bloodwood", "table_hopseed", "table_maple", "table_silverbell", "table_purpleheart", "table_tiger", "table_willow", "table_darkwood", "table_fusewood");
+        this.addVariantNames(BlocksNatura.cottonCrop, "cotton_stage0");
+        this.addVariantNames(BlocksNatura.barleyCrop, "barley_stage0");
 
         this.addVariantNames(ItemsNatura.materials, "materials_barley_plant", "materials_barley_flour", "materials_wheat_flour", "materials_cotton_plant", "materials_sulfur", "materials_ghostwood_fletching", "materials_leather_imp", "materials_flamestring", "materials_dye_blue");
         this.addVariantNames(ItemsNatura.impMeat, "impmeat_raw", "impmeat_cooked");
@@ -33,8 +35,9 @@ public class ModelNatura extends ModelVariant
 
     public void init()
     {
-        this.registerBlockModel(BlocksNatura.cottonCrop);
-        this.registerBlockModel(BlocksNatura.barleyCrop);
+        this.registerBlockModel(BlocksNatura.cottonCrop, 0, getResource("cotton_stage0"));
+
+        this.registerBlockModel(BlocksNatura.barleyCrop, 0, getResource("barley_stage0"));
 
         this.registerBlockModel(BlocksNatura.clouds, BlockClouds.WHITE.getMeta(), getResource("cloud_white"));
         this.registerBlockModel(BlocksNatura.clouds, BlockClouds.GREY.getMeta(), getResource("cloud_gray"));

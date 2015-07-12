@@ -2,6 +2,15 @@ package com.progwml6.natura;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.progwml6.natura.common.CommonProxy;
+import com.progwml6.natura.common.NaturaEvents;
+import com.progwml6.natura.common.PHNatura;
+import com.progwml6.natura.worldgen.CloudWorldgen;
+import com.progwml6.natura.worldgen.CropWorldGen;
+
 import mantle.pulsar.control.PulseManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -12,15 +21,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.progwml6.natura.common.CommonProxy;
-import com.progwml6.natura.common.NaturaEvents;
-import com.progwml6.natura.common.PHNatura;
-import com.progwml6.natura.worldgen.CloudWorldgen;
-import com.progwml6.natura.worldgen.CropWorldGen;
 
 @Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
 public class Natura
@@ -48,7 +48,7 @@ public class Natura
         MinecraftForge.EVENT_BUS.register(new NaturaEvents());
         PHNatura.initProps(evt.getSuggestedConfigurationFile());
         pulsar.preInit(evt);
-        
+
         PROXY.preInit(evt);
     }
 

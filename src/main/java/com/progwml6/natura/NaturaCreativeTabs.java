@@ -1,12 +1,12 @@
 package com.progwml6.natura;
 
+import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.blocks.natural.BlockClouds;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.progwml6.natura.blocks.BlocksNatura;
-import com.progwml6.natura.blocks.natural.BlockClouds;
 
 public class NaturaCreativeTabs
 {

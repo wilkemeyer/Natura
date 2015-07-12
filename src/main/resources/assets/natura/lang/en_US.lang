@@ -1,5 +1,8 @@
 itemGroup.naturaMisc=Natura
 
+tile.cotton_crops.name=Cotton Crops
+tile.barley_crops.name=Barley Crops
+
 natura.item.cotton_seeds.name=Cotton Seeds
 natura.item.barley_seeds.name=Barley Seeds
 tooltip.barley=Similar to wheat, it grows in the wild
