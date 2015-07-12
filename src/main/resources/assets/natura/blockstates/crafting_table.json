@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "variant=table_eucalyptus": { "model": "natura:table_eucalyptus" },
+        "variant=table_sakura": { "model": "natura:table_sakura" },
+        "variant=table_ghostwood": { "model": "natura:table_ghostwood" },
+        "variant=table_redwood": { "model": "natura:table_redwood" },
+        "variant=table_bloodwood": { "model": "natura:table_bloodwood" },
+        "variant=table_hopseed": { "model": "natura:table_hopseed" },
+        "variant=table_maple": { "model": "natura:table_maple" },
+        "variant=table_silverbell": { "model": "natura:table_silverbell" },
+        "variant=table_purpleheart": { "model": "natura:table_purpleheart" },
+        "variant=table_tiger": { "model": "natura:table_tiger" },
+        "variant=table_willow": { "model": "natura:table_willow" },
+        "variant=table_darkwood": { "model": "natura:table_darkwood" },
+        "variant=table_fusewood": { "model": "natura:table_fusewood" }
+    }
+}

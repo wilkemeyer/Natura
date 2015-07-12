@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 import com.progwml6.natura.Natura;
@@ -17,11 +18,14 @@ import com.progwml6.natura.entity.HeatscarSpider;
 import com.progwml6.natura.entity.ImpEntity;
 import com.progwml6.natura.entity.NitroCreeper;
 import com.progwml6.natura.items.ItemsNatura;
+import com.progwml6.natura.network.NaturaGuiHandler;
 
 public class CommonProxy
 {
     public void preInit(FMLPreInitializationEvent event)
     {
+        NetworkRegistry.INSTANCE.registerGuiHandler(Natura.INSTANCE, new NaturaGuiHandler());
+
         BlocksNatura.preInit();
         ItemsNatura.preInit();
     }

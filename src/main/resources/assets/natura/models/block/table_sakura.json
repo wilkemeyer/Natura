@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "natura:blocks/sakura_workbench_face",
+        "down": "natura:blocks/sakura_planks",
+        "up": "natura:blocks/sakura_workbench_top",
+        "north": "natura:blocks/sakura_workbench_face",
+        "east": "natura:blocks/sakura_workbench_side",
+        "south": "natura:blocks/sakura_workbench_side",
+        "west": "natura:blocks/sakura_workbench_face"
+    }
+}

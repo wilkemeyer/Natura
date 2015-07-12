@@ -16,11 +16,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.progwml6.natura.blocks.BlocksNatura;
 import com.progwml6.natura.common.CommonProxy;
 import com.progwml6.natura.common.NaturaEvents;
 import com.progwml6.natura.common.PHNatura;
-import com.progwml6.natura.items.ItemsNatura;
 import com.progwml6.natura.worldgen.CloudWorldgen;
 import com.progwml6.natura.worldgen.CropWorldGen;
 

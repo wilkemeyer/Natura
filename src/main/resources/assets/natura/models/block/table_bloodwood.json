@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "natura:blocks/bloodwood_workbench_face",
+        "down": "natura:blocks/bloodwood_planks",
+        "up": "natura:blocks/bloodwood_workbench_top",
+        "north": "natura:blocks/bloodwood_workbench_face",
+        "east": "natura:blocks/bloodwood_workbench_side",
+        "south": "natura:blocks/bloodwood_workbench_side",
+        "west": "natura:blocks/bloodwood_workbench_face"
+    }
+}

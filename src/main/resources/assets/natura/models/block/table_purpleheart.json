@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "natura:blocks/purpleheart_workbench_face",
+        "down": "natura:blocks/purpleheart_planks",
+        "up": "natura:blocks/purpleheart_workbench_top",
+        "north": "natura:blocks/purpleheart_workbench_face",
+        "east": "natura:blocks/purpleheart_workbench_side",
+        "south": "natura:blocks/purpleheart_workbench_side",
+        "west": "natura:blocks/purpleheart_workbench_face"
+    }
+}
