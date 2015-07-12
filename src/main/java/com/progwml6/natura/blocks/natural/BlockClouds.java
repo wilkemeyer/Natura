@@ -3,8 +3,8 @@ package com.progwml6.natura.blocks.natural;
 import java.util.List;
 
 import com.progwml6.natura.Natura;
-import com.progwml6.natura.NaturaCreativeTabs;
 import com.progwml6.natura.blocks.BlocksNatura;
+import com.progwml6.natura.util.NaturaCreativeTabs;
 
 import mantle.blocks.util.IBlockWithVariants;
 import mantle.blocks.util.blockstates.BlockVariant;

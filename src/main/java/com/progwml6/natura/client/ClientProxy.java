@@ -9,22 +9,22 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import com.progwml6.natura.NaturaCreativeTabs;
-import com.progwml6.natura.client.misc.GrassColorizerAlternate;
-import com.progwml6.natura.client.misc.NCropsTickHandler;
-import com.progwml6.natura.client.misc.models.ImpModel;
-import com.progwml6.natura.client.misc.models.ModelNatura;
-import com.progwml6.natura.client.misc.renders.FlameSpiderBabyRender;
-import com.progwml6.natura.client.misc.renders.FlameSpiderRender;
-import com.progwml6.natura.client.misc.renders.FusewoodArrowRender;
-import com.progwml6.natura.client.misc.renders.ImpRender;
-import com.progwml6.natura.client.misc.renders.NitroCreeperRender;
-import com.progwml6.natura.common.CommonProxy;
-import com.progwml6.natura.entity.BabyHeatscarSpider;
-import com.progwml6.natura.entity.FusewoodArrow;
-import com.progwml6.natura.entity.HeatscarSpider;
-import com.progwml6.natura.entity.ImpEntity;
-import com.progwml6.natura.entity.NitroCreeper;
+import com.progwml6.natura.CommonProxy;
+import com.progwml6.natura.client.models.ImpModel;
+import com.progwml6.natura.client.models.ModelNatura;
+import com.progwml6.natura.client.renderer.GrassColorizerAlternate;
+import com.progwml6.natura.client.renderer.NCropsTickHandler;
+import com.progwml6.natura.client.renderer.entity.FlameSpiderBabyRender;
+import com.progwml6.natura.client.renderer.entity.FlameSpiderRender;
+import com.progwml6.natura.client.renderer.entity.FusewoodArrowRender;
+import com.progwml6.natura.client.renderer.entity.ImpRender;
+import com.progwml6.natura.client.renderer.entity.NitroCreeperRender;
+import com.progwml6.natura.util.NaturaCreativeTabs;
+import com.progwml6.natura.world.entities.BabyHeatscarSpider;
+import com.progwml6.natura.world.entities.FusewoodArrow;
+import com.progwml6.natura.world.entities.HeatscarSpider;
+import com.progwml6.natura.world.entities.ImpEntity;
+import com.progwml6.natura.world.entities.NitroCreeper;
 
 public class ClientProxy extends CommonProxy
 {

@@ -7,16 +7,16 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.progwml6.natura.Natura;
 import com.progwml6.natura.blocks.BlocksNatura;
-import com.progwml6.natura.items.food.ItemEmptyBowl;
-import com.progwml6.natura.items.food.ItemImpMeat;
-import com.progwml6.natura.items.food.ItemStewBowl;
-import com.progwml6.natura.items.itemblocks.crops.ItemNaturaSeeds;
-import com.progwml6.natura.items.misc.ItemNaturaMaterial;
-import com.progwml6.natura.items.misc.ItemNaturaSpawnEgg;
+import com.progwml6.natura.items.consumables.ItemImpMeat;
+import com.progwml6.natura.items.consumables.ItemStewBowl;
 import com.progwml6.natura.items.tools.ItemNaturaAxe;
 import com.progwml6.natura.items.tools.ItemNaturaPickaxe;
 import com.progwml6.natura.items.tools.ItemNaturaShovel;
 import com.progwml6.natura.items.tools.ItemNaturaSword;
+import com.progwml6.natura.items.util.ItemEmptyBowl;
+import com.progwml6.natura.items.util.ItemNaturaMaterial;
+import com.progwml6.natura.items.util.ItemNaturaSeeds;
+import com.progwml6.natura.items.util.ItemNaturaSpawnEgg;
 
 public class ItemsNatura
 {

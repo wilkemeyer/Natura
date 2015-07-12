@@ -5,14 +5,11 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.progwml6.natura.common.CommonProxy;
-import com.progwml6.natura.common.NaturaEvents;
-import com.progwml6.natura.common.PHNatura;
-import com.progwml6.natura.worldgen.CloudWorldgen;
-import com.progwml6.natura.worldgen.CropWorldGen;
+import com.progwml6.natura.move.PHNatura;
+import com.progwml6.natura.world.CloudWorldgen;
+import com.progwml6.natura.world.CropWorldGen;
 
 import mantle.pulsar.control.PulseManager;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -33,7 +30,7 @@ public class Natura
     public static final PulseManager pulsar = new PulseManager(MOD_ID);
 
     /* Proxies for sides, used for graphics processing */
-    @SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.common.CommonProxy")
+    @SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.CommonProxy")
     public static CommonProxy PROXY;
 
     public static Logger logger = LogManager.getLogger(MOD_ID);
@@ -45,7 +42,6 @@ public class Natura
     @EventHandler
     public void preInit(FMLPreInitializationEvent evt)
     {
-        MinecraftForge.EVENT_BUS.register(new NaturaEvents());
         PHNatura.initProps(evt.getSuggestedConfigurationFile());
         pulsar.preInit(evt);
 

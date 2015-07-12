@@ -5,17 +5,17 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import com.progwml6.natura.blocks.crops.BlockNaturaBarleyCrop;
-import com.progwml6.natura.blocks.crops.BlockNaturaCottonCrop;
-import com.progwml6.natura.blocks.material.CloudMaterial;
-import com.progwml6.natura.blocks.misc.BlockNaturaWorkbench;
+import com.progwml6.natura.blocks.construction.BlockNaturaWorkbench;
 import com.progwml6.natura.blocks.natural.BlockClouds;
+import com.progwml6.natura.blocks.natural.BlockNaturaBarleyCrop;
+import com.progwml6.natura.blocks.natural.BlockNaturaCottonCrop;
 import com.progwml6.natura.blocks.natural.BlockNaturaLogs;
 import com.progwml6.natura.blocks.natural.BlockNaturaPlanks;
-import com.progwml6.natura.items.itemblocks.misc.ItemBlockWorkbench;
-import com.progwml6.natura.items.itemblocks.natural.ItemBlockClouds;
-import com.progwml6.natura.items.itemblocks.natural.ItemBlockNaturaLogs;
-import com.progwml6.natura.items.itemblocks.natural.ItemBlockNaturaPlanks;
+import com.progwml6.natura.blocks.util.CloudMaterial;
+import com.progwml6.natura.items.itemblocks.ItemBlockClouds;
+import com.progwml6.natura.items.itemblocks.ItemBlockNaturaLogs;
+import com.progwml6.natura.items.itemblocks.ItemBlockNaturaPlanks;
+import com.progwml6.natura.items.itemblocks.ItemBlockWorkbench;
 
 public class BlocksNatura
 {
