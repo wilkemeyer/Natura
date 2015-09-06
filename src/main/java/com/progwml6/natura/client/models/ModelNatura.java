@@ -10,16 +10,13 @@ import com.progwml6.natura.common.blocks.construction.BlockNaturaWorkbench;
 import com.progwml6.natura.common.blocks.natural.BlockClouds;
 import com.progwml6.natura.common.blocks.natural.BlockNaturaLogs;
 import com.progwml6.natura.common.blocks.natural.BlockNaturaPlanks;
-import com.progwml6.natura.common.blocks.natural.plants.BlockNaturaSapling;
 import com.progwml6.natura.common.items.ItemsNatura;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ModelNatura
 {
@@ -43,7 +40,7 @@ public class ModelNatura
 	 */
 	private static void registerStateMappers()
 	{
-		ModelLoader.setCustomStateMapper(BlocksNatura.sapling, new StateMap.Builder().ignore(BlockNaturaSapling.PROPERTY_STAGE).build());
+		//ModelLoader.setCustomStateMapper(BlocksNatura.sapling, new StateMap.Builder().ignore(BlockNaturaSapling.PROPERTY_STAGE).build());
 	}
 
 	private static void defineModels()
