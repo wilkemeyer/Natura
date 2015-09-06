@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "variant=eucalyptus_sapling": { "model": "natura:saplings/eucalyptus_sapling" },
+        "variant=sakura_sapling": { "model": "natura:saplings/sakura_sapling" },
+        "variant=ghostwood_sapling": { "model": "natura:saplings/ghostwood_sapling" },
+        "variant=redwood_sapling": { "model": "natura:saplings/redwood_sapling" },
+        "variant=bloodwood_sapling": { "model": "natura:saplings/bloodwood_sapling" },
+        "variant=hopseed_sapling": { "model": "natura:saplings/hopseed_sapling" },
+        "variant=maple_sapling": { "model": "natura:saplings/maple_sapling" },
+        "variant=silverbell_sapling": { "model": "natura:saplings/silverbell_sapling" },
+        "variant=purpleheart_sapling": { "model": "natura:saplings/purpleheart_sapling" },
+        "variant=tiger_sapling": { "model": "natura:saplings/tiger_sapling" },
+        "variant=willow_sapling": { "model": "natura:saplings/willow_sapling" },
+        "variant=darkwood_sapling": { "model": "natura:saplings/darkwood_sapling" },
+        "variant=fusewood_sapling": { "model": "natura:saplings/fusewood_sapling" }
+    }
+}

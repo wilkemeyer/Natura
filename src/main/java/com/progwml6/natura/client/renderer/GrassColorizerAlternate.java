@@ -1,6 +1,6 @@
 package com.progwml6.natura.client.renderer;
 
-import com.progwml6.natura.Natura;
+import com.progwml6.natura.common.Natura;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "natura:blocks/tables/hopseed_workbench_face",
+        "down": "natura:blocks/planks/hopseed_planks",
+        "up": "natura:blocks/tables/hopseed_workbench_top",
+        "north": "natura:blocks/tables/hopseed_workbench_face",
+        "east": "natura:blocks/tables/hopseed_workbench_side",
+        "south": "natura:blocks/tables/hopseed_workbench_side",
+        "west": "natura:blocks/tables/hopseed_workbench_face"
+    }
+}

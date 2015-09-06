@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "natura:blocks/tables/fusewood_workbench_face",
+        "down": "natura:blocks/planks/fusewood_planks",
+        "up": "natura:blocks/tables/fusewood_workbench_top",
+        "north": "natura:blocks/tables/fusewood_workbench_face",
+        "east": "natura:blocks/tables/fusewood_workbench_side",
+        "south": "natura:blocks/tables/fusewood_workbench_side",
+        "west": "natura:blocks/tables/fusewood_workbench_face"
+    }
+}

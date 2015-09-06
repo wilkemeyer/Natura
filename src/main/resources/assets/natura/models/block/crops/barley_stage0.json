@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "natura:blocks/crops/barley_stage_0"
+    }
+}

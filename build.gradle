@@ -4,26 +4,26 @@
  * Based on TConstruct's master build file
  * Authors: Sunstrike, ProgWML6
  * Help from AbrarSyed
- */
+*/
 
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
         maven {
-            name = 'ForgeFS'
-            url = 'http://files.minecraftforge.net/maven'
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
         }
         maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
-
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
     }
 }
-
+apply plugin: 'net.minecraftforge.gradle.forge'
 
 repositories {
     maven {
@@ -44,22 +44,20 @@ repositories {
     }
 }
 
-
-apply plugin: 'forge'
 group = 'com.progwml6.natura'
 
 // define the properties file
 ext.configFile = file "build.properties"
 
 configFile.withReader {
-    // read config.  it shall from now on be referenced as simply config or as project.config
+    // Load config.  It shall from now be referenced as simply config or project.config
     def prop = new Properties()
     prop.load(it)
     project.ext.config = new ConfigSlurper().parse prop
 }
 
 dependencies {
-    compile "mantle:Mantle:${config.minecraft_version}-${config.mantle_version}:deobf"
+    //compile "mantle:Mantle:${config.minecraft_version}-${config.mantle_version}:deobf"
     //compile "tconstruct:TConstruct:${config.minecraft_version}-${config.tconstruct_version}:deobf"
     compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.CCLIB_version}:dev"
     //compile "codechicken:ForgeMultipart:${config.minecraft_version}-${config.FMP_version}:dev"
@@ -90,44 +88,41 @@ task buildInfo {
         ext.buildNum = "DEV"
     }
 }
+
 version = "${minecraft.version}-${project.buildInfo.buildNum}.${project.buildInfo.revision}"
 
 processResources
 {
-        // replace stuff in text files, not binary ones.
+    // replace stuff in text files, not binary ones.
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
-
-                // replace version and MCVersion
-      expand 'version':project.version, 'mcversion':project.minecraft.version
+        // replace version and MCVersion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
-        // copy everything else, thats not text
+    // copy everything else, thats not text
     from(sourceSets.main.resources.srcDirs) {
         exclude '**/*.info'
     }
 }
 
 // because the normal output has been made to be obfuscated
-task devjar(type: Jar) {
+task deobfJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'deobf'
 }
 
-task sourcesjar(type: Jar) {
+task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     classifier = 'sources'
 }
 
 artifacts {
-    archives devjar
-    archives sourcesjar
+    archives deobfJar
+    archives sourcesJar
 }
 
 task("uploadJars", dependsOn:"reobf") {
-    
     description = "uploads JARs"
-
     if (project.hasProperty("local_maven")) {
 	    apply plugin: 'maven'
             uploadArchives {
@@ -139,5 +134,3 @@ task("uploadJars", dependsOn:"reobf") {
         }
     }
 }
-
-

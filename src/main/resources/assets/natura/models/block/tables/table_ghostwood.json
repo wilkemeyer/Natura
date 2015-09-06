@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "natura:blocks/tables/ghostwood_workbench_face",
+        "down": "natura:blocks/planks/ghostwood_planks",
+        "up": "natura:blocks/tables/ghostwood_workbench_top",
+        "north": "natura:blocks/tables/ghostwood_workbench_face",
+        "east": "natura:blocks/tables/ghostwood_workbench_side",
+        "south": "natura:blocks/tables/ghostwood_workbench_side",
+        "west": "natura:blocks/tables/ghostwood_workbench_face"
+    }
+}

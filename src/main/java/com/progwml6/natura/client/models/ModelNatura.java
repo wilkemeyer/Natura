@@ -1,134 +1,212 @@
 package com.progwml6.natura.client.models;
 
-import com.progwml6.natura.Natura;
-import com.progwml6.natura.blocks.BlocksNatura;
-import com.progwml6.natura.blocks.construction.BlockNaturaWorkbench;
-import com.progwml6.natura.blocks.natural.BlockClouds;
-import com.progwml6.natura.blocks.natural.BlockNaturaLogs;
-import com.progwml6.natura.blocks.natural.BlockNaturaPlanks;
-import com.progwml6.natura.items.ItemsNatura;
-import com.progwml6.natura.util.NaturaCreativeTabs;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
-import mantle.client.ModelVariant;
+import com.progwml6.natura.client.models.util.ModelResourceList;
+import com.progwml6.natura.common.blocks.BlocksNatura;
+import com.progwml6.natura.common.blocks.construction.BlockNaturaWorkbench;
+import com.progwml6.natura.common.blocks.natural.BlockClouds;
+import com.progwml6.natura.common.blocks.natural.BlockNaturaLogs;
+import com.progwml6.natura.common.blocks.natural.BlockNaturaPlanks;
+import com.progwml6.natura.common.blocks.natural.plants.BlockNaturaSapling;
+import com.progwml6.natura.common.items.ItemsNatura;
+
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.statemap.StateMap;
+import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 
-public class ModelNatura extends ModelVariant
+public class ModelNatura
 {
-    public ModelNatura()
-    {
-        super(Natura.MOD_ID, Minecraft.getMinecraft());
-    }
+	private static HashMap<Item, ModelResourceList> models = new HashMap<Item, ModelResourceList>();
 
-    public void preInit()
-    {
-        this.addVariantNames(BlocksNatura.clouds, "cloud_white", "cloud_gray", "cloud_dark", "cloud_sulfur");
-        this.addVariantNames(BlocksNatura.logs, "eucalyptus_log", "sakura_log", "ghostwood_log", "hopseed_log");
-        this.addVariantNames(BlocksNatura.planks, "eucalyptus_planks", "sakura_planks", "ghostwood_planks", "redwood_planks", "bloodwood_planks", "hopseed_planks", "maple_planks", "silverbell_planks", "purpleheart_planks", "tiger_planks", "willow_planks", "darkwood_planks", "fusewood_planks", "redwood_bark", "redwood_heart", "redwood_root");
-        this.addVariantNames(BlocksNatura.crafting_table, "table_eucalyptus", "table_sakura", "table_ghostwood", "table_redwood", "table_bloodwood", "table_hopseed", "table_maple", "table_silverbell", "table_purpleheart", "table_tiger", "table_willow", "table_darkwood", "table_fusewood");
-        this.addVariantNames(BlocksNatura.cottonCrop, "cotton_stage0");
-        this.addVariantNames(BlocksNatura.barleyCrop, "barley_stage0");
+	public static void preInit()
+	{
+		registerStateMappers();
+		defineModels();
 
-        this.addVariantNames(ItemsNatura.materials, "materials_barley_plant", "materials_barley_flour", "materials_wheat_flour", "materials_cotton_plant", "materials_sulfur", "materials_ghostwood_fletching", "materials_leather_imp", "materials_flamestring", "materials_dye_blue");
-        this.addVariantNames(ItemsNatura.impMeat, "impmeat_raw", "impmeat_cooked");
-        this.addVariantNames(ItemsNatura.bowlEmpty, "bowl_empty_bowl", "bowl_empty_ghostwood", "bowl_empty_bloodwood", "bowl_empty_darkwood", "bowl_empty_fusewood");
-    }
+		prepareModels();
+	}
 
-    public void init()
-    {
-        this.registerBlockModel(BlocksNatura.cottonCrop, 0, getResource("cotton_stage0"));
+	public static void init()
+	{
+		registerModels();
+	}
 
-        this.registerBlockModel(BlocksNatura.barleyCrop, 0, getResource("barley_stage0"));
+	/**
+	 * Used to configure how blockstate files are read(?). Called during pre-initialization phase.
+	 */
+	private static void registerStateMappers()
+	{
+		ModelLoader.setCustomStateMapper(BlocksNatura.sapling, new StateMap.Builder().ignore(BlockNaturaSapling.PROPERTY_STAGE).build());
+	}
 
-        this.registerBlockModel(BlocksNatura.clouds, BlockClouds.WHITE.getMeta(), getResource("cloud_white"));
-        this.registerBlockModel(BlocksNatura.clouds, BlockClouds.GREY.getMeta(), getResource("cloud_gray"));
-        this.registerBlockModel(BlocksNatura.clouds, BlockClouds.DARK.getMeta(), getResource("cloud_dark"));
-        this.registerBlockModel(BlocksNatura.clouds, BlockClouds.SULFER.getMeta(), getResource("cloud_sulfur"));
+	private static void defineModels()
+	{
+		registerModelList(getItem(BlocksNatura.clouds), new ModelResourceList("clouds/")
+				.add(BlockClouds.WHITE_CLOUD.getMeta(), "cloud_white")
+				.add(BlockClouds.GREY_CLOUD.getMeta(), "cloud_gray")
+				.add(BlockClouds.DARK_CLOUD.getMeta(), "cloud_dark")
+				.add(BlockClouds.SULFER_CLOUD.getMeta(), "cloud_sulfur"));
 
-        this.registerBlockModel(BlocksNatura.logs, BlockNaturaLogs.EUCALYPTUS.getMeta(), getResource("eucalyptus_log"));
-        this.registerBlockModel(BlocksNatura.logs, BlockNaturaLogs.SAKURA.getMeta(), getResource("sakura_log"));
-        this.registerBlockModel(BlocksNatura.logs, BlockNaturaLogs.GHOSTWOOD.getMeta(), getResource("ghostwood_log"));
-        this.registerBlockModel(BlocksNatura.logs, BlockNaturaLogs.HOPSEED.getMeta(), getResource("hopseed_log"));
+		registerModelList(getItem(BlocksNatura.logs), new ModelResourceList("logs/")
+				.add(BlockNaturaLogs.EUCALYPTUS_LOG.getMeta(), "eucalyptus_log")
+				.add(BlockNaturaLogs.SAKURA_LOG.getMeta(), "sakura_log")
+				.add(BlockNaturaLogs.GHOSTWOOD_LOG.getMeta(), "ghostwood_log")
+				.add(BlockNaturaLogs.HOPSEED_LOG.getMeta(), "hopseed_log"));
 
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.EUCALYPTUS.getMeta(), getResource("eucalyptus_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.SAKURA.getMeta(), getResource("sakura_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.GHOSTWOOD.getMeta(), getResource("ghostwood_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.REDWOOD.getMeta(), getResource("redwood_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.BLOODWOOD.getMeta(), getResource("bloodwood_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.HOPSEED.getMeta(), getResource("hopseed_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.MAPLE.getMeta(), getResource("maple_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.SILVERBELL.getMeta(), getResource("silverbell_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.PURPLEHEART.getMeta(), getResource("purpleheart_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.TIGER.getMeta(), getResource("tiger_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.WILLOW.getMeta(), getResource("willow_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.DARKWOOD.getMeta(), getResource("darkwood_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.FUSEWOOD.getMeta(), getResource("fusewood_planks"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.REDWOOD_BARK.getMeta(), getResource("redwood_bark"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.REDWOOD_HEART.getMeta(), getResource("redwood_heart"));
-        this.registerBlockModel(BlocksNatura.planks, BlockNaturaPlanks.REDWOOD_ROOT.getMeta(), getResource("redwood_root"));
+		registerModelList(getItem(BlocksNatura.planks), new ModelResourceList("planks/")
+				.add(BlockNaturaPlanks.EUCALYPTUS_PLANKS.getMeta(), "eucalyptus_planks")
+				.add(BlockNaturaPlanks.SAKURA_PLANKS.getMeta(), "sakura_planks")
+				.add(BlockNaturaPlanks.GHOSTWOOD_PLANKS.getMeta(), "ghostwood_planks")
+				.add(BlockNaturaPlanks.REDWOOD_PLANKS.getMeta(), "redwood_planks")
+				.add(BlockNaturaPlanks.BLOODWOOD_PLANKS.getMeta(), "bloodwood_planks")
+				.add(BlockNaturaPlanks.HOPSEED_PLANKS.getMeta(), "hopseed_planks")
+				.add(BlockNaturaPlanks.MAPLE_PLANKS.getMeta(), "maple_planks")
+				.add(BlockNaturaPlanks.SILVERBELL_PLANKS.getMeta(), "silverbell_planks")
+				.add(BlockNaturaPlanks.PURPLEHEART_PLANKS.getMeta(), "purpleheart_planks")
+				.add(BlockNaturaPlanks.TIGER_PLANKS.getMeta(), "tiger_planks")
+				.add(BlockNaturaPlanks.WILLOW_PLANKS.getMeta(), "willow_planks")
+				.add(BlockNaturaPlanks.DARKWOOD_PLANKS.getMeta(), "darkwood_planks")
+				.add(BlockNaturaPlanks.FUSEWOOD_PLANKS.getMeta(), "fusewood_planks")
+				.add(BlockNaturaPlanks.REDWOOD_BARK_PLANKS.getMeta(), "redwood_bark")
+				.add(BlockNaturaPlanks.REDWOOD_HEART_PLANKS.getMeta(), "redwood_heart")
+				.add(BlockNaturaPlanks.REDWOOD_ROOT_PLANKS.getMeta(), "redwood_root"));
 
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.EUCALYPTUS.getMeta(), getResource("table_eucalyptus"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.SAKURA.getMeta(), getResource("table_sakura"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.GHOSTWOOD.getMeta(), getResource("table_ghostwood"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.REDWOOD.getMeta(), getResource("table_redwood"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.BLOODWOOD.getMeta(), getResource("table_bloodwood"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.HOPSEED.getMeta(), getResource("table_hopseed"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.MAPLE.getMeta(), getResource("table_maple"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.SILVERBELL.getMeta(), getResource("table_silverbell"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.PURPLEHEART.getMeta(), getResource("table_purpleheart"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.TIGER.getMeta(), getResource("table_tiger"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.WILLOW.getMeta(), getResource("table_willow"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.DARKWOOD.getMeta(), getResource("table_darkwood"));
-        this.registerBlockModel(BlocksNatura.crafting_table, BlockNaturaWorkbench.FUSEWOOD.getMeta(), getResource("table_fusewood"));
+		registerModelList(getItem(BlocksNatura.crafting_table), new ModelResourceList("tables/")
+				.add(BlockNaturaWorkbench.EUCALYPTUS.getMeta(), "table_eucalyptus")
+				.add(BlockNaturaWorkbench.SAKURA.getMeta(), "table_sakura")
+				.add(BlockNaturaWorkbench.GHOSTWOOD.getMeta(), "table_ghostwood")
+				.add(BlockNaturaWorkbench.REDWOOD.getMeta(), "table_redwood")
+				.add(BlockNaturaWorkbench.BLOODWOOD.getMeta(), "table_bloodwood")
+				.add(BlockNaturaWorkbench.HOPSEED.getMeta(), "table_hopseed")
+				.add(BlockNaturaWorkbench.MAPLE.getMeta(), "table_maple")
+				.add(BlockNaturaWorkbench.SILVERBELL.getMeta(), "table_silverbell")
+				.add(BlockNaturaWorkbench.PURPLEHEART.getMeta(), "table_purpleheart")
+				.add(BlockNaturaWorkbench.TIGER.getMeta(), "table_tiger")
+				.add(BlockNaturaWorkbench.WILLOW.getMeta(), "table_willow")
+				.add(BlockNaturaWorkbench.DARKWOOD.getMeta(), "table_darkwood")
+				.add(BlockNaturaWorkbench.FUSEWOOD.getMeta(), "table_fusewood"));
 
-        this.registerItemModel(ItemsNatura.cotton_seeds);
-        this.registerItemModel(ItemsNatura.barley_seeds);
+		registerModelList(getItem(BlocksNatura.cotton_crop), new ModelResourceList("crops/")
+				.add(0, "cotton_stage0")
+				.add(1, "cotton_stage1")
+				.add(2, "cotton_stage2")
+				.add(3, "cotton_stage3")
+				.add(4, "cotton_stage4"));
+		registerModelList(getItem(BlocksNatura.barley_crop), new ModelResourceList("crops/")
+				.add(0, "barley_stage0")
+				.add(1, "barley_stage1")
+				.add(2, "barley_stage2")
+				.add(3, "barley_stage3"));
 
-        this.registerItemModel(ItemsNatura.materials, 0, getResource("materials_barley_plant"));
-        this.registerItemModel(ItemsNatura.materials, 1, getResource("materials_barley_flour"));
-        this.registerItemModel(ItemsNatura.materials, 2, getResource("materials_wheat_flour"));
-        this.registerItemModel(ItemsNatura.materials, 3, getResource("materials_cotton_plant"));
-        this.registerItemModel(ItemsNatura.materials, 4, getResource("materials_sulfur"));
-        this.registerItemModel(ItemsNatura.materials, 5, getResource("materials_ghostwood_fletching"));
-        this.registerItemModel(ItemsNatura.materials, 6, getResource("materials_leather_imp"));
-        this.registerItemModel(ItemsNatura.materials, 7, getResource("materials_flamestring"));
-        this.registerItemModel(ItemsNatura.materials, 8, getResource("materials_dye_blue"));
+		registerModelList(ItemsNatura.cotton_seeds, new ModelResourceList("seeds/").add(0, "cotton_seeds"));
+		registerModelList(ItemsNatura.barley_seeds, new ModelResourceList("seeds/").add(0, "barley_seeds"));
 
-        this.registerItemModel(ItemsNatura.impMeat, 0, getResource("impmeat_raw"));
-        this.registerItemModel(ItemsNatura.impMeat, 1, getResource("impmeat_cooked"));
+		registerModelList(ItemsNatura.spawn_egg, new ModelResourceList()
+				.add(0, "spawn_egg")
+				.add(1, "spawn_egg")
+				.add(2, "spawn_egg")
+				.add(3, "spawn_egg"));
 
-        this.registerItemModel(ItemsNatura.bowlEmpty, 0, getResource("bowl_empty_bowl"));
-        this.registerItemModel(ItemsNatura.bowlEmpty, 1, getResource("bowl_empty_ghostwood"));
-        this.registerItemModel(ItemsNatura.bowlEmpty, 2, getResource("bowl_empty_bloodwood"));
-        this.registerItemModel(ItemsNatura.bowlEmpty, 3, getResource("bowl_empty_darkwood"));
-        this.registerItemModel(ItemsNatura.bowlEmpty, 4, getResource("bowl_empty_fusewood"));
+		registerModelList(ItemsNatura.impMeat, new ModelResourceList("consumables/")
+				.add(0, "impmeat_raw")
+				.add(1, "impmeat_cooked"));
 
-        //this.registerItemModelVariants(ItemsNatura.bowlEmpty);
-        this.registerItemSubTypesModel(ItemsNatura.spawn_egg, NaturaCreativeTabs.tabMisc);
+		registerModelList(ItemsNatura.bowlEmpty, new ModelResourceList("bowls/")
+				.add(0, "bowl_empty_bowl")
+				.add(1, "bowl_empty_ghostwood")
+				.add(2, "bowl_empty_bloodwood")
+				.add(3, "bowl_empty_darkwood")
+				.add(4, "bowl_empty_fusewood"));
 
-        this.registerItemModel(ItemsNatura.ghostwoodPickaxe);
-        this.registerItemModel(ItemsNatura.ghostwoodAxe);
-        this.registerItemModel(ItemsNatura.ghostwoodShovel);
-        this.registerItemModel(ItemsNatura.ghostwoodSword);
+		registerModelList(ItemsNatura.materials, new ModelResourceList("materials/")
+				.add(0, "materials_barley_plant")
+				.add(1, "materials_barley_flour")
+				.add(2, "materials_wheat_flour")
+				.add(3, "materials_cotton_plant")
+				.add(4, "materials_sulfur")
+				.add(5, "materials_ghostwood_fletching")
+				.add(6, "materials_leather_imp")
+				.add(7, "materials_flamestring")
+				.add(8, "materials_dye_blue"));
 
-        this.registerItemModel(ItemsNatura.bloodwoodPickaxe);
-        this.registerItemModel(ItemsNatura.bloodwoodAxe);
-        this.registerItemModel(ItemsNatura.bloodwoodShovel);
-        this.registerItemModel(ItemsNatura.bloodwoodSword);
+		registerModelList(ItemsNatura.ghostwood_pickaxe, new ModelResourceList("tools/").add(0, "ghostwood_pickaxe"));
+		registerModelList(ItemsNatura.ghostwood_axe, new ModelResourceList("tools/").add(0, "ghostwood_axe"));
+		registerModelList(ItemsNatura.ghostwood_shovel, new ModelResourceList("tools/").add(0, "ghostwood_shovel"));
+		registerModelList(ItemsNatura.ghostwood_sword, new ModelResourceList("weapons/").add(0, "ghostwood_sword"));
 
-        this.registerItemModel(ItemsNatura.darkwoodPickaxe);
-        this.registerItemModel(ItemsNatura.darkwoodAxe);
-        this.registerItemModel(ItemsNatura.darkwoodShovel);
-        this.registerItemModel(ItemsNatura.darkwoodSword);
+		registerModelList(ItemsNatura.bloodwood_pickaxe, new ModelResourceList("tools/").add(0, "bloodwood_pickaxe"));
+		registerModelList(ItemsNatura.bloodwood_axe, new ModelResourceList("tools/").add(0, "bloodwood_axe"));
+		registerModelList(ItemsNatura.bloodwood_shovel, new ModelResourceList("tools/").add(0, "bloodwood_shovel"));
+		registerModelList(ItemsNatura.bloodwood_sword, new ModelResourceList("weapons/").add(0, "bloodwood_sword"));
 
-        this.registerItemModel(ItemsNatura.fusewoodPickaxe);
-        this.registerItemModel(ItemsNatura.fusewoodAxe);
-        this.registerItemModel(ItemsNatura.fusewoodShovel);
-        this.registerItemModel(ItemsNatura.fusewoodSword);
+		registerModelList(ItemsNatura.darkwood_pickaxe, new ModelResourceList("tools/").add(0, "darkwood_pickaxe"));
+		registerModelList(ItemsNatura.darkwood_axe, new ModelResourceList("tools/").add(0, "darkwood_axe"));
+		registerModelList(ItemsNatura.darkwood_shovel, new ModelResourceList("tools/").add(0, "darkwood_shovel"));
+		registerModelList(ItemsNatura.darkwood_sword, new ModelResourceList("weapons/").add(0, "darkwood_sword"));
 
-        this.registerItemModel(ItemsNatura.netherquartzPickaxe);
-        this.registerItemModel(ItemsNatura.netherquartzAxe);
-        this.registerItemModel(ItemsNatura.netherquartzShovel);
-        this.registerItemModel(ItemsNatura.netherquartzSword);
-    }
+		registerModelList(ItemsNatura.fusewood_pickaxe, new ModelResourceList("tools/").add(0, "fusewood_pickaxe"));
+		registerModelList(ItemsNatura.fusewood_axe, new ModelResourceList("tools/").add(0, "fusewood_axe"));
+		registerModelList(ItemsNatura.fusewood_shovel, new ModelResourceList("tools/").add(0, "fusewood_shovel"));
+		registerModelList(ItemsNatura.fusewood_sword, new ModelResourceList("weapons/").add(0, "fusewood_sword"));
 
+		registerModelList(ItemsNatura.netherquartz_pickaxe, new ModelResourceList("tools/").add(0, "netherquartz_pickaxe"));
+		registerModelList(ItemsNatura.netherquartz_axe, new ModelResourceList("tools/").add(0, "netherquartz_axe"));
+		registerModelList(ItemsNatura.netherquartz_shovel, new ModelResourceList("tools/").add(0, "netherquartz_shovel"));
+		registerModelList(ItemsNatura.netherquartz_sword, new ModelResourceList("weapons/").add(0, "netherquartz_sword"));
+	}
+
+	private static void registerModelList(Item item, ModelResourceList list)
+	{
+		models.put(item, list);
+	}
+
+	private static void prepareModels()
+	{
+		for (Map.Entry<Item, ModelResourceList> entry : models.entrySet())
+		{
+			Item item = entry.getKey();
+
+			Collection<String> registrations = entry.getValue().getRegistrations().values();
+
+			for (String registration : registrations)
+			{
+				ModelBakery.addVariantName(item, registration);
+			}
+		}
+	}
+
+	private static void registerModels()
+	{
+		for (HashMap.Entry<Item, ModelResourceList> entry : models.entrySet())
+		{
+			Item item = entry.getKey();
+
+			HashMap<Integer, String> registrations = entry.getValue().getRegistrations();
+
+			for (Map.Entry<Integer, String> registration : registrations.entrySet())
+			{
+				int meta = registration.getKey();
+				String path = registration.getValue();
+
+				ModelResourceLocation resource = new ModelResourceLocation(path, "inventory");
+
+				Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, meta, resource);
+			}
+		}
+	}
+
+	/**
+	 * Shorthand utility method for Item.getItemFromBlock(block).
+	 */
+	private static Item getItem(Block block)
+	{
+		return Item.getItemFromBlock(block);
+	}
 }

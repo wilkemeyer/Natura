@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.progwml6.natura.world.entities.FusewoodArrow;
+import com.progwml6.natura.common.world.entites.FusewoodArrow;
 
 @SideOnly(Side.CLIENT)
 public class FusewoodArrowRender extends Render

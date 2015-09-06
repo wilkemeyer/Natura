@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.progwml6.natura.world.entities.HeatscarSpider;
+import com.progwml6.natura.common.world.entites.HeatscarSpider;
 
 public class FlameSpiderRender extends RenderSpider
 {
