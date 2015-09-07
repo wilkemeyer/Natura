@@ -49,7 +49,7 @@ public class CommonEvents
 		{
 			ItemStack equipped = event.entityPlayer.getCurrentEquippedItem();
 			EntityAnimal creature = (EntityAnimal) event.target;
-			if (equipped != null && equipped.getItem() == ItemsNatura.barley_seeds && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
+			if (equipped != null && equipped.getItem() == ItemsNatura.materials && equipped.getItemDamage() == 0 && creature.getGrowingAge() == 0 && !creature.isInLove())
 			{
 				EntityPlayer player = event.entityPlayer;
 				if (!player.capabilities.isCreativeMode)
@@ -70,10 +70,10 @@ public class CommonEvents
 	@SubscribeEvent
 	public void spawnEvent(EntityJoinWorldEvent event)
 	{
-		//if (event.entity instanceof EntityCow || event.entity instanceof EntitySheep)
-		//{
-		//    ((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, Natura.getItems().plantItem, false));
-		//}
+		if (event.entity instanceof EntityCow || event.entity instanceof EntitySheep)
+		{
+			((EntityLiving) event.entity).tasks.addTask(3, new EntityAITempt((EntityCreature) event.entity, 0.25F, ItemsNatura.materials, false));
+		}
 
 		if (event.entity instanceof EntityChicken)
 		{

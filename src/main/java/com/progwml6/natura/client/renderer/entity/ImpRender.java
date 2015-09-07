@@ -9,17 +9,17 @@ import net.minecraft.util.ResourceLocation;
 public class ImpRender extends RenderLiving
 {
 
-    public ImpRender(RenderManager renderManagerIn, ModelBase par1ModelBase, float par2)
-    {
-        super(renderManagerIn, par1ModelBase, par2);
-    }
+	public ImpRender(RenderManager renderManagerIn, ModelBase par1ModelBase, float par2)
+	{
+		super(renderManagerIn, par1ModelBase, par2);
+	}
 
-    @Override
-    protected ResourceLocation getEntityTexture(Entity par1Entity)
-    {
-        return texture;
-    }
+	@Override
+	protected ResourceLocation getEntityTexture(Entity par1Entity)
+	{
+		return texture;
+	}
 
-    static final ResourceLocation texture = new ResourceLocation("natura", "textures/mob/imp.png");
+	static final ResourceLocation texture = new ResourceLocation("natura", "textures/mob/imp.png");
 
 }

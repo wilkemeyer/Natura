@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -81,9 +80,9 @@ public class BlockNaturaSapling extends BlockNaturaPlant implements IGrowable, I
 	{
 		if (TerrainGen.saplingGrowTree(world, random, pos))
 		{
-			int meta = ((BlockVariant) state.getValue(PROPERTY_VARIANT)).getMeta();
+			//int meta = ((BlockVariant) state.getValue(PROPERTY_VARIANT)).getMeta();
 
-			WorldGenerator treeGenerator = null;
+			//WorldGenerator treeGenerator = null;
 		}
 	}
 

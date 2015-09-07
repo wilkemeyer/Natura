@@ -7,10 +7,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class NCropsTickHandler
 {
-    @SideOnly(Side.CLIENT)
-    @SubscribeEvent
-    public void tickEnd(ClientTickEvent event)
-    {
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void tickEnd(ClientTickEvent event)
+	{
 
-    }
+	}
 }

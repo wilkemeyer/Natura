@@ -1,9 +1,9 @@
 package com.progwml6.natura.common.blocks.util.variants.blockstates;
 
-import net.minecraft.block.properties.IProperty;
-
 import java.util.Collection;
 import java.util.HashMap;
+
+import net.minecraft.block.properties.IProperty;
 
 public class PropertyVariant implements IProperty
 {
@@ -49,6 +49,7 @@ public class PropertyVariant implements IProperty
 		return BlockVariant.class;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String getName(Comparable value)
 	{

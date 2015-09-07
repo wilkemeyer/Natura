@@ -7,10 +7,12 @@ import com.progwml6.natura.common.items.tools.ItemNaturaPickaxe;
 import com.progwml6.natura.common.items.tools.ItemNaturaShovel;
 import com.progwml6.natura.common.items.tools.ItemNaturaSword;
 import com.progwml6.natura.common.items.util.ItemEmptyBowl;
-import com.progwml6.natura.common.items.util.ItemNaturaMaterial;
+import com.progwml6.natura.common.items.util.ItemMaterial;
 import com.progwml6.natura.common.items.util.ItemNaturaSeeds;
 import com.progwml6.natura.common.items.util.ItemNaturaSpawnEgg;
+import com.progwml6.natura.common.util.NaturaCreativeTabs;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
@@ -22,13 +24,13 @@ public class ItemsNatura
 
 	public static ToolMaterial bloodwood = EnumHelper.addToolMaterial("Bloodwood", 3, 350, 7f, 3, 24);
 
-	public static ItemNaturaAxe ghostwood_axe, bloodwood_axe, darkwood_axe, fusewood_axe, netherquartz_axe;
+	public static Item ghostwood_axe, bloodwood_axe, darkwood_axe, fusewood_axe, netherquartz_axe;
 
-	public static ItemNaturaPickaxe ghostwood_pickaxe, bloodwood_pickaxe, darkwood_pickaxe, fusewood_pickaxe, netherquartz_pickaxe;
+	public static Item ghostwood_pickaxe, bloodwood_pickaxe, darkwood_pickaxe, fusewood_pickaxe, netherquartz_pickaxe;
 
-	public static ItemNaturaShovel ghostwood_shovel, bloodwood_shovel, darkwood_shovel, fusewood_shovel, netherquartz_shovel;
+	public static Item ghostwood_shovel, bloodwood_shovel, darkwood_shovel, fusewood_shovel, netherquartz_shovel;
 
-	public static ItemNaturaSword ghostwood_sword, bloodwood_sword, darkwood_sword, fusewood_sword, netherquartz_sword;
+	public static Item ghostwood_sword, bloodwood_sword, darkwood_sword, fusewood_sword, netherquartz_sword;
 
 	public static void preInit()
 	{
@@ -43,7 +45,7 @@ public class ItemsNatura
 		impMeat = registerItem("impmeat", new ItemImpMeat());
 		//bowlStew = registerItem("bowl_stew", new ItemStewBowl());
 		bowlEmpty = registerItem("bowl_empty", new ItemEmptyBowl());
-		materials = registerItem("materals", new ItemNaturaMaterial());
+		materials = registerItem("materials", new ItemMaterial(), NaturaCreativeTabs.tabMisc);
 
 		ghostwood_pickaxe = registerItem("ghostwood_pickaxe", new ItemNaturaPickaxe(ToolMaterial.WOOD));
 		ghostwood_axe = registerItem("ghostwood_axe", new ItemNaturaAxe(ToolMaterial.WOOD));
@@ -71,7 +73,14 @@ public class ItemsNatura
 		netherquartz_sword = registerItem("netherquartz_sword", new ItemNaturaSword(ToolMaterial.STONE));
 	}
 
-	private static <T extends Item> T registerItem(String name, T item)
+	private static Item registerItem(String name, Item item, CreativeTabs tab)
+	{
+		item.setCreativeTab(tab);
+
+		return registerItem(name, item);
+	}
+
+	private static Item registerItem(String name, Item item)
 	{
 		item.setUnlocalizedName(name);
 		GameRegistry.registerItem(item, name);

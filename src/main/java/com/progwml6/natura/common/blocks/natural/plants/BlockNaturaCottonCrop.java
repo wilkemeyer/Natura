@@ -42,29 +42,14 @@ public class BlockNaturaCottonCrop extends BlockNaturaPlant implements IGrowable
 	}
 
 	@Override
-	public void onBlockClicked(World world, BlockPos pos, EntityPlayer player)
-	{
-		if (!world.isRemote)
-		{
-			IBlockState state = world.getBlockState(pos);
-			if (((Integer) state.getValue(AGE)).intValue() == 4)
-			{
-				world.setBlockState(pos, state.withProperty(AGE, 2), 3);
-				EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(ItemsNatura.materials, 1, 3));
-				world.spawnEntityInWorld(entityitem);
-				entityitem.onCollideWithPlayer(player);
-			}
-		}
-	}
-
-	/* Right-click harvests berries */
-	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
 		if (((Integer) state.getValue(AGE)).intValue() == 4)
 		{
 			if (worldIn.isRemote)
+			{
 				return true;
+			}
 
 			worldIn.setBlockState(pos, state.withProperty(AGE, 2), 3);
 			EntityItem entityitem = new EntityItem(worldIn, playerIn.posX, playerIn.posY - 1.0D, playerIn.posZ, new ItemStack(ItemsNatura.materials, 1, 3));
@@ -96,6 +81,12 @@ public class BlockNaturaCottonCrop extends BlockNaturaPlant implements IGrowable
 		}
 
 		super.updateTick(worldIn, pos, state, rand);
+	}
+
+	@Override
+	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
+	{
+		this.grow(worldIn, pos, state);
 	}
 
 	public void grow(World worldIn, BlockPos pos, IBlockState state)
@@ -134,9 +125,20 @@ public class BlockNaturaCottonCrop extends BlockNaturaPlant implements IGrowable
 	}
 
 	@Override
-	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
-		this.grow(worldIn, pos, state);
+		return ((Integer) state.getValue(AGE)).intValue() == 4 ? ItemsNatura.materials : ItemsNatura.cotton_seeds;
+	}
+
+	@Override
+	public int damageDropped(IBlockState state)
+	{
+		if (((Integer) state.getValue(AGE)).intValue() == 4)
+		{
+			return 3;
+		}
+
+		return 0;
 	}
 
 	/**
@@ -163,4 +165,23 @@ public class BlockNaturaCottonCrop extends BlockNaturaPlant implements IGrowable
 		return new BlockState(this, new IProperty[] { AGE });
 	}
 
+	@Override
+	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+	{
+		java.util.List<ItemStack> ret = super.getDrops(world, pos, state, fortune);
+		int age = ((Integer) state.getValue(AGE)).intValue();
+		Random rand = world instanceof World ? ((World) world).rand : new Random();
+
+		if (age >= 4)
+		{
+			for (int i = 0; i < 3 + fortune; ++i)
+			{
+				if (rand.nextInt(15) <= age)
+				{
+					ret.add(new ItemStack(ItemsNatura.cotton_seeds, 1));
+				}
+			}
+		}
+		return ret;
+	}
 }

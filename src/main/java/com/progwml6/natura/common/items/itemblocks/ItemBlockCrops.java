@@ -7,14 +7,14 @@ import net.minecraft.util.StatCollector;
 
 public class ItemBlockCrops extends ItemBlock
 {
-    public ItemBlockCrops(Block block)
-    {
-        super(block);
-    }
+	public ItemBlockCrops(Block block)
+	{
+		super(block);
+	}
 
-    @Override
-    public String getItemStackDisplayName(ItemStack stack)
-    {
-        return ("" + StatCollector.translateToLocal("natura." + this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
-    }
+	@Override
+	public String getItemStackDisplayName(ItemStack stack)
+	{
+		return ("" + StatCollector.translateToLocal("natura." + this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
+	}
 }

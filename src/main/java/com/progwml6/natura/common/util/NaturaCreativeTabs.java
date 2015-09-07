@@ -5,46 +5,46 @@ import com.progwml6.natura.common.blocks.natural.BlockClouds;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class NaturaCreativeTabs
 {
-    private static class NaturaCreativeTab extends CreativeTabs
-    {
-        private Item item;
+	public static CreativeTab tabMisc = new CreativeTab("naturaMisc");
 
-        private int metadata;
+	public static void registerTabIcons()
+	{
+		tabMisc.setDisplayStack(new ItemStack(Item.getItemFromBlock(BlocksNatura.clouds), BlockClouds.WHITE_CLOUD.getMeta()));
+	}
 
-        public NaturaCreativeTab(String unlocalizedName)
-        {
-            super(unlocalizedName);
-        }
+	public static class CreativeTab extends CreativeTabs
+	{
+		private ItemStack stack;
 
-        private void setItemToDisplay(Item item, int metadata)
-        {
-            this.item = item;
-            this.metadata = metadata;
-        }
+		public CreativeTab(String unlocalizedName)
+		{
+			super(unlocalizedName);
+		}
 
-        @Override
-        public Item getTabIconItem()
-        {
-            return this.item;
-        }
+		@SideOnly(Side.CLIENT)
+		public void setDisplayStack(ItemStack stack)
+		{
+			this.stack = stack;
+		}
 
-        @Override
-        @SideOnly(Side.CLIENT)
-        public int getIconItemDamage()
-        {
-            return this.metadata;
-        }
-    }
+		@Override
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem()
+		{
+			return this.stack.getItem();
+		}
 
-    public static NaturaCreativeTab tabMisc = new NaturaCreativeTab("naturaMisc");
-
-    public static void registerTabIcons()
-    {
-        tabMisc.setItemToDisplay(Item.getItemFromBlock(BlocksNatura.clouds), BlockClouds.WHITE_CLOUD.getMeta());
-    }
+		@Override
+		@SideOnly(Side.CLIENT)
+		public int getIconItemDamage()
+		{
+			return this.stack.getItemDamage();
+		}
+	}
 }

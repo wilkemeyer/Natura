@@ -10,21 +10,21 @@ import net.minecraft.world.World;
 
 public class ContainerNaturaWorkbench extends ContainerWorkbench
 {
-    private World world;
+	private World world;
 
-    private BlockPos pos;
+	private BlockPos pos;
 
-    public ContainerNaturaWorkbench(InventoryPlayer inventory, World world, BlockPos pos)
-    {
-        super(inventory, world, pos);
+	public ContainerNaturaWorkbench(InventoryPlayer inventory, World world, BlockPos pos)
+	{
+		super(inventory, world, pos);
 
-        this.world = world;
-        this.pos = pos;
-    }
+		this.world = world;
+		this.pos = pos;
+	}
 
-    @Override
-    public boolean canInteractWith(EntityPlayer player)
-    {
-        return this.world.getBlockState(this.pos).getBlock() == BlocksNatura.crafting_table && player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64.0D;
-    }
+	@Override
+	public boolean canInteractWith(EntityPlayer player)
+	{
+		return this.world.getBlockState(this.pos).getBlock() == BlocksNatura.crafting_table && player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64.0D;
+	}
 }

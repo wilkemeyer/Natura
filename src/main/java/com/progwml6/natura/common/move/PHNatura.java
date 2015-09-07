@@ -1,11 +1,11 @@
 package com.progwml6.natura.common.move;
 
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.Loader;
-
 import java.io.File;
 
 import com.progwml6.natura.common.Natura;
+
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.Loader;
 
 public class PHNatura
 {
@@ -197,14 +197,20 @@ public class PHNatura
 
 		boolean BoP = false;
 		if (Loader.isModLoaded("BiomesOPlenty"))
+		{
 			BoP = true;
+		}
 
 		babyHeatscarMinimum = config.get("Mob Changes", "Minimum Baby Heatscar Spiders on Spider Death", 2).getInt(2);
 		if (babyHeatscarMinimum < 0)
+		{
 			babyHeatscarMinimum = 0;
+		}
 		babyHeatscarMaximum = config.get("Mob Changes", "Maximum Baby Heatscar Spiders on Spider Death", 4).getInt(4);
 		if (babyHeatscarMaximum < 0)
+		{
 			babyHeatscarMaximum = 0;
+		}
 		overrideNether = config.get("Disabler", "Override Nether", !BoP).getBoolean(!BoP);
 		canRespawnInNether = config.get("Disabler", "Obelisks let players respawn in the Nether", true).getBoolean(true);
 
@@ -314,6 +320,8 @@ public class PHNatura
 
 		/* Save the configuration file */
 		if (config.hasChanged())
+		{
 			config.save();
+		}
 	}
 }

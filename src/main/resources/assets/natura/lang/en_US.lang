@@ -17,15 +17,15 @@ tooltip.impmeat2=It's warm to the touch
 item.bowl.mushroom.name=Mushroom Stew
 item.bowl.glowshroom.name=Glowshroom Stew
 
-natura.item.barley.plant.name=Barley
-natura.item.barley.flour.name=Barley Flour
-natura.item.wheat.flour.name=Wheat Flour
-natura.item.cotton.plant.name=Cotton
-natura.item.powder.sulfur.name=Sulfur
-natura.item.fletching.ghostwood.name=Ghostwood Fletching
-natura.item.leather.imp.name=Imp Leather
-natura.item.string.flame.name=Flamestring
-natura.item.dye.blue.name=Blue Dye
+item.materials.barley_plant.name=Barley
+item.materials.barley_flour.name=Barley Flour
+item.materials.wheat_flour.name=Wheat Flour
+item.materials.cotton.name=Cotton
+item.materials.sulfur_powder.name=Sulfur
+item.materials.ghostwood_fletching.name=Ghostwood Fletching
+item.materials.imp_leather.name=Imp Leather
+item.materials.flame_string.name=Flamestring
+item.materials.blue_dye.name=Blue Dye
 
 tooltip.flour1=Bake me to make bread
 tooltip.flour2=Also used in baking cake

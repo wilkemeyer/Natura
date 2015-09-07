@@ -13,6 +13,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -83,13 +84,6 @@ public class BlockNaturaBarleyCrop extends BlockNaturaPlant implements IGrowable
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public Item getItem(World worldIn, BlockPos pos)
-	{
-		return ItemsNatura.barley_seeds;
-	}
-
-	@Override
 	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
 	{
 		this.grow(worldIn, pos, state);
@@ -119,4 +113,36 @@ public class BlockNaturaBarleyCrop extends BlockNaturaPlant implements IGrowable
 		return new BlockState(this, new IProperty[] { AGE });
 	}
 
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Item getItem(World worldIn, BlockPos pos)
+	{
+		return ItemsNatura.barley_seeds;
+	}
+
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
+		return ((Integer) state.getValue(AGE)).intValue() == 3 ? new ItemStack(ItemsNatura.materials, 1).getItem() : ItemsNatura.barley_seeds;
+	}
+
+	@Override
+	public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+	{
+		java.util.List<ItemStack> ret = super.getDrops(world, pos, state, fortune);
+		int age = ((Integer) state.getValue(AGE)).intValue();
+		Random rand = world instanceof World ? ((World) world).rand : new Random();
+
+		if (age >= 3)
+		{
+			for (int i = 0; i < 3 + fortune; ++i)
+			{
+				if (rand.nextInt(15) <= age)
+				{
+					ret.add(new ItemStack(ItemsNatura.barley_seeds, 1));
+				}
+			}
+		}
+		return ret;
+	}
 }

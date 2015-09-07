@@ -11,6 +11,7 @@ import com.progwml6.natura.common.blocks.natural.BlockClouds;
 import com.progwml6.natura.common.blocks.natural.BlockNaturaLogs;
 import com.progwml6.natura.common.blocks.natural.BlockNaturaPlanks;
 import com.progwml6.natura.common.items.ItemsNatura;
+import com.progwml6.natura.common.items.util.ItemMaterial;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -123,15 +124,15 @@ public class ModelNatura
 				.add(4, "bowl_empty_fusewood"));
 
 		registerModelList(ItemsNatura.materials, new ModelResourceList("materials/")
-				.add(0, "materials_barley_plant")
-				.add(1, "materials_barley_flour")
-				.add(2, "materials_wheat_flour")
-				.add(3, "materials_cotton_plant")
-				.add(4, "materials_sulfur")
-				.add(5, "materials_ghostwood_fletching")
-				.add(6, "materials_leather_imp")
-				.add(7, "materials_flamestring")
-				.add(8, "materials_dye_blue"));
+				.add(ItemMaterial.MaterialType.BARLEY_PLANT.ordinal(), "materials_barley_plant")
+				.add(ItemMaterial.MaterialType.BARLEY_FLOUR.ordinal(), "materials_barley_flour")
+				.add(ItemMaterial.MaterialType.WHEAT_FLOUR.ordinal(), "materials_wheat_flour")
+				.add(ItemMaterial.MaterialType.COTTON.ordinal(), "materials_cotton_plant")
+				.add(ItemMaterial.MaterialType.SULFUR_POWDER.ordinal(), "materials_sulfur")
+				.add(ItemMaterial.MaterialType.GHOSTWOOD_FLETCHING.ordinal(), "materials_ghostwood_fletching")
+				.add(ItemMaterial.MaterialType.IMP_LEATHER.ordinal(), "materials_leather_imp")
+				.add(ItemMaterial.MaterialType.FLAME_STRING.ordinal(), "materials_flamestring")
+				.add(ItemMaterial.MaterialType.BLUE_DYE.ordinal(), "materials_dye_blue"));
 
 		registerModelList(ItemsNatura.ghostwood_pickaxe, new ModelResourceList("tools/").add(0, "ghostwood_pickaxe"));
 		registerModelList(ItemsNatura.ghostwood_axe, new ModelResourceList("tools/").add(0, "ghostwood_axe"));

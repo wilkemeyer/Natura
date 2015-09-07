@@ -2,7 +2,6 @@ package com.progwml6.natura.common.items.util;
 
 import java.util.List;
 
-import com.progwml6.natura.common.Natura;
 import com.progwml6.natura.common.util.NaturaCreativeTabs;
 
 import net.minecraft.block.Block;
@@ -22,64 +21,64 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemNaturaSeeds extends Item implements IPlantable
 {
-    private Block crops;
+	private Block crops;
 
-    private String tag;
+	private String tag;
 
-    public ItemNaturaSeeds(Block crops, String tag)
-    {
-        this.crops = crops;
-        this.tag = tag;
-        this.setCreativeTab(NaturaCreativeTabs.tabMisc);
-    }
+	public ItemNaturaSeeds(Block crops, String tag)
+	{
+		this.crops = crops;
+		this.tag = tag;
+		this.setCreativeTab(NaturaCreativeTabs.tabMisc);
+	}
 
-    @Override
-    public String getItemStackDisplayName(ItemStack stack)
-    {
-        return ("" + StatCollector.translateToLocal("natura." + this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
-    }
+	@Override
+	public String getItemStackDisplayName(ItemStack stack)
+	{
+		return ("" + StatCollector.translateToLocal("natura." + this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
+	}
 
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
-    {
-        if (side != EnumFacing.UP)
-        {
-            return false;
-        }
-        else if (!playerIn.canPlayerEdit(pos.offset(side), side, stack))
-        {
-            return false;
-        }
-        else if (worldIn.getBlockState(pos).getBlock().canSustainPlant(worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
-        {
-            worldIn.setBlockState(pos.up(), this.crops.getDefaultState());
-            --stack.stackSize;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
+	{
+		if (side != EnumFacing.UP)
+		{
+			return false;
+		}
+		else if (!playerIn.canPlayerEdit(pos.offset(side), side, stack))
+		{
+			return false;
+		}
+		else if (worldIn.getBlockState(pos).getBlock().canSustainPlant(worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
+		{
+			worldIn.setBlockState(pos.up(), this.crops.getDefaultState());
+			--stack.stackSize;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
-    @Override
-    public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos)
-    {
-        return EnumPlantType.Crop;
-    }
+	@Override
+	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos)
+	{
+		return EnumPlantType.Crop;
+	}
 
-    @Override
-    public IBlockState getPlant(IBlockAccess world, BlockPos pos)
-    {
-        return this.crops.getDefaultState();
-    }
+	@Override
+	public IBlockState getPlant(IBlockAccess world, BlockPos pos)
+	{
+		return this.crops.getDefaultState();
+	}
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
-    {
-        list.add(StatCollector.translateToLocal(tag));
-    }
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		list.add(StatCollector.translateToLocal(this.tag));
+	}
 
 }

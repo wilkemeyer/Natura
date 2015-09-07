@@ -36,14 +36,6 @@ public class BlocksNatura
 		// this.fence = this.registerBlock("fence", ItemBlockVariants.class, new BlockNaturaFence());
 	}
 
-	private Block registerBlock(String name, Block block)
-	{
-		block.setUnlocalizedName("natura." + name);
-		GameRegistry.registerBlock(block, name);
-
-		return block;
-	}
-
 	private static Block registerBlock(String name, Class<? extends ItemBlock> itemblock, Block block)
 	{
 		block.setUnlocalizedName(name);
