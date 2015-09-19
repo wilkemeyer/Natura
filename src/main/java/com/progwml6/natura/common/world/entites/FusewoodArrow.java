@@ -194,6 +194,7 @@ public class FusewoodArrow extends EntityArrow
 	/**
 	 * Called to update the entity's position/logic.
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void onUpdate()
 	{

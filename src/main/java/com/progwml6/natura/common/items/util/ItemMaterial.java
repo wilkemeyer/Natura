@@ -38,7 +38,7 @@ public class ItemMaterial extends Item
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List subItems)
 	{
@@ -54,6 +54,7 @@ public class ItemMaterial extends Item
 		return super.getUnlocalizedName(stack) + "." + MaterialType.fromOrdinal(stack.getMetadata()).name;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)

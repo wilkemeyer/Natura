@@ -2,6 +2,7 @@ package com.progwml6.natura.common.world.entites;
 
 import com.google.common.base.Predicate;
 import com.progwml6.natura.common.items.ItemsNatura;
+import com.progwml6.natura.common.items.util.ItemMaterial.MaterialType;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -12,6 +13,7 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -24,6 +26,7 @@ import net.minecraft.world.WorldProviderHell;
 
 public class ImpEntity extends EntityAnimal
 {
+	@SuppressWarnings("rawtypes")
 	public ImpEntity(World par1World)
 	{
 		super(par1World);
@@ -33,7 +36,7 @@ public class ImpEntity extends EntityAnimal
 		float f = 0.25F;
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIPanic(this, 0.38F));
-		//this.tasks.addTask(2, new EntityAITempt(this, 0.3F, ItemsNatura.bowlStew, false));
+		this.tasks.addTask(2, new EntityAITempt(this, 0.3F, ItemsNatura.bowlEmpty, false));
 		this.tasks.addTask(3, new EntityAIMate(this, f));
 		this.tasks.addTask(3, new EntityAIAvoidEntity(this, new Predicate()
 		{
@@ -128,7 +131,7 @@ public class ImpEntity extends EntityAnimal
 		amount = this.rand.nextInt(5) + 2 + this.rand.nextInt(1 + par2 * 2);
 		for (int iter = 0; iter < amount; ++iter)
 		{
-			this.entityDropItem(new ItemStack(ItemsNatura.materials, 1, 6), 0f); //TODO: FIX
+			this.entityDropItem(new ItemStack(ItemsNatura.materials, 1, MaterialType.IMP_LEATHER.ordinal()), 0f);
 		}
 	}
 

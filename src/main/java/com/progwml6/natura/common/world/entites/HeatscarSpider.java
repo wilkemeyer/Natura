@@ -93,8 +93,7 @@ public class HeatscarSpider extends EntitySpider
 			}
 
 			this.attackEntityFrom(DamageSource.fall, i);
-			Block j = this.worldObj.getBlockState(new BlockPos(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY - 0.20000000298023224D), MathHelper.floor_double(this.posZ)))
-					.getBlock();
+			Block j = this.worldObj.getBlockState(new BlockPos(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY - 0.20000000298023224D), MathHelper.floor_double(this.posZ))).getBlock();
 
 			if (j != null)
 			{
@@ -180,8 +179,7 @@ public class HeatscarSpider extends EntitySpider
 	@Override
 	public boolean getCanSpawnHere()
 	{
-		return this.worldObj.getDifficulty() != EnumDifficulty.PEACEFUL && this.worldObj.checkNoEntityCollision(this.getEntityBoundingBox())
-				&& this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.worldObj.isAnyLiquid(this.getEntityBoundingBox());
+		return this.worldObj.getDifficulty() != EnumDifficulty.PEACEFUL && this.worldObj.checkNoEntityCollision(this.getEntityBoundingBox()) && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.worldObj.isAnyLiquid(this.getEntityBoundingBox());
 	}
 
 	protected BabyHeatscarSpider createBabyInstance()
@@ -192,7 +190,6 @@ public class HeatscarSpider extends EntitySpider
 	@Override
 	public void setDead()
 	{
-
 		if (!this.worldObj.isRemote)
 		{
 			int num = PHNatura.babyHeatscarMaximum - PHNatura.babyHeatscarMinimum + 1;

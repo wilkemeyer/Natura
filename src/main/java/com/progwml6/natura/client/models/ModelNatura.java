@@ -138,26 +138,31 @@ public class ModelNatura
 		registerModelList(ItemsNatura.ghostwood_axe, new ModelResourceList("tools/").add(0, "ghostwood_axe"));
 		registerModelList(ItemsNatura.ghostwood_shovel, new ModelResourceList("tools/").add(0, "ghostwood_shovel"));
 		registerModelList(ItemsNatura.ghostwood_sword, new ModelResourceList("weapons/").add(0, "ghostwood_sword"));
+		registerModelList(ItemsNatura.ghostwood_kama, new ModelResourceList("weapons/").add(0, "ghostwood_kama"));
 
 		registerModelList(ItemsNatura.bloodwood_pickaxe, new ModelResourceList("tools/").add(0, "bloodwood_pickaxe"));
 		registerModelList(ItemsNatura.bloodwood_axe, new ModelResourceList("tools/").add(0, "bloodwood_axe"));
 		registerModelList(ItemsNatura.bloodwood_shovel, new ModelResourceList("tools/").add(0, "bloodwood_shovel"));
 		registerModelList(ItemsNatura.bloodwood_sword, new ModelResourceList("weapons/").add(0, "bloodwood_sword"));
+		registerModelList(ItemsNatura.bloodwood_kama, new ModelResourceList("weapons/").add(0, "bloodwood_kama"));
 
 		registerModelList(ItemsNatura.darkwood_pickaxe, new ModelResourceList("tools/").add(0, "darkwood_pickaxe"));
 		registerModelList(ItemsNatura.darkwood_axe, new ModelResourceList("tools/").add(0, "darkwood_axe"));
 		registerModelList(ItemsNatura.darkwood_shovel, new ModelResourceList("tools/").add(0, "darkwood_shovel"));
 		registerModelList(ItemsNatura.darkwood_sword, new ModelResourceList("weapons/").add(0, "darkwood_sword"));
+		registerModelList(ItemsNatura.darkwood_kama, new ModelResourceList("weapons/").add(0, "darkwood_kama"));
 
 		registerModelList(ItemsNatura.fusewood_pickaxe, new ModelResourceList("tools/").add(0, "fusewood_pickaxe"));
 		registerModelList(ItemsNatura.fusewood_axe, new ModelResourceList("tools/").add(0, "fusewood_axe"));
 		registerModelList(ItemsNatura.fusewood_shovel, new ModelResourceList("tools/").add(0, "fusewood_shovel"));
 		registerModelList(ItemsNatura.fusewood_sword, new ModelResourceList("weapons/").add(0, "fusewood_sword"));
+		registerModelList(ItemsNatura.fusewood_kama, new ModelResourceList("weapons/").add(0, "fusewood_kama"));
 
 		registerModelList(ItemsNatura.netherquartz_pickaxe, new ModelResourceList("tools/").add(0, "netherquartz_pickaxe"));
 		registerModelList(ItemsNatura.netherquartz_axe, new ModelResourceList("tools/").add(0, "netherquartz_axe"));
 		registerModelList(ItemsNatura.netherquartz_shovel, new ModelResourceList("tools/").add(0, "netherquartz_shovel"));
 		registerModelList(ItemsNatura.netherquartz_sword, new ModelResourceList("weapons/").add(0, "netherquartz_sword"));
+		registerModelList(ItemsNatura.netherquartz_kama, new ModelResourceList("weapons/").add(0, "netherquartz_kama"));
 	}
 
 	private static void registerModelList(Item item, ModelResourceList list)
