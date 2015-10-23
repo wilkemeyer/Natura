@@ -1,8 +1,9 @@
 package com.progwml6.natura.client;
 
-import com.progwml6.natura.client.models.ModelNatura;
-import com.progwml6.natura.client.renderer.EntityModelRenderer;
+import com.progwml6.natura.client.models.blocks.NaturaBlockModels;
+import com.progwml6.natura.client.models.items.NaturaItemModels;
 import com.progwml6.natura.client.renderer.NCropsTickHandler;
+import com.progwml6.natura.client.renderer.NaturaRenderers;
 import com.progwml6.natura.common.CommonProxy;
 import com.progwml6.natura.common.util.NaturaCreativeTabs;
 
@@ -18,7 +19,9 @@ public class ClientProxy extends CommonProxy
 	{
 		super.preInit(event);
 
-		ModelNatura.preInit();
+		NaturaBlockModels.preInit();
+		NaturaItemModels.preInit();
+
 		NaturaCreativeTabs.registerTabIcons();
 	}
 
@@ -27,8 +30,9 @@ public class ClientProxy extends CommonProxy
 	{
 		super.init(event);
 
-		ModelNatura.init();
-		EntityModelRenderer.init();
+		NaturaItemModels.init();
+		NaturaRenderers.init();
+
 		FMLCommonHandler.instance().bus().register(new NCropsTickHandler());
 	}
 }

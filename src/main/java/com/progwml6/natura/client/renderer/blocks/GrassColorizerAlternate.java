@@ -1,4 +1,4 @@
-package com.progwml6.natura.client.renderer;
+package com.progwml6.natura.client.renderer.blocks;
 
 import com.progwml6.natura.common.Natura;
 

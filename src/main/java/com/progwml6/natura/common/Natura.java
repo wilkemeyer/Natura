@@ -9,7 +9,6 @@ import com.progwml6.natura.common.move.PHNatura;
 import com.progwml6.natura.common.world.CloudWorldgen;
 import com.progwml6.natura.common.world.CropWorldGen;
 
-//import mantle.pulsar.control.PulseManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -18,8 +17,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import slimeknights.mantle.pulsar.control.PulseManager;
 
-@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]") //, dependencies = "required-after:mantle@[0.3.1,)")
+@Mod(modid = "natura", name = "Natura", version = "3.0.0", acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:mantle@[0.3.1,)")
 public class Natura
 {
 	@Instance(Natura.MOD_ID)
@@ -27,7 +27,7 @@ public class Natura
 
 	public static final String MOD_ID = "natura";
 
-	//public static final PulseManager pulsar = new PulseManager(MOD_ID);
+	public static final PulseManager pulsar = new PulseManager(MOD_ID);
 
 	/* Proxies for sides, used for graphics processing */
 	@SidedProxy(clientSide = "com.progwml6.natura.client.ClientProxy", serverSide = "com.progwml6.natura.CommonProxy")
@@ -43,7 +43,7 @@ public class Natura
 	public void preInit(FMLPreInitializationEvent evt)
 	{
 		PHNatura.initProps(evt.getSuggestedConfigurationFile());
-		//pulsar.preInit(evt);
+		pulsar.preInit(evt);
 
 		PROXY.preInit(evt);
 	}

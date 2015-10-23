@@ -1,10 +1,10 @@
-package com.progwml6.natura.client.models;
+package com.progwml6.natura.client.models.items;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.progwml6.natura.client.models.util.ModelResourceList;
+import com.progwml6.natura.client.util.ItemModelList;
 import com.progwml6.natura.common.blocks.BlocksNatura;
 import com.progwml6.natura.common.blocks.construction.BlockNaturaWorkbench;
 import com.progwml6.natura.common.blocks.natural.BlockClouds;
@@ -19,15 +19,13 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
-public class ModelNatura
+public class NaturaItemModels
 {
-	private static HashMap<Item, ModelResourceList> models = new HashMap<Item, ModelResourceList>();
+	private static HashMap<Item, ItemModelList> models = new HashMap<Item, ItemModelList>();
 
 	public static void preInit()
 	{
-		registerStateMappers();
-		defineModels();
-
+		defineItemModels();
 		prepareModels();
 	}
 
@@ -36,29 +34,21 @@ public class ModelNatura
 		registerModels();
 	}
 
-	/**
-	 * Used to configure how blockstate files are read(?). Called during pre-initialization phase.
-	 */
-	private static void registerStateMappers()
+	private static void defineItemModels()
 	{
-		//ModelLoader.setCustomStateMapper(BlocksNatura.sapling, new StateMap.Builder().ignore(BlockNaturaSapling.PROPERTY_STAGE).build());
-	}
-
-	private static void defineModels()
-	{
-		registerModelList(getItem(BlocksNatura.clouds), new ModelResourceList("clouds/")
+		registerItemModels(getItem(BlocksNatura.clouds), new ItemModelList("clouds/")
 				.add(BlockClouds.WHITE_CLOUD.getMeta(), "cloud_white")
 				.add(BlockClouds.GREY_CLOUD.getMeta(), "cloud_gray")
 				.add(BlockClouds.DARK_CLOUD.getMeta(), "cloud_dark")
 				.add(BlockClouds.SULFER_CLOUD.getMeta(), "cloud_sulfur"));
 
-		registerModelList(getItem(BlocksNatura.logs), new ModelResourceList("logs/")
+		registerItemModels(getItem(BlocksNatura.logs), new ItemModelList("logs/")
 				.add(BlockNaturaLogs.EUCALYPTUS_LOG.getMeta(), "eucalyptus_log")
 				.add(BlockNaturaLogs.SAKURA_LOG.getMeta(), "sakura_log")
 				.add(BlockNaturaLogs.GHOSTWOOD_LOG.getMeta(), "ghostwood_log")
 				.add(BlockNaturaLogs.HOPSEED_LOG.getMeta(), "hopseed_log"));
 
-		registerModelList(getItem(BlocksNatura.planks), new ModelResourceList("planks/")
+		registerItemModels(getItem(BlocksNatura.planks), new ItemModelList("planks/")
 				.add(BlockNaturaPlanks.EUCALYPTUS_PLANKS.getMeta(), "eucalyptus_planks")
 				.add(BlockNaturaPlanks.SAKURA_PLANKS.getMeta(), "sakura_planks")
 				.add(BlockNaturaPlanks.GHOSTWOOD_PLANKS.getMeta(), "ghostwood_planks")
@@ -76,7 +66,7 @@ public class ModelNatura
 				.add(BlockNaturaPlanks.REDWOOD_HEART_PLANKS.getMeta(), "redwood_heart")
 				.add(BlockNaturaPlanks.REDWOOD_ROOT_PLANKS.getMeta(), "redwood_root"));
 
-		registerModelList(getItem(BlocksNatura.crafting_table), new ModelResourceList("tables/")
+		registerItemModels(getItem(BlocksNatura.crafting_table), new ItemModelList("tables/")
 				.add(BlockNaturaWorkbench.EUCALYPTUS.getMeta(), "table_eucalyptus")
 				.add(BlockNaturaWorkbench.SAKURA.getMeta(), "table_sakura")
 				.add(BlockNaturaWorkbench.GHOSTWOOD.getMeta(), "table_ghostwood")
@@ -91,39 +81,39 @@ public class ModelNatura
 				.add(BlockNaturaWorkbench.DARKWOOD.getMeta(), "table_darkwood")
 				.add(BlockNaturaWorkbench.FUSEWOOD.getMeta(), "table_fusewood"));
 
-		registerModelList(getItem(BlocksNatura.cotton_crop), new ModelResourceList("crops/")
+		registerItemModels(getItem(BlocksNatura.cotton_crop), new ItemModelList("crops/")
 				.add(0, "cotton_stage0")
 				.add(1, "cotton_stage1")
 				.add(2, "cotton_stage2")
 				.add(3, "cotton_stage3")
 				.add(4, "cotton_stage4"));
-		registerModelList(getItem(BlocksNatura.barley_crop), new ModelResourceList("crops/")
+		registerItemModels(getItem(BlocksNatura.barley_crop), new ItemModelList("crops/")
 				.add(0, "barley_stage0")
 				.add(1, "barley_stage1")
 				.add(2, "barley_stage2")
 				.add(3, "barley_stage3"));
 
-		registerModelList(ItemsNatura.cotton_seeds, new ModelResourceList("seeds/").add(0, "cotton_seeds"));
-		registerModelList(ItemsNatura.barley_seeds, new ModelResourceList("seeds/").add(0, "barley_seeds"));
+		registerItemModels(ItemsNatura.cotton_seeds, new ItemModelList("seeds/").add(0, "cotton_seeds"));
+		registerItemModels(ItemsNatura.barley_seeds, new ItemModelList("seeds/").add(0, "barley_seeds"));
 
-		registerModelList(ItemsNatura.spawn_egg, new ModelResourceList()
+		registerItemModels(ItemsNatura.spawn_egg, new ItemModelList()
 				.add(0, "spawn_egg")
 				.add(1, "spawn_egg")
 				.add(2, "spawn_egg")
 				.add(3, "spawn_egg"));
 
-		registerModelList(ItemsNatura.impMeat, new ModelResourceList("consumables/")
+		registerItemModels(ItemsNatura.impMeat, new ItemModelList("consumables/")
 				.add(0, "impmeat_raw")
 				.add(1, "impmeat_cooked"));
 
-		registerModelList(ItemsNatura.bowlEmpty, new ModelResourceList("bowls/")
+		registerItemModels(ItemsNatura.bowlEmpty, new ItemModelList("bowls/")
 				.add(0, "bowl_empty_bowl")
 				.add(1, "bowl_empty_ghostwood")
 				.add(2, "bowl_empty_bloodwood")
 				.add(3, "bowl_empty_darkwood")
 				.add(4, "bowl_empty_fusewood"));
 
-		registerModelList(ItemsNatura.materials, new ModelResourceList("materials/")
+		registerItemModels(ItemsNatura.materials, new ItemModelList("materials/")
 				.add(ItemMaterial.MaterialType.BARLEY_PLANT.ordinal(), "materials_barley_plant")
 				.add(ItemMaterial.MaterialType.BARLEY_FLOUR.ordinal(), "materials_barley_flour")
 				.add(ItemMaterial.MaterialType.WHEAT_FLOUR.ordinal(), "materials_wheat_flour")
@@ -134,45 +124,45 @@ public class ModelNatura
 				.add(ItemMaterial.MaterialType.FLAME_STRING.ordinal(), "materials_flamestring")
 				.add(ItemMaterial.MaterialType.BLUE_DYE.ordinal(), "materials_dye_blue"));
 
-		registerModelList(ItemsNatura.ghostwood_pickaxe, new ModelResourceList("tools/").add(0, "ghostwood_pickaxe"));
-		registerModelList(ItemsNatura.ghostwood_axe, new ModelResourceList("tools/").add(0, "ghostwood_axe"));
-		registerModelList(ItemsNatura.ghostwood_shovel, new ModelResourceList("tools/").add(0, "ghostwood_shovel"));
-		registerModelList(ItemsNatura.ghostwood_sword, new ModelResourceList("weapons/").add(0, "ghostwood_sword"));
-		registerModelList(ItemsNatura.ghostwood_kama, new ModelResourceList("weapons/").add(0, "ghostwood_kama"));
+		registerItemModels(ItemsNatura.ghostwood_pickaxe, new ItemModelList("tools/").add(0, "ghostwood_pickaxe"));
+		registerItemModels(ItemsNatura.ghostwood_axe, new ItemModelList("tools/").add(0, "ghostwood_axe"));
+		registerItemModels(ItemsNatura.ghostwood_shovel, new ItemModelList("tools/").add(0, "ghostwood_shovel"));
+		registerItemModels(ItemsNatura.ghostwood_sword, new ItemModelList("weapons/").add(0, "ghostwood_sword"));
+		registerItemModels(ItemsNatura.ghostwood_kama, new ItemModelList("weapons/").add(0, "ghostwood_kama"));
 
-		registerModelList(ItemsNatura.bloodwood_pickaxe, new ModelResourceList("tools/").add(0, "bloodwood_pickaxe"));
-		registerModelList(ItemsNatura.bloodwood_axe, new ModelResourceList("tools/").add(0, "bloodwood_axe"));
-		registerModelList(ItemsNatura.bloodwood_shovel, new ModelResourceList("tools/").add(0, "bloodwood_shovel"));
-		registerModelList(ItemsNatura.bloodwood_sword, new ModelResourceList("weapons/").add(0, "bloodwood_sword"));
-		registerModelList(ItemsNatura.bloodwood_kama, new ModelResourceList("weapons/").add(0, "bloodwood_kama"));
+		registerItemModels(ItemsNatura.bloodwood_pickaxe, new ItemModelList("tools/").add(0, "bloodwood_pickaxe"));
+		registerItemModels(ItemsNatura.bloodwood_axe, new ItemModelList("tools/").add(0, "bloodwood_axe"));
+		registerItemModels(ItemsNatura.bloodwood_shovel, new ItemModelList("tools/").add(0, "bloodwood_shovel"));
+		registerItemModels(ItemsNatura.bloodwood_sword, new ItemModelList("weapons/").add(0, "bloodwood_sword"));
+		registerItemModels(ItemsNatura.bloodwood_kama, new ItemModelList("weapons/").add(0, "bloodwood_kama"));
 
-		registerModelList(ItemsNatura.darkwood_pickaxe, new ModelResourceList("tools/").add(0, "darkwood_pickaxe"));
-		registerModelList(ItemsNatura.darkwood_axe, new ModelResourceList("tools/").add(0, "darkwood_axe"));
-		registerModelList(ItemsNatura.darkwood_shovel, new ModelResourceList("tools/").add(0, "darkwood_shovel"));
-		registerModelList(ItemsNatura.darkwood_sword, new ModelResourceList("weapons/").add(0, "darkwood_sword"));
-		registerModelList(ItemsNatura.darkwood_kama, new ModelResourceList("weapons/").add(0, "darkwood_kama"));
+		registerItemModels(ItemsNatura.darkwood_pickaxe, new ItemModelList("tools/").add(0, "darkwood_pickaxe"));
+		registerItemModels(ItemsNatura.darkwood_axe, new ItemModelList("tools/").add(0, "darkwood_axe"));
+		registerItemModels(ItemsNatura.darkwood_shovel, new ItemModelList("tools/").add(0, "darkwood_shovel"));
+		registerItemModels(ItemsNatura.darkwood_sword, new ItemModelList("weapons/").add(0, "darkwood_sword"));
+		registerItemModels(ItemsNatura.darkwood_kama, new ItemModelList("weapons/").add(0, "darkwood_kama"));
 
-		registerModelList(ItemsNatura.fusewood_pickaxe, new ModelResourceList("tools/").add(0, "fusewood_pickaxe"));
-		registerModelList(ItemsNatura.fusewood_axe, new ModelResourceList("tools/").add(0, "fusewood_axe"));
-		registerModelList(ItemsNatura.fusewood_shovel, new ModelResourceList("tools/").add(0, "fusewood_shovel"));
-		registerModelList(ItemsNatura.fusewood_sword, new ModelResourceList("weapons/").add(0, "fusewood_sword"));
-		registerModelList(ItemsNatura.fusewood_kama, new ModelResourceList("weapons/").add(0, "fusewood_kama"));
+		registerItemModels(ItemsNatura.fusewood_pickaxe, new ItemModelList("tools/").add(0, "fusewood_pickaxe"));
+		registerItemModels(ItemsNatura.fusewood_axe, new ItemModelList("tools/").add(0, "fusewood_axe"));
+		registerItemModels(ItemsNatura.fusewood_shovel, new ItemModelList("tools/").add(0, "fusewood_shovel"));
+		registerItemModels(ItemsNatura.fusewood_sword, new ItemModelList("weapons/").add(0, "fusewood_sword"));
+		registerItemModels(ItemsNatura.fusewood_kama, new ItemModelList("weapons/").add(0, "fusewood_kama"));
 
-		registerModelList(ItemsNatura.netherquartz_pickaxe, new ModelResourceList("tools/").add(0, "netherquartz_pickaxe"));
-		registerModelList(ItemsNatura.netherquartz_axe, new ModelResourceList("tools/").add(0, "netherquartz_axe"));
-		registerModelList(ItemsNatura.netherquartz_shovel, new ModelResourceList("tools/").add(0, "netherquartz_shovel"));
-		registerModelList(ItemsNatura.netherquartz_sword, new ModelResourceList("weapons/").add(0, "netherquartz_sword"));
-		registerModelList(ItemsNatura.netherquartz_kama, new ModelResourceList("weapons/").add(0, "netherquartz_kama"));
+		registerItemModels(ItemsNatura.netherquartz_pickaxe, new ItemModelList("tools/").add(0, "netherquartz_pickaxe"));
+		registerItemModels(ItemsNatura.netherquartz_axe, new ItemModelList("tools/").add(0, "netherquartz_axe"));
+		registerItemModels(ItemsNatura.netherquartz_shovel, new ItemModelList("tools/").add(0, "netherquartz_shovel"));
+		registerItemModels(ItemsNatura.netherquartz_sword, new ItemModelList("weapons/").add(0, "netherquartz_sword"));
+		registerItemModels(ItemsNatura.netherquartz_kama, new ItemModelList("weapons/").add(0, "netherquartz_kama"));
 	}
 
-	private static void registerModelList(Item item, ModelResourceList list)
+	private static void registerItemModels(Item item, ItemModelList list)
 	{
 		models.put(item, list);
 	}
 
 	private static void prepareModels()
 	{
-		for (Map.Entry<Item, ModelResourceList> entry : models.entrySet())
+		for (Map.Entry<Item, ItemModelList> entry : models.entrySet())
 		{
 			Item item = entry.getKey();
 
@@ -187,7 +177,7 @@ public class ModelNatura
 
 	private static void registerModels()
 	{
-		for (HashMap.Entry<Item, ModelResourceList> entry : models.entrySet())
+		for (HashMap.Entry<Item, ItemModelList> entry : models.entrySet())
 		{
 			Item item = entry.getKey();
 
@@ -212,4 +202,5 @@ public class ModelNatura
 	{
 		return Item.getItemFromBlock(block);
 	}
+
 }

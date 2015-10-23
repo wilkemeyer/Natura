@@ -1,4 +1,4 @@
-package com.progwml6.natura.client.renderer.entity;
+package com.progwml6.natura.client.renderer.entities.projectiles;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;

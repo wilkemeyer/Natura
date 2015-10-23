@@ -1,4 +1,4 @@
-package com.progwml6.natura.client.models;
+package com.progwml6.natura.client.models.entities.living;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
