@@ -1,4 +1,4 @@
-package com.progwml6.natura.common.world.entites;
+package com.progwml6.natura.common.entities.living.enemy;
 
 import com.progwml6.natura.common.items.ItemsNatura;
 

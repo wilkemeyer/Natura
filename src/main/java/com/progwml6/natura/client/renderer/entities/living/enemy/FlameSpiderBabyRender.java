@@ -2,8 +2,8 @@ package com.progwml6.natura.client.renderer.entities.living.enemy;
 
 import org.lwjgl.opengl.GL11;
 
-import com.progwml6.natura.common.util.NaturaUtils;
-import com.progwml6.natura.common.world.entites.BabyHeatscarSpider;
+import com.progwml6.natura.common.Natura;
+import com.progwml6.natura.common.entities.living.enemy.BabyHeatscarSpider;
 
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSpider;
@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class FlameSpiderBabyRender extends RenderSpider
 {
-	private static final ResourceLocation texture = NaturaUtils.getResource("textures/entities/living/flamespider/flamespider.png");
+	private static final ResourceLocation texture = Natura.getResource("textures/entities/living/flamespider/flamespider.png");
 
 	public FlameSpiderBabyRender(RenderManager renderManagerIn)
 	{

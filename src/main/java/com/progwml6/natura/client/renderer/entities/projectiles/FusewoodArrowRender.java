@@ -3,7 +3,7 @@ package com.progwml6.natura.client.renderer.entities.projectiles;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.progwml6.natura.common.world.entites.FusewoodArrow;
+import com.progwml6.natura.common.entities.projectiles.FusewoodArrow;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;

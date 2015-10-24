@@ -1,4 +1,4 @@
-package com.progwml6.natura.common.world.entites;
+package com.progwml6.natura.common.entities.living.enemy;
 
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.monster.EntityCreeper;

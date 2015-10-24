@@ -2,7 +2,7 @@ package com.progwml6.natura.client.util;
 
 import java.util.HashMap;
 
-import com.progwml6.natura.common.util.NaturaUtils;
+import com.progwml6.natura.common.Natura;
 
 public class ItemModelList
 {
@@ -22,12 +22,12 @@ public class ItemModelList
 			throw new RuntimeException("Resource root path must be relative! (end with '/')");
 		}
 
-		this.rootDirectory = NaturaUtils.getResourcePath(resourceRoot);
+		this.rootDirectory = Natura.getResourcePath(resourceRoot);
 	}
 
 	public ItemModelList add(int meta, String path)
 	{
-		this.registrations.put(meta, this.rootDirectory != null ? this.rootDirectory + path : NaturaUtils.getResourcePath(path));
+		this.registrations.put(meta, this.rootDirectory != null ? this.rootDirectory + path : Natura.getResourcePath(path));
 
 		return this;
 	}

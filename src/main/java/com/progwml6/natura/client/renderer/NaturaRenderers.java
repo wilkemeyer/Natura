@@ -7,16 +7,17 @@ import com.progwml6.natura.client.renderer.entities.living.enemy.FlameSpiderBaby
 import com.progwml6.natura.client.renderer.entities.living.enemy.FlameSpiderRender;
 import com.progwml6.natura.client.renderer.entities.living.enemy.NitroCreeperRender;
 import com.progwml6.natura.client.renderer.entities.projectiles.FusewoodArrowRender;
-import com.progwml6.natura.common.world.entites.BabyHeatscarSpider;
-import com.progwml6.natura.common.world.entites.FusewoodArrow;
-import com.progwml6.natura.common.world.entites.HeatscarSpider;
-import com.progwml6.natura.common.world.entites.ImpEntity;
-import com.progwml6.natura.common.world.entites.NitroCreeper;
+import com.progwml6.natura.common.Natura;
+import com.progwml6.natura.common.entities.living.ImpEntity;
+import com.progwml6.natura.common.entities.living.enemy.BabyHeatscarSpider;
+import com.progwml6.natura.common.entities.living.enemy.HeatscarSpider;
+import com.progwml6.natura.common.entities.living.enemy.NitroCreeper;
+import com.progwml6.natura.common.entities.projectiles.FusewoodArrow;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureUtil;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class NaturaRenderers
@@ -41,10 +42,11 @@ public class NaturaRenderers
 
 	private static void registerGrass()
 	{
+		IResourceManager resourceManager = Minecraft.getMinecraft().getResourceManager();
 		try
 		{
-			GrassColorizerAlternate.setBlueGrassBiomeColorizer(TextureUtil.readImageData(Minecraft.getMinecraft().getResourceManager(), new ResourceLocation("natura", "textures/misc/bluegrasscolor.png")));
-			GrassColorizerAlternate.setOrangeGrassBiomeColorizer(TextureUtil.readImageData(Minecraft.getMinecraft().getResourceManager(), new ResourceLocation("natura", "textures/misc/orangegrasscolor.png")));
+			GrassColorizerAlternate.setBlueGrassBiomeColorizer(TextureUtil.readImageData(resourceManager, Natura.getResource("textures/blocks/effects/bluegrasscolor.png")));
+			GrassColorizerAlternate.setOrangeGrassBiomeColorizer(TextureUtil.readImageData(resourceManager, Natura.getResource("textures/blocks/effects/orangegrasscolor.png")));
 		}
 		catch (Exception e)
 		{

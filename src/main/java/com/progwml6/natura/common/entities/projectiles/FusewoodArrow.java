@@ -1,4 +1,4 @@
-package com.progwml6.natura.common.world.entites;
+package com.progwml6.natura.common.entities.projectiles;
 
 import java.util.List;
 

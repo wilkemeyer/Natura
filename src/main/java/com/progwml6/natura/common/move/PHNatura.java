@@ -2,8 +2,6 @@ package com.progwml6.natura.common.move;
 
 import java.io.File;
 
-import com.progwml6.natura.common.Natura;
-
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 
@@ -185,6 +183,8 @@ public class PHNatura
 
 	public static int babyHeatscarMaximum;
 
+	public static boolean retrogen;
+
 	public static void initProps(File confFile)
 	{
 
@@ -193,7 +193,7 @@ public class PHNatura
 		/* Load the configuration file */
 		config.load();
 
-		Natura.retrogen = config.get("Retrogen", "Retroactive Generation", false).getBoolean(false);
+		retrogen = config.get("Retrogen", "Retroactive Generation", false).getBoolean(false);
 
 		boolean BoP = false;
 		if (Loader.isModLoaded("BiomesOPlenty"))
